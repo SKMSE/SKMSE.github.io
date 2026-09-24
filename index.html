@@ -6,11 +6,45 @@
 
     <title>Sky Kingdom Stock Exchange</title>
 
+    <!-- Google Fonts - Chewy -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Chewy&display=swap"
+        rel="stylesheet"
+    >
+
     <style>
+
         /* =========================================================
            SKY KINGDOM STOCK EXCHANGE
-           Theme: Orange + Black
-           Font: Segoe Print
+           Orange + Black
+           Chewy font
+           ========================================================= */
+
+        :root {
+            --orange: #ff8a00;
+            --orange-light: #ffad42;
+            --orange-dark: #d96f00;
+
+            --black: #070707;
+            --panel: #101010;
+            --panel-light: #151515;
+
+            --border: rgba(255, 138, 0, 0.18);
+            --border-strong: rgba(255, 138, 0, 0.45);
+
+            --text: #f5f5f5;
+            --muted: #9b9b9b;
+
+            --green: #32d583;
+            --red: #ff5757;
+            --gray: #aaa;
+        }
+
+
+        /* =========================================================
+           GLOBAL
            ========================================================= */
 
         * {
@@ -19,366 +53,954 @@
             padding: 0;
         }
 
-        body {
-            font-family: "Segoe Print", "Segoe Print", cursive;
-            background: #080808;
-            color: #f2f2f2;
-            line-height: 1.5;
+
+        html {
+            scroll-behavior: smooth;
         }
 
-        .page {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 45px 24px 70px;
+
+        body {
+            font-family: "Chewy", cursive;
+            background:
+                radial-gradient(
+                    circle at 20% 0%,
+                    rgba(255, 138, 0, 0.08),
+                    transparent 30%
+                ),
+                radial-gradient(
+                    circle at 80% 20%,
+                    rgba(255, 138, 0, 0.05),
+                    transparent 25%
+                ),
+                var(--black);
+
+            color: var(--text);
+            line-height: 1.5;
+            min-height: 100vh;
+
+            animation: pageFadeIn 0.8s ease;
         }
+
+
+        ::selection {
+            background: var(--orange);
+            color: black;
+        }
+
+
+        /* =========================================================
+           MAIN PAGE
+           ========================================================= */
+
+        .page {
+            width: min(1250px, 100%);
+            margin: auto;
+            padding: 55px 25px 80px;
+        }
+
 
         /* =========================================================
            HEADER
            ========================================================= */
 
         .main-header {
-            margin-bottom: 35px;
+            margin-bottom: 38px;
+
+            animation:
+                slideDown 0.8s ease,
+                softFloat 6s ease-in-out infinite;
         }
+
 
         .main-header h1 {
-            font-size: clamp(2rem, 5vw, 3.3rem);
-            color: #ff8a00;
-            margin-bottom: 8px;
+            font-size: clamp(2.3rem, 6vw, 4rem);
+            color: var(--orange);
+            line-height: 1.05;
+            margin-bottom: 10px;
+
+            text-shadow:
+                0 0 25px rgba(255, 138, 0, 0.18);
         }
 
+
         .main-header p {
-            color: #cfcfcf;
+            color: #d1d1d1;
             font-size: 1rem;
             max-width: 850px;
         }
+
+
+        /* =========================================================
+           SECTION TITLE
+           ========================================================= */
+
+        .section-title {
+            position: relative;
+
+            color: var(--orange);
+            font-size: 2rem;
+
+            margin-bottom: 18px;
+
+            display: inline-block;
+        }
+
+
+        .section-title::after {
+            content: "";
+
+            position: absolute;
+            left: 0;
+            bottom: -4px;
+
+            width: 45%;
+            height: 3px;
+
+            background: var(--orange);
+            border-radius: 5px;
+
+            animation: titleLine 3s ease-in-out infinite;
+        }
+
 
         /* =========================================================
            WEEK BOX
            ========================================================= */
 
         .week-box {
-            background: #111111;
-            border: 2px solid #ff8a00;
-            border-radius: 16px;
-            padding: 22px;
-            margin-bottom: 42px;
+            position: relative;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(255, 138, 0, 0.12),
+                    rgba(255, 138, 0, 0.025)
+                ),
+                var(--panel);
+
+            border: 1px solid var(--border-strong);
+            border-radius: 20px;
+
+            padding: 24px 26px;
+
+            margin-bottom: 50px;
+
+            overflow: hidden;
+
+            animation:
+                slideUp 0.8s ease 0.1s both;
         }
+
+
+        .week-box::before {
+            content: "";
+
+            position: absolute;
+
+            width: 250px;
+            height: 250px;
+
+            right: -100px;
+            top: -150px;
+
+            background: var(--orange);
+
+            opacity: 0.06;
+
+            border-radius: 50%;
+
+            animation: orbitGlow 8s ease-in-out infinite;
+        }
+
 
         .week-title {
-            color: #ff8a00;
-            font-size: 1.5rem;
-            margin-bottom: 5px;
+            color: var(--orange);
+            font-size: 1.7rem;
+            margin-bottom: 4px;
         }
+
 
         .countdown {
+            color: #d0d0d0;
             font-size: 1rem;
-            color: #ffffff;
         }
+
 
         .countdown strong {
-            color: #ff8a00;
+            color: var(--orange);
         }
 
+
         /* =========================================================
-           SECTION TITLES
+           SECTION SPACING
            ========================================================= */
 
         .section {
-            margin-bottom: 48px;
+            margin-bottom: 55px;
+
+            animation:
+                slideUp 0.8s ease both;
         }
 
-        .section-title {
-            color: #ff8a00;
-            font-size: 1.8rem;
-            margin-bottom: 16px;
+
+        /* =========================================================
+           MARKET LAYOUT
+           ========================================================= */
+
+        .market-layout {
+            display: grid;
+
+            grid-template-columns:
+                minmax(0, 1.8fr)
+                minmax(260px, 0.8fr);
+
+            gap: 20px;
+
+            align-items: start;
         }
+
+
+        /* =========================================================
+           PANELS
+           ========================================================= */
+
+        .panel {
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(255, 255, 255, 0.018),
+                    rgba(255, 255, 255, 0)
+                ),
+                var(--panel);
+
+            border: 1px solid var(--border);
+
+            border-radius: 18px;
+
+            overflow: hidden;
+
+            box-shadow:
+                0 15px 40px rgba(0, 0, 0, 0.18);
+
+            transition:
+                transform 0.25s ease,
+                border-color 0.25s ease,
+                box-shadow 0.25s ease;
+        }
+
+
+        .panel:hover {
+            border-color: rgba(255, 138, 0, 0.32);
+
+            box-shadow:
+                0 20px 55px rgba(0, 0, 0, 0.28);
+        }
+
 
         /* =========================================================
            MARKET TABLE
            ========================================================= */
 
         .market-container {
-            background: #111111;
-            border: 1px solid #2b2b2b;
-            border-radius: 16px;
             overflow-x: auto;
         }
+
 
         table {
             width: 100%;
             border-collapse: collapse;
         }
 
+
         th,
         td {
-            padding: 18px 20px;
-            border-bottom: 1px solid #292929;
+            padding: 19px 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+
             text-align: left;
+            white-space: nowrap;
         }
 
+
         th {
-            color: #ff8a00;
-            font-size: 0.9rem;
-            font-weight: normal;
+            color: var(--orange);
+            font-size: 0.95rem;
+
+            background:
+                rgba(255, 138, 0, 0.035);
         }
+
 
         tr:last-child td {
             border-bottom: none;
         }
 
-        .company-name {
-            font-size: 1.05rem;
-            font-weight: bold;
+
+        tbody tr {
+            transition:
+                background 0.2s ease,
+                transform 0.2s ease;
         }
 
-        .ticker {
-            color: #888888;
-            margin-left: 8px;
-            font-size: 0.88rem;
+
+        tbody tr:hover {
+            background: rgba(255, 138, 0, 0.045);
+
+            transform:
+                translateX(3px);
         }
+
+
+        .company-name {
+            font-size: 1.1rem;
+        }
+
+
+        .ticker {
+            color: var(--muted);
+            margin-left: 8px;
+            font-size: 0.85rem;
+        }
+
 
         .price-cell {
             font-size: 1.15rem;
             font-weight: bold;
-            white-space: nowrap;
         }
+
 
         .price-change {
             display: inline-flex;
             align-items: center;
-            gap: 8px;
+
+            gap: 7px;
+
             margin-left: 10px;
+
             font-size: 0.95rem;
         }
 
-        .arrow-up {
-            color: #22c55e;
+
+        .arrow {
             font-size: 1.2rem;
-            font-weight: bold;
+            line-height: 1;
         }
 
-        .arrow-down {
-            color: #ef4444;
-            font-size: 1.2rem;
-            font-weight: bold;
+
+        .positive {
+            color: var(--green);
         }
 
-        .arrow-flat {
-            color: #aaaaaa;
-            font-size: 1.2rem;
-            font-weight: bold;
+
+        .negative {
+            color: var(--red);
         }
 
-        .change-positive {
-            color: #22c55e;
+
+        .flat {
+            color: var(--gray);
         }
 
-        .change-negative {
-            color: #ef4444;
+
+        /* =========================================================
+           SHARES PANEL
+           ========================================================= */
+
+        .shares-panel {
+            padding: 22px;
         }
 
-        .change-flat {
-            color: #aaaaaa;
+
+        .shares-heading {
+            color: var(--orange);
+            font-size: 1.4rem;
+            margin-bottom: 18px;
         }
+
+
+        .share-summary {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+
+            margin-bottom: 22px;
+        }
+
+
+        .share-total {
+            background: var(--panel-light);
+
+            border:
+                1px solid
+                rgba(255, 138, 0, 0.14);
+
+            border-radius: 13px;
+
+            padding: 15px;
+        }
+
+
+        .share-label {
+            display: block;
+
+            color: var(--muted);
+            font-size: 0.8rem;
+
+            margin-bottom: 5px;
+        }
+
+
+        .share-number {
+            color: var(--text);
+            font-size: 1.35rem;
+        }
+
+
+        .share-company {
+            padding: 13px 0;
+
+            border-top:
+                1px solid
+                rgba(255, 255, 255, 0.06);
+        }
+
+
+        .share-company:first-of-type {
+            border-top: none;
+        }
+
+
+        .share-company-name {
+            display: flex;
+
+            justify-content: space-between;
+            gap: 10px;
+
+            margin-bottom: 5px;
+        }
+
+
+        .share-company-name span:last-child {
+            color: var(--orange);
+        }
+
+
+        .share-details {
+            color: var(--muted);
+            font-size: 0.8rem;
+        }
+
 
         /* =========================================================
            WEEKLY REPORT
            ========================================================= */
 
         .report-card {
-            background: #111111;
-            border: 1px solid #2b2b2b;
-            border-radius: 16px;
-            padding: 25px;
+            padding: 28px;
         }
+
 
         .report-date {
-            color: #888888;
-            font-size: 0.9rem;
-            margin-bottom: 8px;
+            color: var(--muted);
+            font-size: 0.85rem;
+
+            margin-bottom: 6px;
         }
 
+
         .report-title {
-            color: #ff8a00;
-            font-size: 1.4rem;
+            color: var(--orange);
+
+            font-size: 1.55rem;
+
             margin-bottom: 12px;
         }
 
+
         .report-text {
-            color: #d7d7d7;
+            color: #d4d4d4;
             font-size: 1rem;
         }
 
+
         /* =========================================================
-           ARTICLE GRID
+           ARTICLES
            ========================================================= */
 
         .article-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+
+            grid-template-columns:
+                repeat(4, minmax(0, 1fr));
+
             gap: 18px;
         }
 
+
         .article-card {
-            background: #111111;
-            border: 1px solid #2b2b2b;
-            border-radius: 16px;
+            position: relative;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(255, 138, 0, 0.035),
+                    rgba(255, 138, 0, 0)
+                ),
+                var(--panel);
+
+            border:
+                1px solid
+                var(--border);
+
+            border-radius: 17px;
+
             padding: 22px;
-            transition: 0.2s ease;
+
             cursor: pointer;
+
+            transition:
+                transform 0.28s ease,
+                border-color 0.28s ease,
+                box-shadow 0.28s ease;
+
+            animation:
+                articleAppear 0.7s ease both;
         }
+
+
+        .article-card:nth-child(1) {
+            animation-delay: 0.05s;
+        }
+
+        .article-card:nth-child(2) {
+            animation-delay: 0.12s;
+        }
+
+        .article-card:nth-child(3) {
+            animation-delay: 0.19s;
+        }
+
+        .article-card:nth-child(4) {
+            animation-delay: 0.26s;
+        }
+
 
         .article-card:hover {
-            border-color: #ff8a00;
-            transform: translateY(-2px);
+            transform:
+                translateY(-7px);
+
+            border-color:
+                var(--border-strong);
+
+            box-shadow:
+                0 18px 45px
+                rgba(255, 138, 0, 0.08);
         }
 
+
         .article-number {
-            color: #ff8a00;
-            font-size: 0.85rem;
+            color: var(--orange);
+            font-size: 0.8rem;
+
             margin-bottom: 7px;
         }
+
 
         .article-title {
             font-size: 1.2rem;
             margin-bottom: 10px;
         }
 
+
         .article-preview {
-            color: #a9a9a9;
-            font-size: 0.9rem;
-            margin-bottom: 15px;
+            color: #aaa;
+            font-size: 0.88rem;
+
+            margin-bottom: 17px;
         }
+
 
         .read-more {
-            color: #ff8a00;
-            font-size: 0.9rem;
+            color: var(--orange);
+            font-size: 0.85rem;
         }
 
+
         /* =========================================================
-           ARTICLE POPUP
+           MODAL
            ========================================================= */
 
         .modal {
             display: none;
+
             position: fixed;
+
             inset: 0;
-            background: rgba(0, 0, 0, 0.82);
+
+            background:
+                rgba(0, 0, 0, 0.84);
+
+            backdrop-filter:
+                blur(7px);
+
             z-index: 1000;
-            padding: 30px;
-            overflow-y: auto;
+
+            padding: 25px;
         }
+
 
         .modal.active {
             display: flex;
+
             align-items: center;
             justify-content: center;
+
+            animation:
+                modalBackground 0.25s ease;
         }
 
+
         .modal-content {
-            width: min(800px, 100%);
-            background: #111111;
-            border: 2px solid #ff8a00;
-            border-radius: 18px;
-            padding: 30px;
+            width: min(820px, 100%);
+
+            max-height: 85vh;
+
+            overflow-y: auto;
+
+            background: var(--panel);
+
+            border:
+                1px solid
+                var(--border-strong);
+
+            border-radius: 20px;
+
+            padding: 32px;
+
             position: relative;
+
+            animation:
+                modalOpen 0.32s ease;
         }
+
 
         .close-button {
             position: absolute;
+
             top: 12px;
-            right: 16px;
-            background: none;
+            right: 18px;
+
             border: none;
-            color: #ff8a00;
-            font-size: 1.8rem;
+            background: none;
+
+            color: var(--orange);
+
+            font-size: 2rem;
+
             cursor: pointer;
+
             font-family: Arial, sans-serif;
+
+            transition:
+                transform 0.2s ease;
         }
+
+
+        .close-button:hover {
+            transform:
+                rotate(90deg)
+                scale(1.1);
+        }
+
 
         .modal-date {
-            color: #888888;
-            font-size: 0.9rem;
-            margin-bottom: 10px;
+            color: var(--muted);
+            font-size: 0.85rem;
+
+            margin-bottom: 8px;
         }
+
 
         .modal-title {
-            color: #ff8a00;
+            color: var(--orange);
+
             font-size: 1.7rem;
-            margin-bottom: 20px;
+
+            margin-bottom: 18px;
+
+            padding-right: 35px;
         }
 
+
         .modal-body {
-            color: #dddddd;
+            color: #ddd;
+
             white-space: pre-line;
+
             font-size: 1rem;
         }
+
 
         /* =========================================================
            FOOTER
            ========================================================= */
 
         footer {
-            margin-top: 50px;
-            padding-top: 25px;
-            border-top: 1px solid #222222;
-            color: #666666;
+            padding-top: 30px;
+
+            border-top:
+                1px solid
+                rgba(255, 255, 255, 0.06);
+
+            color: #666;
+
             text-align: center;
-            font-size: 0.85rem;
+
+            font-size: 0.8rem;
         }
+
+
+        /* =========================================================
+           ANIMATIONS
+           ========================================================= */
+
+        @keyframes pageFadeIn {
+
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+
+        }
+
+
+        @keyframes slideDown {
+
+            from {
+                opacity: 0;
+                transform: translateY(-18px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+        }
+
+
+        @keyframes slideUp {
+
+            from {
+                opacity: 0;
+                transform: translateY(25px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+        }
+
+
+        @keyframes articleAppear {
+
+            from {
+                opacity: 0;
+                transform: translateY(20px) scale(0.98);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+
+        }
+
+
+        @keyframes modalOpen {
+
+            from {
+                opacity: 0;
+                transform:
+                    translateY(15px)
+                    scale(0.97);
+            }
+
+            to {
+                opacity: 1;
+                transform:
+                    translateY(0)
+                    scale(1);
+            }
+
+        }
+
+
+        @keyframes modalBackground {
+
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+
+        }
+
+
+        @keyframes titleLine {
+
+            0%,
+            100% {
+                width: 35%;
+            }
+
+            50% {
+                width: 60%;
+            }
+
+        }
+
+
+        @keyframes orbitGlow {
+
+            0%,
+            100% {
+                transform:
+                    translate(0, 0)
+                    scale(1);
+            }
+
+            50% {
+                transform:
+                    translate(-30px, 25px)
+                    scale(1.15);
+            }
+
+        }
+
+
+        @keyframes softFloat {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-2px);
+            }
+
+        }
+
 
         /* =========================================================
            MOBILE
            ========================================================= */
 
-        @media (max-width: 650px) {
-            .page {
-                padding: 30px 15px 50px;
+        @media (max-width: 950px) {
+
+            .market-layout {
+                grid-template-columns: 1fr;
             }
+
+            .article-grid {
+                grid-template-columns:
+                    repeat(2, minmax(0, 1fr));
+            }
+
+        }
+
+
+        @media (max-width: 600px) {
+
+            .page {
+                padding:
+                    35px 15px 60px;
+            }
+
+
+            .main-header h1 {
+                font-size: 2.4rem;
+            }
+
+
+            .article-grid {
+                grid-template-columns: 1fr;
+            }
+
 
             th,
             td {
-                padding: 14px 12px;
+                padding:
+                    14px 12px;
             }
 
-            .price-change {
-                margin-left: 5px;
+
+            .share-summary {
+                grid-template-columns: 1fr;
             }
+
+
+            .modal-content {
+                padding: 25px;
+            }
+
         }
+
     </style>
 </head>
+
 
 <body>
 
     <div class="page">
 
+
         <!-- =====================================================
-             MAIN HEADER
+             HEADER
              ===================================================== -->
 
         <header class="main-header">
-            <h1>Sky Kingdom Stock Exchange</h1>
+
+            <h1>
+                Sky Kingdom Stock Exchange
+            </h1>
 
             <p>
-                Official Magentian Stock Exchange. Owned and operated
-                under Sky Kingdom Enterprises.
+                Official Magentian Stock Exchange.
+                Owned and operated under Sky Kingdom Enterprises.
             </p>
+
         </header>
 
 
         <!-- =====================================================
-             WEEK BOX
+             WEEK
              ===================================================== -->
 
         <section class="week-box">
 
-            <div class="week-title" id="weekDisplay">
+            <div
+                class="week-title"
+                id="weekDisplay">
                 Week One
             </div>
 
             <div class="countdown">
+
                 Market refreshes every Sunday.
-                <strong id="countdownDisplay">Calculating...</strong>
+
+                <strong id="countdownDisplay">
+                    Calculating...
+                </strong>
+
             </div>
 
         </section>
@@ -390,24 +1012,94 @@
 
         <section class="section">
 
-            <h2 class="section-title">Market</h2>
+            <h2 class="section-title">
+                Market
+            </h2>
 
-            <div class="market-container">
 
-                <table>
+            <div class="market-layout">
 
-                    <thead>
-                        <tr>
-                            <th>Company</th>
-                            <th>Stock Price</th>
-                        </tr>
-                    </thead>
 
-                    <tbody id="marketTable">
-                        <!-- JavaScript inserts companies here -->
-                    </tbody>
+                <!-- STOCK TABLE -->
 
-                </table>
+                <div class="panel market-container">
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+
+                                <th>
+                                    Company
+                                </th>
+
+                                <th>
+                                    Stock Price
+                                </th>
+
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody id="marketTable">
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+
+                <!-- SHARES -->
+
+                <div class="panel shares-panel">
+
+                    <div class="shares-heading">
+                        Share Availability
+                    </div>
+
+
+                    <div class="share-summary">
+
+                        <div class="share-total">
+
+                            <span class="share-label">
+                                Total Shares
+                            </span>
+
+                            <span
+                                class="share-number"
+                                id="totalShares">
+                                0
+                            </span>
+
+                        </div>
+
+
+                        <div class="share-total">
+
+                            <span class="share-label">
+                                Shares Remaining
+                            </span>
+
+                            <span
+                                class="share-number"
+                                id="remainingShares">
+                                0
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div id="shareBreakdown">
+
+                    </div>
+
+                </div>
 
             </div>
 
@@ -415,24 +1107,35 @@
 
 
         <!-- =====================================================
-             WEEKLY MARKET REPORT
+             WEEKLY REPORT
              ===================================================== -->
 
         <section class="section">
 
-            <h2 class="section-title">Weekly Market Report</h2>
+            <h2 class="section-title">
+                Weekly Market Report
+            </h2>
 
-            <div class="report-card">
 
-                <div class="report-date" id="reportDate">
+            <div class="panel report-card">
+
+                <div
+                    class="report-date"
+                    id="reportDate">
                     September 2026 — Week One
                 </div>
 
-                <div class="report-title" id="reportTitle">
+
+                <div
+                    class="report-title"
+                    id="reportTitle">
                     Magentian Market Report
                 </div>
 
-                <div class="report-text" id="reportText">
+
+                <div
+                    class="report-text"
+                    id="reportText">
                     This week's market summary goes here.
                 </div>
 
@@ -447,17 +1150,26 @@
 
         <section class="section">
 
-            <h2 class="section-title">Articles</h2>
+            <h2 class="section-title">
+                Articles
+            </h2>
 
-            <div class="article-grid" id="articleGrid">
-                <!-- JavaScript inserts articles here -->
+
+            <div
+                class="article-grid"
+                id="articleGrid">
+
             </div>
 
         </section>
 
 
         <footer>
-            Sky Kingdom Stock Exchange · Magentian Simulation
+
+            Sky Kingdom Stock Exchange
+            ·
+            Magentian Simulation
+
         </footer>
 
     </div>
@@ -467,19 +1179,38 @@
          ARTICLE MODAL
          ========================================================= -->
 
-    <div class="modal" id="articleModal">
+    <div
+        class="modal"
+        id="articleModal">
 
         <div class="modal-content">
 
-            <button class="close-button" id="closeModal">
+
+            <button
+                class="close-button"
+                id="closeModal">
+
                 ×
+
             </button>
 
-            <div class="modal-date" id="modalDate"></div>
 
-            <div class="modal-title" id="modalTitle"></div>
+            <div
+                class="modal-date"
+                id="modalDate">
+            </div>
 
-            <div class="modal-body" id="modalBody"></div>
+
+            <div
+                class="modal-title"
+                id="modalTitle">
+            </div>
+
+
+            <div
+                class="modal-body"
+                id="modalBody">
+            </div>
 
         </div>
 
@@ -488,44 +1219,40 @@
 
     <script>
 
+
         /* =========================================================
-           ⭐⭐ EDIT THIS SECTION ⭐⭐
+           ⭐⭐⭐ EDIT THIS SECTION EVERY WEEK ⭐⭐⭐
 
-           This is the main area you will change every week.
+           This is the ONLY section you should normally edit.
 
-           You do NOT need to touch the HTML or CSS below this
-           section unless you want to redesign the website.
            ========================================================= */
 
 
         /* ---------------------------------------------------------
-           WEEK
+           CURRENT WEEK
            --------------------------------------------------------- */
 
-        const currentWeek = "Week One";
+        const currentWeek =
+            "Week One";
 
 
         /* ---------------------------------------------------------
-           MARKET DATA
+           COMPANIES
 
-           Change ONLY:
-
-           currentPrice
-           previousPrice
+           currentPrice = NEW stock price
+           previousPrice = LAST week's stock price
 
            The website automatically calculates:
-           ↑ / ↓
-           percentage change
-           green / red text
 
-           Example:
+           ↑ percentage
+           ↓ percentage
+           → unchanged
 
-           previousPrice: 100
-           currentPrice: 108
+           Shares:
 
-           becomes:
+           totalShares = total number of shares issued
 
-           ↑ +8.00%
+           remainingShares = shares still available to purchase
            --------------------------------------------------------- */
 
         const companies = [
@@ -533,36 +1260,62 @@
             {
                 name: "I Am A Fire Hydrant Avionics",
                 ticker: "MIAC",
+
                 currentPrice: 108.00,
-                previousPrice: 100.00
+                previousPrice: 100.00,
+
+                totalShares: 1000000,
+                remainingShares: 750000
             },
+
 
             {
                 name: "I Am A Fire Hydrant Trucking",
                 ticker: "MITC",
+
                 currentPrice: 96.50,
-                previousPrice: 100.00
+                previousPrice: 100.00,
+
+                totalShares: 750000,
+                remainingShares: 500000
             },
+
 
             {
                 name: "Sky Kingdom Industries",
                 ticker: "SKI",
+
                 currentPrice: 104.20,
-                previousPrice: 100.00
+                previousPrice: 100.00,
+
+                totalShares: 1200000,
+                remainingShares: 800000
             },
+
 
             {
                 name: "Sky Kingdom Enterprises",
                 ticker: "SKE",
+
                 currentPrice: 101.25,
-                previousPrice: 100.00
+                previousPrice: 100.00,
+
+                totalShares: 2000000,
+                remainingShares: 1250000
             },
 
+
             {
-                name: "Taiwanese Semi Conductor Manufactoring Company",
+                name:
+                    "Taiwanese Semi Conductor Manufactoring Company",
+
                 ticker: "TSMC",
+
                 currentPrice: 99.10,
-                previousPrice: 100.00
+                previousPrice: 100.00,
+
+                totalShares: 1500000,
+                remainingShares: 900000
             }
 
         ];
@@ -570,110 +1323,136 @@
 
         /* ---------------------------------------------------------
            WEEKLY MARKET REPORT
-
-           Change these three things every week.
            --------------------------------------------------------- */
 
         const weeklyReport = {
 
-            date: "September 2026 — Week One",
+            date:
+                "September 2026 — Week One",
 
-            title: "Magentian Market Report",
+            title:
+                "Magentian Market Report",
 
             summary:
                 "This week's market summary goes here. " +
-                "Write a short summary of the events that affected " +
-                "the Magentian market this week."
+                "Write a short summary of the important events " +
+                "that affected the Magentian economy this week."
 
         };
 
 
         /* ---------------------------------------------------------
-           ARTICLES
-
-           EXACTLY FOUR ARTICLES.
-
-           To add/change an article, edit:
-
-           title
-           date
-           preview
-           body
-
-           Do not remove the four objects unless you want to
-           change the number of articles.
+           FOUR ARTICLES
            --------------------------------------------------------- */
 
         const articles = [
 
             {
-                title: "Article One",
 
-                date: "September 2026",
+                title:
+                    "Article One",
+
+                date:
+                    "September 2026",
 
                 preview:
                     "A short preview of the first article.",
 
                 body:
                     "Write the full first article here.\n\n" +
-                    "You can make this as long as you want.\n\n" +
-                    "Line breaks will be preserved."
+                    "You can write multiple paragraphs.\n\n" +
+                    "Line breaks are preserved."
+
             },
 
-            {
-                title: "Article Two",
 
-                date: "September 2026",
+            {
+
+                title:
+                    "Article Two",
+
+                date:
+                    "September 2026",
 
                 preview:
                     "A short preview of the second article.",
 
                 body:
                     "Write the full second article here."
+
             },
 
-            {
-                title: "Article Three",
 
-                date: "September 2026",
+            {
+
+                title:
+                    "Article Three",
+
+                date:
+                    "September 2026",
 
                 preview:
                     "A short preview of the third article.",
 
                 body:
                     "Write the full third article here."
+
             },
 
-            {
-                title: "Article Four",
 
-                date: "September 2026",
+            {
+
+                title:
+                    "Article Four",
+
+                date:
+                    "September 2026",
 
                 preview:
                     "A short preview of the fourth article.",
 
                 body:
                     "Write the full fourth article here."
+
             }
 
         ];
 
 
         /* =========================================================
-           DO NOT EDIT BELOW THIS LINE UNLESS YOU WANT TO CHANGE
-           HOW THE WEBSITE WORKS.
+           DO NOT EDIT BELOW THIS LINE
            ========================================================= */
 
 
-        document.getElementById("weekDisplay").textContent = currentWeek;
+        /* =========================================================
+           WEEK
+           ========================================================= */
 
-        document.getElementById("reportDate").textContent =
+        document.getElementById(
+            "weekDisplay"
+        ).textContent =
+            currentWeek;
+
+
+        /* =========================================================
+           WEEKLY REPORT
+           ========================================================= */
+
+        document.getElementById(
+            "reportDate"
+        ).textContent =
             weeklyReport.date;
 
-        document.getElementById("reportTitle").textContent =
+
+        document.getElementById(
+            "reportTitle"
+        ).textContent =
             weeklyReport.title;
 
-        document.getElementById("reportText").textContent =
+
+        document.getElementById(
+            "reportText"
+        ).textContent =
             weeklyReport.summary;
 
 
@@ -681,31 +1460,66 @@
            MARKET TABLE
            ========================================================= */
 
-        const marketTable = document.getElementById("marketTable");
+        const marketTable =
+            document.getElementById(
+                "marketTable"
+            );
+
+
+        let totalShares = 0;
+        let remainingShares = 0;
+
 
         companies.forEach(company => {
 
-            const row = document.createElement("tr");
+            totalShares +=
+                company.totalShares;
+
+            remainingShares +=
+                company.remainingShares;
+
+
+            const row =
+                document.createElement("tr");
+
 
             const percentageChange =
-                ((company.currentPrice - company.previousPrice) /
-                company.previousPrice) * 100;
+                (
+                    (
+                        company.currentPrice -
+                        company.previousPrice
+                    )
+                    /
+                    company.previousPrice
+                )
+                *
+                100;
+
 
             let arrow = "→";
-            let arrowClass = "arrow-flat";
-            let changeClass = "change-flat";
+
+            let arrowClass = "flat";
+
+            let changeClass = "flat";
+
 
             if (percentageChange > 0) {
+
                 arrow = "↑";
-                arrowClass = "arrow-up";
-                changeClass = "change-positive";
+                arrowClass = "positive";
+                changeClass = "positive";
+
             }
 
+
             if (percentageChange < 0) {
+
                 arrow = "↓";
-                arrowClass = "arrow-down";
-                changeClass = "change-negative";
+                arrowClass = "negative";
+                changeClass = "negative";
+
             }
+
 
             const formattedPrice =
                 company.currentPrice.toLocaleString(
@@ -716,12 +1530,19 @@
                     }
                 );
 
+
             const formattedChange =
-                Math.abs(percentageChange).toFixed(2) + "%";
+                Math.abs(
+                    percentageChange
+                ).toFixed(2)
+                +
+                "%";
+
 
             row.innerHTML = `
 
                 <td>
+
                     <span class="company-name">
                         ${company.name}
                     </span>
@@ -729,15 +1550,27 @@
                     <span class="ticker">
                         (${company.ticker})
                     </span>
+
                 </td>
+
 
                 <td class="price-cell">
 
                     $${formattedPrice}
 
-                    <span class="price-change ${changeClass}">
+                    <span
+                        class="
+                            price-change
+                            ${changeClass}
+                        "
+                    >
 
-                        <span class="${arrowClass}">
+                        <span
+                            class="
+                                arrow
+                                ${arrowClass}
+                            "
+                        >
                             ${arrow}
                         </span>
 
@@ -746,9 +1579,96 @@
                     </span>
 
                 </td>
+
             `;
 
+
             marketTable.appendChild(row);
+
+        });
+
+
+        /* =========================================================
+           SHARE TOTALS
+           ========================================================= */
+
+        document.getElementById(
+            "totalShares"
+        ).textContent =
+            totalShares.toLocaleString();
+
+
+        document.getElementById(
+            "remainingShares"
+        ).textContent =
+            remainingShares.toLocaleString();
+
+
+        /* =========================================================
+           SHARE BREAKDOWN
+           ========================================================= */
+
+        const shareBreakdown =
+            document.getElementById(
+                "shareBreakdown"
+            );
+
+
+        companies.forEach(company => {
+
+            const percentageRemaining =
+
+                company.totalShares > 0
+
+                    ?
+
+                (
+                    company.remainingShares /
+                    company.totalShares
+                )
+                * 100
+
+                    :
+
+                0;
+
+
+            const item =
+                document.createElement("div");
+
+
+            item.className =
+                "share-company";
+
+
+            item.innerHTML = `
+
+                <div class="share-company-name">
+
+                    <span>
+                        ${company.ticker}
+                    </span>
+
+                    <span>
+                        ${percentageRemaining.toFixed(1)}%
+                    </span>
+
+                </div>
+
+
+                <div class="share-details">
+
+                    ${company.remainingShares.toLocaleString()}
+                    remaining /
+                    ${company.totalShares.toLocaleString()}
+                    total
+
+                </div>
+
+            `;
+
+
+            shareBreakdown.appendChild(item);
 
         });
 
@@ -758,146 +1678,254 @@
            ========================================================= */
 
         const articleGrid =
-            document.getElementById("articleGrid");
+            document.getElementById(
+                "articleGrid"
+            );
+
 
         const modal =
-            document.getElementById("articleModal");
+            document.getElementById(
+                "articleModal"
+            );
+
 
         const modalDate =
-            document.getElementById("modalDate");
+            document.getElementById(
+                "modalDate"
+            );
+
 
         const modalTitle =
-            document.getElementById("modalTitle");
+            document.getElementById(
+                "modalTitle"
+            );
+
 
         const modalBody =
-            document.getElementById("modalBody");
+            document.getElementById(
+                "modalBody"
+            );
 
-        articles.forEach((article, index) => {
 
-            const card = document.createElement("div");
+        articles.forEach(
+            (article, index) => {
 
-            card.className = "article-card";
+                const card =
+                    document.createElement(
+                        "div"
+                    );
 
-            card.innerHTML = `
 
-                <div class="article-number">
-                    ARTICLE ${index + 1}
-                </div>
+                card.className =
+                    "article-card";
 
-                <div class="article-title">
-                    ${article.title}
-                </div>
 
-                <div class="article-preview">
-                    ${article.preview}
-                </div>
+                card.innerHTML = `
 
-                <div class="read-more">
-                    Click to read →
-                </div>
+                    <div class="article-number">
+                        ARTICLE ${index + 1}
+                    </div>
 
-            `;
+                    <div class="article-title">
+                        ${article.title}
+                    </div>
 
-            card.addEventListener("click", () => {
+                    <div class="article-preview">
+                        ${article.preview}
+                    </div>
 
-                modalDate.textContent = article.date;
+                    <div class="read-more">
+                        Click to read →
+                    </div>
 
-                modalTitle.textContent = article.title;
+                `;
 
-                modalBody.textContent = article.body;
 
-                modal.classList.add("active");
+                card.addEventListener(
+                    "click",
+                    () => {
 
-            });
+                        modalDate.textContent =
+                            article.date;
 
-            articleGrid.appendChild(card);
+                        modalTitle.textContent =
+                            article.title;
 
-        });
+                        modalBody.textContent =
+                            article.body;
+
+                        modal.classList.add(
+                            "active"
+                        );
+
+                    }
+                );
+
+
+                articleGrid.appendChild(
+                    card
+                );
+
+            }
+        );
 
 
         /* =========================================================
-           CLOSE ARTICLE MODAL
+           CLOSE MODAL
            ========================================================= */
 
         document
             .getElementById("closeModal")
-            .addEventListener("click", () => {
+            .addEventListener(
+                "click",
+                () => {
 
-                modal.classList.remove("active");
+                    modal.classList.remove(
+                        "active"
+                    );
 
-            });
+                }
+            );
 
 
-        modal.addEventListener("click", event => {
+        modal.addEventListener(
+            "click",
+            event => {
 
-            if (event.target === modal) {
-                modal.classList.remove("active");
+                if (
+                    event.target === modal
+                ) {
+
+                    modal.classList.remove(
+                        "active"
+                    );
+
+                }
+
             }
-
-        });
+        );
 
 
         /* =========================================================
-           COUNTDOWN TO NEXT SUNDAY
+           SUNDAY COUNTDOWN
            ========================================================= */
 
         function updateCountdown() {
 
-            const now = new Date();
+            const now =
+                new Date();
 
-            const nextSunday = new Date(now);
 
-            nextSunday.setHours(0, 0, 0, 0);
+            const nextSunday =
+                new Date(now);
 
-            let daysUntilSunday =
-                (7 - nextSunday.getDay()) % 7;
 
-            if (daysUntilSunday === 0) {
-                daysUntilSunday = 7;
-            }
-
-            nextSunday.setDate(
-                nextSunday.getDate() + daysUntilSunday
+            nextSunday.setHours(
+                0,
+                0,
+                0,
+                0
             );
 
+
+            let daysUntilSunday =
+
+                (
+                    7 -
+                    nextSunday.getDay()
+                )
+                %
+                7;
+
+
+            if (
+                daysUntilSunday === 0
+            ) {
+
+                daysUntilSunday = 7;
+
+            }
+
+
+            nextSunday.setDate(
+                nextSunday.getDate()
+                +
+                daysUntilSunday
+            );
+
+
             const difference =
-                nextSunday.getTime() - now.getTime();
+
+                nextSunday.getTime()
+                -
+                now.getTime();
+
 
             const totalSeconds =
+
                 Math.max(
                     0,
-                    Math.floor(difference / 1000)
+                    Math.floor(
+                        difference /
+                        1000
+                    )
                 );
 
+
             const days =
-                Math.floor(totalSeconds / 86400);
+                Math.floor(
+                    totalSeconds /
+                    86400
+                );
+
 
             const hours =
                 Math.floor(
-                    (totalSeconds % 86400) / 3600
+                    (
+                        totalSeconds %
+                        86400
+                    )
+                    /
+                    3600
                 );
+
 
             const minutes =
                 Math.floor(
-                    (totalSeconds % 3600) / 60
+                    (
+                        totalSeconds %
+                        3600
+                    )
+                    /
+                    60
                 );
 
+
             const seconds =
-                totalSeconds % 60;
+                totalSeconds %
+                60;
+
 
             document.getElementById(
                 "countdownDisplay"
             ).textContent =
-                `${days}d ${hours}h ${minutes}m ${seconds}s`;
+
+                `${days}d ` +
+                `${hours}h ` +
+                `${minutes}m ` +
+                `${seconds}s`;
 
         }
 
+
         updateCountdown();
+
 
         setInterval(
             updateCountdown,
             1000
         );
+
 
     </script>
 
