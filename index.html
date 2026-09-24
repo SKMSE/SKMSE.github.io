@@ -1,1 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <title>Sky Kingdom Stock Exchange</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #0b0f14;
+            color: #f1f5f9;
+            line-height: 1.5;
+        }
+
+        header {
+            background: #111827;
+            border-bottom: 1px solid #263244;
+            padding: 20px 35px;
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .subtitle {
+            color: #94a3b8;
+            font-size: 0.9rem;
+        }
+
+        .market-status {
+            font-size: 0.9rem;
+            color: #22c55e;
+        }
+
+        main {
+            max-width: 1200px;
+            margin: 35px auto;
+            padding: 0 20px;
+        }
+
+        .hero {
+            margin-bottom: 30px;
+        }
+
+        .hero h1 {
+            font-size: 2.3rem;
+            margin-bottom: 8px;
+        }
+
+        .hero p {
+            color: #94a3b8;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 18px;
+            margin-bottom: 30px;
+        }
+
+        .card {
+            background: #111827;
+            border: 1px solid #263244;
+            border-radius: 12px;
+            padding: 20px;
+        }
+
+        .card-title {
+            color: #94a3b8;
+            font-size: 0.9rem;
+            margin-bottom: 8px;
+        }
+
+        .card-value {
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+
+        .positive {
+            color: #22c55e;
+        }
+
+        .negative {
+            color: #ef4444;
+        }
+
+        .neutral {
+            color: #facc15;
+        }
+
+        .section {
+            margin-bottom: 30px;
+        }
+
+        .section h2 {
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+
+        .table-container {
+            background: #111827;
+            border: 1px solid #263244;
+            border-radius: 12px;
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #263244;
+        }
+
+        th {
+            color: #94a3b8;
+            font-size: 0.85rem;
+            font-weight: normal;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        .company-name {
+            font-weight: bold;
+        }
+
+        .ticker {
+            color: #94a3b8;
+            font-size: 0.85rem;
+            margin-left: 6px;
+        }
+
+        .news-card {
+            background: #111827;
+            border: 1px solid #263244;
+            border-radius: 12px;
+            padding: 20px;
+        }
+
+        .news-date {
+            color: #64748b;
+            font-size: 0.85rem;
+            margin-bottom: 8px;
+        }
+
+        .news-title {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .news-body {
+            color: #cbd5e1;
+        }
+
+        .analysis {
+            margin-top: 18px;
+            padding-top: 18px;
+            border-top: 1px solid #263244;
+        }
+
+        .analysis-row {
+            display: flex;
+            justify-content: space-between;
+            gap: 15px;
+            margin-bottom: 8px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: #64748b;
+            border-top: 1px solid #263244;
+            margin-top: 50px;
+        }
+
+        @media (max-width: 600px) {
+            .header-container {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            th,
+            td {
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="header-container">
+            <div>
+                <div class="logo">Sky Kingdom Stock Exchange</div>
+                <div class="subtitle">A Magentian economic simulation</div>
+            </div>
+
+            <div class="market-status">
+                ● MARKET OPEN
+            </div>
+        </div>
+    </header>
+
+    <main>
+
+        <section class="hero">
+            <h1>Magentian Markets</h1>
+            <p>
+                Weekly market information, government-owned enterprises,
+                and economic developments.
+            </p>
+        </section>
+
+        <!-- MARKET SUMMARY -->
+
+        <section class="cards">
+
+            <div class="card">
+                <div class="card-title">Magentian General Index</div>
+                <div class="card-value positive">108.00</div>
+                <div class="positive">+8.00% this week</div>
+            </div>
+
+            <div class="card">
+                <div class="card-title">Operational Budget</div>
+                <div class="card-value">$30.48T</div>
+                <div class="positive">+1.60% market effect</div>
+            </div>
+
+            <div class="card">
+                <div class="card-title">Treasury Inflow</div>
+                <div class="card-value">$127.68T</div>
+                <div class="positive">+6.40% market effect</div>
+            </div>
+
+            <div class="card">
+                <div class="card-title">Last Market Update</div>
+                <div class="card-value">Week 1</div>
+                <div class="neutral">Weekly refresh</div>
+            </div>
+
+        </section>
+
+        <!-- STOCK TABLE -->
+
+        <section class="section">
+            <h2>Markets</h2>
+
+            <div class="table-container">
+
+                <table>
+
+                    <thead>
+                        <tr>
+                            <th>Company</th>
+                            <th>Price</th>
+                            <th>Weekly Change</th>
+                            <th>Government Ownership</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+
+                        <tr>
+                            <td>
+                                <span class="company-name">
+                                    I Am A Fire Hydrant Avionics
+                                </span>
+                                <span class="ticker">(MIAC)</span>
+                            </td>
+
+                            <td>$108.00</td>
+
+                            <td class="positive">+8.00%</td>
+
+                            <td>Government Owned</td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <span class="company-name">
+                                    I Am A Fire Hydrant Trucks
+                                </span>
+                                <span class="ticker">(MITC)</span>
+                            </td>
+
+                            <td>$96.50</td>
+
+                            <td class="negative">-3.50%</td>
+
+                            <td>Government Owned</td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <span class="company-name">
+                                    Sky Kingdom Infrastructure
+                                </span>
+                                <span class="ticker">(SKI)</span>
+                            </td>
+
+                            <td>$104.20</td>
+
+                            <td class="positive">+4.20%</td>
+
+                            <td>Government Owned</td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <span class="company-name">
+                                    Microsoft
+                                </span>
+                                <span class="ticker">(MSFT)</span>
+                            </td>
+
+                            <td>$101.40</td>
+
+                            <td class="positive">+1.40%</td>
+
+                            <td>Private</td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <span class="company-name">
+                                    TSMC
+                                </span>
+                                <span class="ticker">(TSMC)</span>
+                            </td>
+
+                            <td>$99.10</td>
+
+                            <td class="negative">-0.90%</td>
+
+                            <td>Private</td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+        </section>
+
+        <!-- WEEKLY NEWS -->
+
+        <section class="section">
+
+            <h2>Weekly Market Report</h2>
+
+            <div class="news-card">
+
+                <div class="news-date">
+                    September 2026 — Week 1
+                </div>
+
+                <div class="news-title">
+                    Magentian economic activity continues to expand
+                </div>
+
+                <div class="news-body">
+                    Magenta reported continued growth in commercial activity,
+                    infrastructure development, and international trade.
+                    Government-owned companies also reported stronger
+                    expectations for the upcoming period.
+                </div>
+
+                <div class="analysis">
+
+                    <div class="analysis-row">
+                        <strong>Analyst Consensus</strong>
+                        <span class="positive">POSITIVE</span>
+                    </div>
+
+                    <div class="analysis-row">
+                        <strong>Market Impact</strong>
+                        <span>Moderate</span>
+                    </div>
+
+                    <div class="analysis-row">
+                        <strong>Source Credibility</strong>
+                        <span>High</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- TREASURY -->
+
+        <section class="section">
+
+            <h2>Treasury Overview</h2>
+
+            <div class="cards">
+
+                <div class="card">
+                    <div class="card-title">Treasury Balance</div>
+                    <div class="card-value">$1,000T</div>
+                </div>
+
+                <div class="card">
+                    <div class="card-title">Weekly Company Revenue</div>
+                    <div class="card-value">$150T</div>
+                </div>
+
+                <div class="card">
+                    <div class="card-title">Treasury Allocation</div>
+                    <div class="card-value">80%</div>
+                </div>
+
+                <div class="card">
+                    <div class="card-title">Operational Allocation</div>
+                    <div class="card-value">20%</div>
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <footer>
+        Sky Kingdom Stock Exchange · Magentian Simulation · Fictional Market
+    </footer>
+
+</body>
+</html>
