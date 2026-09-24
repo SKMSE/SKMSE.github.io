@@ -9,6 +9,7 @@
     <!-- Google Fonts - Chewy -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
     <link
         href="https://fonts.googleapis.com/css2?family=Chewy&display=swap"
         rel="stylesheet"
@@ -22,17 +23,23 @@
            Chewy font
            ========================================================= */
 
+
         :root {
+
             --orange: #ff8a00;
             --orange-light: #ffad42;
             --orange-dark: #d96f00;
 
             --black: #070707;
+
             --panel: #101010;
             --panel-light: #151515;
 
-            --border: rgba(255, 138, 0, 0.18);
-            --border-strong: rgba(255, 138, 0, 0.45);
+            --border:
+                rgba(255, 138, 0, 0.18);
+
+            --border-strong:
+                rgba(255, 138, 0, 0.45);
 
             --text: #f5f5f5;
             --muted: #9b9b9b;
@@ -40,6 +47,7 @@
             --green: #32d583;
             --red: #ff5757;
             --gray: #aaa;
+
         }
 
 
@@ -47,44 +55,68 @@
            GLOBAL
            ========================================================= */
 
+
         * {
+
             box-sizing: border-box;
+
             margin: 0;
             padding: 0;
+
         }
 
 
         html {
+
             scroll-behavior: smooth;
+
         }
 
 
         body {
-            font-family: "Chewy", cursive;
+
+            font-family:
+                "Chewy",
+                cursive;
+
             background:
+
                 radial-gradient(
                     circle at 20% 0%,
                     rgba(255, 138, 0, 0.08),
                     transparent 30%
                 ),
+
                 radial-gradient(
                     circle at 80% 20%,
                     rgba(255, 138, 0, 0.05),
                     transparent 25%
                 ),
+
                 var(--black);
 
             color: var(--text);
+
             line-height: 1.5;
+
             min-height: 100vh;
 
-            animation: pageFadeIn 0.8s ease;
+            overflow-x: hidden;
+
+            animation:
+                pageFadeIn 0.8s ease;
+
         }
 
 
         ::selection {
-            background: var(--orange);
-            color: black;
+
+            background:
+                var(--orange);
+
+            color:
+                black;
+
         }
 
 
@@ -92,10 +124,18 @@
            MAIN PAGE
            ========================================================= */
 
+
         .page {
-            width: min(1250px, 100%);
-            margin: auto;
-            padding: 55px 25px 80px;
+
+            width:
+                min(1250px, 100%);
+
+            margin:
+                0 auto;
+
+            padding:
+                55px 25px 80px;
+
         }
 
 
@@ -103,63 +143,122 @@
            HEADER
            ========================================================= */
 
+
         .main-header {
-            margin-bottom: 38px;
+
+            margin-bottom:
+                40px;
 
             animation:
-                slideDown 0.8s ease,
-                softFloat 6s ease-in-out infinite;
+                slideDown 0.8s ease;
+
         }
 
 
         .main-header h1 {
-            font-size: clamp(2.3rem, 6vw, 4rem);
-            color: var(--orange);
-            line-height: 1.05;
-            margin-bottom: 10px;
+
+            font-size:
+                clamp(
+                    2.3rem,
+                    6vw,
+                    4rem
+                );
+
+            color:
+                var(--orange);
+
+            line-height:
+                1.05;
+
+            margin-bottom:
+                10px;
 
             text-shadow:
-                0 0 25px rgba(255, 138, 0, 0.18);
+                0 0 25px
+                rgba(
+                    255,
+                    138,
+                    0,
+                    0.18
+                );
+
+            animation:
+                titleGlow 5s ease-in-out infinite;
+
         }
 
 
         .main-header p {
-            color: #d1d1d1;
-            font-size: 1rem;
-            max-width: 850px;
+
+            color:
+                #d1d1d1;
+
+            font-size:
+                1rem;
+
+            max-width:
+                850px;
+
         }
 
 
         /* =========================================================
-           SECTION TITLE
+           SECTION TITLES
            ========================================================= */
 
+
         .section-title {
-            position: relative;
 
-            color: var(--orange);
-            font-size: 2rem;
+            position:
+                relative;
 
-            margin-bottom: 18px;
+            color:
+                var(--orange);
 
-            display: inline-block;
+            font-size:
+                2rem;
+
+            margin-bottom:
+                18px;
+
+            display:
+                inline-block;
+
         }
 
 
         .section-title::after {
-            content: "";
 
-            position: absolute;
-            left: 0;
-            bottom: -4px;
+            content:
+                "";
 
-            width: 45%;
-            height: 3px;
+            position:
+                absolute;
 
-            background: var(--orange);
-            border-radius: 5px;
+            left:
+                0;
 
-            animation: titleLine 3s ease-in-out infinite;
+            bottom:
+                -5px;
+
+            width:
+                42%;
+
+            height:
+                3px;
+
+            background:
+                var(--orange);
+
+            border-radius:
+                5px;
+
+            animation:
+                titleLine
+                3.5s
+                ease-in-out
+                infinite;
+
         }
 
 
@@ -167,67 +266,119 @@
            WEEK BOX
            ========================================================= */
 
+
         .week-box {
-            position: relative;
+
+            position:
+                relative;
 
             background:
+
                 linear-gradient(
                     135deg,
-                    rgba(255, 138, 0, 0.12),
-                    rgba(255, 138, 0, 0.025)
+                    rgba(
+                        255,
+                        138,
+                        0,
+                        0.12
+                    ),
+                    rgba(
+                        255,
+                        138,
+                        0,
+                        0.025
+                    )
                 ),
+
                 var(--panel);
 
-            border: 1px solid var(--border-strong);
-            border-radius: 20px;
+            border:
+                1px solid
+                var(--border-strong);
 
-            padding: 24px 26px;
+            border-radius:
+                20px;
 
-            margin-bottom: 50px;
+            padding:
+                24px 26px;
 
-            overflow: hidden;
+            margin-bottom:
+                50px;
 
-            animation:
-                slideUp 0.8s ease 0.1s both;
+            overflow:
+                hidden;
+
         }
 
 
         .week-box::before {
-            content: "";
 
-            position: absolute;
+            content:
+                "";
 
-            width: 250px;
-            height: 250px;
+            position:
+                absolute;
 
-            right: -100px;
-            top: -150px;
+            width:
+                270px;
 
-            background: var(--orange);
+            height:
+                270px;
 
-            opacity: 0.06;
+            right:
+                -110px;
 
-            border-radius: 50%;
+            top:
+                -170px;
 
-            animation: orbitGlow 8s ease-in-out infinite;
+            background:
+                var(--orange);
+
+            opacity:
+                0.055;
+
+            border-radius:
+                50%;
+
+            animation:
+                orbitGlow
+                9s
+                ease-in-out
+                infinite;
+
         }
 
 
         .week-title {
-            color: var(--orange);
-            font-size: 1.7rem;
-            margin-bottom: 4px;
+
+            color:
+                var(--orange);
+
+            font-size:
+                1.7rem;
+
+            margin-bottom:
+                4px;
+
         }
 
 
         .countdown {
-            color: #d0d0d0;
-            font-size: 1rem;
+
+            color:
+                #d0d0d0;
+
+            font-size:
+                1rem;
+
         }
 
 
         .countdown strong {
-            color: var(--orange);
+
+            color:
+                var(--orange);
+
         }
 
 
@@ -235,11 +386,151 @@
            SECTION SPACING
            ========================================================= */
 
-        .section {
-            margin-bottom: 55px;
 
-            animation:
-                slideUp 0.8s ease both;
+        .section {
+
+            margin-bottom:
+                60px;
+
+        }
+
+
+        /* =========================================================
+           SCROLL REVEAL SYSTEM
+           ========================================================= */
+
+
+        /*
+            Elements start just outside the viewport.
+
+            When entering:
+                fade + float into place
+
+            When scrolling DOWN past:
+                exit upward
+
+            When scrolling UP past:
+                exit downward
+        */
+
+
+        .scroll-reveal {
+
+            opacity:
+                0;
+
+            transform:
+                translateY(
+                    55px
+                )
+                scale(
+                    0.985
+                );
+
+            filter:
+                blur(
+                    4px
+                );
+
+            transition:
+
+                opacity
+                0.75s
+                cubic-bezier(
+                    0.22,
+                    1,
+                    0.36,
+                    1
+                ),
+
+                transform
+                0.75s
+                cubic-bezier(
+                    0.22,
+                    1,
+                    0.36,
+                    1
+                ),
+
+                filter
+                0.75s
+                ease;
+
+            transition-delay:
+                var(--reveal-delay, 0ms);
+
+            will-change:
+                transform,
+                opacity,
+                filter;
+
+        }
+
+
+        .scroll-reveal.revealed {
+
+            opacity:
+                1;
+
+            transform:
+                translateY(0)
+                scale(1);
+
+            filter:
+                blur(0);
+
+        }
+
+
+        /*
+            Scrolling downward:
+            element leaves the viewport upward.
+        */
+
+        .scroll-reveal.exit-up {
+
+            opacity:
+                0;
+
+            transform:
+                translateY(
+                    -50px
+                )
+                scale(
+                    0.985
+                );
+
+            filter:
+                blur(
+                    4px
+                );
+
+        }
+
+
+        /*
+            Scrolling upward:
+            element leaves the viewport downward.
+        */
+
+        .scroll-reveal.exit-down {
+
+            opacity:
+                0;
+
+            transform:
+                translateY(
+                    50px
+                )
+                scale(
+                    0.985
+                );
+
+            filter:
+                blur(
+                    4px
+                );
+
         }
 
 
@@ -247,16 +538,30 @@
            MARKET LAYOUT
            ========================================================= */
 
+
         .market-layout {
-            display: grid;
+
+            display:
+                grid;
 
             grid-template-columns:
-                minmax(0, 1.8fr)
-                minmax(260px, 0.8fr);
 
-            gap: 20px;
+                minmax(
+                    0,
+                    1.8fr
+                )
 
-            align-items: start;
+                minmax(
+                    260px,
+                    0.8fr
+                );
+
+            gap:
+                20px;
+
+            align-items:
+                start;
+
         }
 
 
@@ -264,36 +569,86 @@
            PANELS
            ========================================================= */
 
+
         .panel {
+
             background:
+
                 linear-gradient(
                     145deg,
-                    rgba(255, 255, 255, 0.018),
-                    rgba(255, 255, 255, 0)
+                    rgba(
+                        255,
+                        255,
+                        255,
+                        0.018
+                    ),
+                    rgba(
+                        255,
+                        255,
+                        255,
+                        0
+                    )
                 ),
+
                 var(--panel);
 
-            border: 1px solid var(--border);
+            border:
+                1px solid
+                var(--border);
 
-            border-radius: 18px;
+            border-radius:
+                18px;
 
-            overflow: hidden;
+            overflow:
+                hidden;
 
             box-shadow:
-                0 15px 40px rgba(0, 0, 0, 0.18);
+
+                0 15px 40px
+                rgba(
+                    0,
+                    0,
+                    0,
+                    0.18
+                );
 
             transition:
-                transform 0.25s ease,
-                border-color 0.25s ease,
-                box-shadow 0.25s ease;
+
+                transform
+                0.3s
+                ease,
+
+                border-color
+                0.3s
+                ease,
+
+                box-shadow
+                0.3s
+                ease;
+
         }
 
 
         .panel:hover {
-            border-color: rgba(255, 138, 0, 0.32);
+
+            border-color:
+                rgba(
+                    255,
+                    138,
+                    0,
+                    0.34
+                );
 
             box-shadow:
-                0 20px 55px rgba(0, 0, 0, 0.28);
+
+                0 22px 60px
+                rgba(
+                    0,
+                    0,
+                    0,
+                    0.28
+                );
+
         }
 
 
@@ -301,104 +656,196 @@
            MARKET TABLE
            ========================================================= */
 
+
         .market-container {
-            overflow-x: auto;
+
+            overflow-x:
+                auto;
+
         }
 
 
         table {
-            width: 100%;
-            border-collapse: collapse;
+
+            width:
+                100%;
+
+            border-collapse:
+                collapse;
+
         }
 
 
         th,
         td {
-            padding: 19px 20px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 
-            text-align: left;
-            white-space: nowrap;
+            padding:
+                19px 20px;
+
+            border-bottom:
+
+                1px solid
+                rgba(
+                    255,
+                    255,
+                    255,
+                    0.06
+                );
+
+            text-align:
+                left;
+
+            white-space:
+                nowrap;
+
         }
 
 
         th {
-            color: var(--orange);
-            font-size: 0.95rem;
+
+            color:
+                var(--orange);
+
+            font-size:
+                0.95rem;
 
             background:
-                rgba(255, 138, 0, 0.035);
+                rgba(
+                    255,
+                    138,
+                    0,
+                    0.035
+                );
+
         }
 
 
         tr:last-child td {
-            border-bottom: none;
+
+            border-bottom:
+                none;
+
         }
 
 
         tbody tr {
+
             transition:
-                background 0.2s ease,
-                transform 0.2s ease;
+
+                background
+                0.2s
+                ease,
+
+                transform
+                0.2s
+                ease;
+
         }
 
 
         tbody tr:hover {
-            background: rgba(255, 138, 0, 0.045);
+
+            background:
+                rgba(
+                    255,
+                    138,
+                    0,
+                    0.045
+                );
 
             transform:
-                translateX(3px);
+                translateX(
+                    4px
+                );
+
         }
 
 
         .company-name {
-            font-size: 1.1rem;
+
+            font-size:
+                1.1rem;
+
         }
 
 
         .ticker {
-            color: var(--muted);
-            margin-left: 8px;
-            font-size: 0.85rem;
+
+            color:
+                var(--muted);
+
+            margin-left:
+                8px;
+
+            font-size:
+                0.85rem;
+
         }
 
 
         .price-cell {
-            font-size: 1.15rem;
-            font-weight: bold;
+
+            font-size:
+                1.15rem;
+
+            font-weight:
+                bold;
+
         }
 
 
         .price-change {
-            display: inline-flex;
-            align-items: center;
 
-            gap: 7px;
+            display:
+                inline-flex;
 
-            margin-left: 10px;
+            align-items:
+                center;
 
-            font-size: 0.95rem;
+            gap:
+                7px;
+
+            margin-left:
+                10px;
+
+            font-size:
+                0.95rem;
+
         }
 
 
         .arrow {
-            font-size: 1.2rem;
-            line-height: 1;
+
+            font-size:
+                1.2rem;
+
+            line-height:
+                1;
+
         }
 
 
         .positive {
-            color: var(--green);
+
+            color:
+                var(--green);
+
         }
 
 
         .negative {
-            color: var(--red);
+
+            color:
+                var(--red);
+
         }
 
 
         .flat {
-            color: var(--gray);
+
+            color:
+                var(--gray);
+
         }
 
 
@@ -406,88 +853,178 @@
            SHARES PANEL
            ========================================================= */
 
+
         .shares-panel {
-            padding: 22px;
+
+            padding:
+                22px;
+
         }
 
 
         .shares-heading {
-            color: var(--orange);
-            font-size: 1.4rem;
-            margin-bottom: 18px;
+
+            color:
+                var(--orange);
+
+            font-size:
+                1.4rem;
+
+            margin-bottom:
+                18px;
+
         }
 
 
         .share-summary {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 10px;
 
-            margin-bottom: 22px;
+            display:
+                grid;
+
+            grid-template-columns:
+                1fr 1fr;
+
+            gap:
+                10px;
+
+            margin-bottom:
+                22px;
+
         }
 
 
         .share-total {
-            background: var(--panel-light);
+
+            background:
+                var(--panel-light);
 
             border:
                 1px solid
-                rgba(255, 138, 0, 0.14);
+                rgba(
+                    255,
+                    138,
+                    0,
+                    0.14
+                );
 
-            border-radius: 13px;
+            border-radius:
+                13px;
 
-            padding: 15px;
+            padding:
+                15px;
+
+            transition:
+                transform
+                0.25s
+                ease,
+
+                border-color
+                0.25s
+                ease;
+
+        }
+
+
+        .share-total:hover {
+
+            transform:
+                translateY(
+                    -3px
+                );
+
+            border-color:
+                var(--border-strong);
+
         }
 
 
         .share-label {
-            display: block;
 
-            color: var(--muted);
-            font-size: 0.8rem;
+            display:
+                block;
 
-            margin-bottom: 5px;
+            color:
+                var(--muted);
+
+            font-size:
+                0.8rem;
+
+            margin-bottom:
+                5px;
+
         }
 
 
         .share-number {
-            color: var(--text);
-            font-size: 1.35rem;
+
+            color:
+                var(--text);
+
+            font-size:
+                1.35rem;
+
         }
 
 
         .share-company {
-            padding: 13px 0;
+
+            padding:
+                13px 0;
 
             border-top:
+
                 1px solid
-                rgba(255, 255, 255, 0.06);
+                rgba(
+                    255,
+                    255,
+                    255,
+                    0.06
+                );
+
         }
 
 
         .share-company:first-of-type {
-            border-top: none;
+
+            border-top:
+                none;
+
         }
 
 
         .share-company-name {
-            display: flex;
 
-            justify-content: space-between;
-            gap: 10px;
+            display:
+                flex;
 
-            margin-bottom: 5px;
+            justify-content:
+                space-between;
+
+            gap:
+                10px;
+
+            margin-bottom:
+                5px;
+
         }
 
 
         .share-company-name span:last-child {
-            color: var(--orange);
+
+            color:
+                var(--orange);
+
         }
 
 
         .share-details {
-            color: var(--muted);
-            font-size: 0.8rem;
+
+            color:
+                var(--muted);
+
+            font-size:
+                0.8rem;
+
         }
 
 
@@ -495,31 +1032,51 @@
            WEEKLY REPORT
            ========================================================= */
 
+
         .report-card {
-            padding: 28px;
+
+            padding:
+                28px;
+
         }
 
 
         .report-date {
-            color: var(--muted);
-            font-size: 0.85rem;
 
-            margin-bottom: 6px;
+            color:
+                var(--muted);
+
+            font-size:
+                0.85rem;
+
+            margin-bottom:
+                6px;
+
         }
 
 
         .report-title {
-            color: var(--orange);
 
-            font-size: 1.55rem;
+            color:
+                var(--orange);
 
-            margin-bottom: 12px;
+            font-size:
+                1.55rem;
+
+            margin-bottom:
+                12px;
+
         }
 
 
         .report-text {
-            color: #d4d4d4;
-            font-size: 1rem;
+
+            color:
+                #d4d4d4;
+
+            font-size:
+                1rem;
+
         }
 
 
@@ -527,217 +1084,369 @@
            ARTICLES
            ========================================================= */
 
+
         .article-grid {
-            display: grid;
+
+            display:
+                grid;
 
             grid-template-columns:
-                repeat(4, minmax(0, 1fr));
 
-            gap: 18px;
+                repeat(
+                    4,
+                    minmax(
+                        0,
+                        1fr
+                    )
+                );
+
+            gap:
+                18px;
+
         }
 
 
         .article-card {
-            position: relative;
+
+            position:
+                relative;
 
             background:
+
                 linear-gradient(
                     145deg,
-                    rgba(255, 138, 0, 0.035),
-                    rgba(255, 138, 0, 0)
+                    rgba(
+                        255,
+                        138,
+                        0,
+                        0.035
+                    ),
+                    rgba(
+                        255,
+                        138,
+                        0,
+                        0
+                    )
                 ),
+
                 var(--panel);
 
             border:
+
                 1px solid
                 var(--border);
 
-            border-radius: 17px;
+            border-radius:
+                17px;
 
-            padding: 22px;
+            padding:
+                22px;
 
-            cursor: pointer;
+            cursor:
+                pointer;
+
+            /*
+                Article cards get the same scroll system,
+                but stagger slightly.
+            */
 
             transition:
-                transform 0.28s ease,
-                border-color 0.28s ease,
-                box-shadow 0.28s ease;
 
-            animation:
-                articleAppear 0.7s ease both;
-        }
+                opacity
+                0.75s
+                cubic-bezier(
+                    0.22,
+                    1,
+                    0.36,
+                    1
+                ),
 
+                transform
+                0.75s
+                cubic-bezier(
+                    0.22,
+                    1,
+                    0.36,
+                    1
+                ),
 
-        .article-card:nth-child(1) {
-            animation-delay: 0.05s;
-        }
+                filter
+                0.75s
+                ease,
 
-        .article-card:nth-child(2) {
-            animation-delay: 0.12s;
-        }
+                border-color
+                0.28s
+                ease,
 
-        .article-card:nth-child(3) {
-            animation-delay: 0.19s;
-        }
+                box-shadow
+                0.28s
+                ease;
 
-        .article-card:nth-child(4) {
-            animation-delay: 0.26s;
+            transition-delay:
+                var(--reveal-delay, 0ms);
+
         }
 
 
         .article-card:hover {
+
             transform:
-                translateY(-7px);
+                translateY(
+                    -7px
+                );
 
             border-color:
                 var(--border-strong);
 
             box-shadow:
+
                 0 18px 45px
-                rgba(255, 138, 0, 0.08);
+                rgba(
+                    255,
+                    138,
+                    0,
+                    0.08
+                );
+
         }
 
 
         .article-number {
-            color: var(--orange);
-            font-size: 0.8rem;
 
-            margin-bottom: 7px;
+            color:
+                var(--orange);
+
+            font-size:
+                0.8rem;
+
+            margin-bottom:
+                7px;
+
         }
 
 
         .article-title {
-            font-size: 1.2rem;
-            margin-bottom: 10px;
+
+            font-size:
+                1.2rem;
+
+            margin-bottom:
+                10px;
+
         }
 
 
         .article-preview {
-            color: #aaa;
-            font-size: 0.88rem;
 
-            margin-bottom: 17px;
+            color:
+                #aaa;
+
+            font-size:
+                0.88rem;
+
+            margin-bottom:
+                17px;
+
         }
 
 
         .read-more {
-            color: var(--orange);
-            font-size: 0.85rem;
+
+            color:
+                var(--orange);
+
+            font-size:
+                0.85rem;
+
         }
 
 
         /* =========================================================
-           MODAL
+           ARTICLE MODAL
            ========================================================= */
 
+
         .modal {
-            display: none;
 
-            position: fixed;
+            display:
+                none;
 
-            inset: 0;
+            position:
+                fixed;
+
+            inset:
+                0;
 
             background:
-                rgba(0, 0, 0, 0.84);
+                rgba(
+                    0,
+                    0,
+                    0,
+                    0.84
+                );
 
             backdrop-filter:
                 blur(7px);
 
-            z-index: 1000;
+            z-index:
+                1000;
 
-            padding: 25px;
+            padding:
+                25px;
+
         }
 
 
         .modal.active {
-            display: flex;
 
-            align-items: center;
-            justify-content: center;
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                center;
 
             animation:
-                modalBackground 0.25s ease;
+                modalBackground
+                0.25s
+                ease;
+
         }
 
 
         .modal-content {
-            width: min(820px, 100%);
 
-            max-height: 85vh;
+            width:
+                min(
+                    820px,
+                    100%
+                );
 
-            overflow-y: auto;
+            max-height:
+                85vh;
 
-            background: var(--panel);
+            overflow-y:
+                auto;
+
+            background:
+                var(--panel);
 
             border:
                 1px solid
                 var(--border-strong);
 
-            border-radius: 20px;
+            border-radius:
+                20px;
 
-            padding: 32px;
+            padding:
+                32px;
 
-            position: relative;
+            position:
+                relative;
 
             animation:
-                modalOpen 0.32s ease;
+                modalOpen
+                0.32s
+                ease;
+
         }
 
 
         .close-button {
-            position: absolute;
 
-            top: 12px;
-            right: 18px;
+            position:
+                absolute;
 
-            border: none;
-            background: none;
+            top:
+                12px;
 
-            color: var(--orange);
+            right:
+                18px;
 
-            font-size: 2rem;
+            border:
+                none;
 
-            cursor: pointer;
+            background:
+                none;
 
-            font-family: Arial, sans-serif;
+            color:
+                var(--orange);
+
+            font-size:
+                2rem;
+
+            cursor:
+                pointer;
+
+            font-family:
+                Arial,
+                sans-serif;
 
             transition:
-                transform 0.2s ease;
+                transform
+                0.2s
+                ease;
+
         }
 
 
         .close-button:hover {
+
             transform:
-                rotate(90deg)
-                scale(1.1);
+                rotate(
+                    90deg
+                )
+                scale(
+                    1.1
+                );
+
         }
 
 
         .modal-date {
-            color: var(--muted);
-            font-size: 0.85rem;
 
-            margin-bottom: 8px;
+            color:
+                var(--muted);
+
+            font-size:
+                0.85rem;
+
+            margin-bottom:
+                8px;
+
         }
 
 
         .modal-title {
-            color: var(--orange);
 
-            font-size: 1.7rem;
+            color:
+                var(--orange);
 
-            margin-bottom: 18px;
+            font-size:
+                1.7rem;
 
-            padding-right: 35px;
+            margin-bottom:
+                18px;
+
+            padding-right:
+                35px;
+
         }
 
 
         .modal-body {
-            color: #ddd;
 
-            white-space: pre-line;
+            color:
+                #ddd;
 
-            font-size: 1rem;
+            white-space:
+                pre-line;
+
+            font-size:
+                1rem;
+
         }
 
 
@@ -745,33 +1454,53 @@
            FOOTER
            ========================================================= */
 
+
         footer {
-            padding-top: 30px;
+
+            padding-top:
+                30px;
 
             border-top:
+
                 1px solid
-                rgba(255, 255, 255, 0.06);
+                rgba(
+                    255,
+                    255,
+                    255,
+                    0.06
+                );
 
-            color: #666;
+            color:
+                #666;
 
-            text-align: center;
+            text-align:
+                center;
 
-            font-size: 0.8rem;
+            font-size:
+                0.8rem;
+
         }
 
 
         /* =========================================================
-           ANIMATIONS
+           INITIAL PAGE ANIMATIONS
            ========================================================= */
+
 
         @keyframes pageFadeIn {
 
             from {
-                opacity: 0;
+
+                opacity:
+                    0;
+
             }
 
             to {
-                opacity: 1;
+
+                opacity:
+                    1;
+
             }
 
         }
@@ -780,75 +1509,57 @@
         @keyframes slideDown {
 
             from {
-                opacity: 0;
-                transform: translateY(-18px);
-            }
 
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+                opacity:
+                    0;
 
-        }
-
-
-        @keyframes slideUp {
-
-            from {
-                opacity: 0;
-                transform: translateY(25px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-
-        }
-
-
-        @keyframes articleAppear {
-
-            from {
-                opacity: 0;
-                transform: translateY(20px) scale(0.98);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0) scale(1);
-            }
-
-        }
-
-
-        @keyframes modalOpen {
-
-            from {
-                opacity: 0;
                 transform:
-                    translateY(15px)
-                    scale(0.97);
+                    translateY(
+                        -18px
+                    );
+
             }
 
             to {
-                opacity: 1;
+
+                opacity:
+                    1;
+
                 transform:
-                    translateY(0)
-                    scale(1);
+                    translateY(0);
+
             }
 
         }
 
 
-        @keyframes modalBackground {
+        @keyframes titleGlow {
 
-            from {
-                opacity: 0;
+            0%,
+            100% {
+
+                text-shadow:
+                    0 0 20px
+                    rgba(
+                        255,
+                        138,
+                        0,
+                        0.12
+                    );
+
             }
 
-            to {
-                opacity: 1;
+            50% {
+
+                text-shadow:
+                    0 0 34px
+                    rgba(
+                        255,
+                        138,
+                        0,
+                        0.22
+                    );
+
             }
 
         }
@@ -858,11 +1569,17 @@
 
             0%,
             100% {
-                width: 35%;
+
+                width:
+                    35%;
+
             }
 
             50% {
-                width: 60%;
+
+                width:
+                    62%;
+
             }
 
         }
@@ -872,29 +1589,81 @@
 
             0%,
             100% {
+
                 transform:
-                    translate(0, 0)
-                    scale(1);
+                    translate(
+                        0,
+                        0
+                    )
+                    scale(
+                        1
+                    );
+
             }
 
             50% {
+
                 transform:
-                    translate(-30px, 25px)
-                    scale(1.15);
+                    translate(
+                        -35px,
+                        28px
+                    )
+                    scale(
+                        1.12
+                    );
+
             }
 
         }
 
 
-        @keyframes softFloat {
+        @keyframes modalOpen {
 
-            0%,
-            100% {
-                transform: translateY(0);
+            from {
+
+                opacity:
+                    0;
+
+                transform:
+                    translateY(
+                        15px
+                    )
+                    scale(
+                        0.97
+                    );
+
             }
 
-            50% {
-                transform: translateY(-2px);
+            to {
+
+                opacity:
+                    1;
+
+                transform:
+                    translateY(0)
+                    scale(
+                        1
+                    );
+
+            }
+
+        }
+
+
+        @keyframes modalBackground {
+
+            from {
+
+                opacity:
+                    0;
+
+            }
+
+            to {
+
+                opacity:
+                    1;
+
             }
 
         }
@@ -904,15 +1673,27 @@
            MOBILE
            ========================================================= */
 
+
         @media (max-width: 950px) {
 
             .market-layout {
-                grid-template-columns: 1fr;
+
+                grid-template-columns:
+                    1fr;
+
             }
 
             .article-grid {
+
                 grid-template-columns:
-                    repeat(2, minmax(0, 1fr));
+                    repeat(
+                        2,
+                        minmax(
+                            0,
+                            1fr
+                        )
+                    );
+
             }
 
         }
@@ -921,35 +1702,95 @@
         @media (max-width: 600px) {
 
             .page {
+
                 padding:
                     35px 15px 60px;
+
             }
 
 
             .main-header h1 {
-                font-size: 2.4rem;
+
+                font-size:
+                    2.4rem;
+
             }
 
 
             .article-grid {
-                grid-template-columns: 1fr;
+
+                grid-template-columns:
+                    1fr;
+
             }
 
 
             th,
             td {
+
                 padding:
                     14px 12px;
+
             }
 
 
             .share-summary {
-                grid-template-columns: 1fr;
+
+                grid-template-columns:
+                    1fr;
+
             }
 
 
             .modal-content {
-                padding: 25px;
+
+                padding:
+                    25px;
+
+            }
+
+        }
+
+
+        /* =========================================================
+           ACCESSIBILITY
+           ========================================================= */
+
+
+        @media (
+            prefers-reduced-motion: reduce
+        ) {
+
+            *,
+            *::before,
+            *::after {
+
+                scroll-behavior:
+                    auto !important;
+
+                animation-duration:
+                    0.01ms !important;
+
+                animation-iteration-count:
+                    1 !important;
+
+                transition-duration:
+                    0.01ms !important;
+
+            }
+
+
+            .scroll-reveal {
+
+                opacity:
+                    1 !important;
+
+                transform:
+                    none !important;
+
+                filter:
+                    none !important;
+
             }
 
         }
@@ -960,6 +1801,7 @@
 
 <body>
 
+
     <div class="page">
 
 
@@ -967,15 +1809,19 @@
              HEADER
              ===================================================== -->
 
+
         <header class="main-header">
 
             <h1>
                 Sky Kingdom Stock Exchange
             </h1>
 
+
             <p>
+
                 Official Magentian Stock Exchange.
                 Owned and operated under Sky Kingdom Enterprises.
+
             </p>
 
         </header>
@@ -985,13 +1831,23 @@
              WEEK
              ===================================================== -->
 
-        <section class="week-box">
+
+        <section
+            class="
+                week-box
+                scroll-reveal
+            "
+        >
 
             <div
                 class="week-title"
-                id="weekDisplay">
+                id="weekDisplay"
+            >
+
                 Week One
+
             </div>
+
 
             <div class="countdown">
 
@@ -1010,19 +1866,39 @@
              MARKET
              ===================================================== -->
 
+
         <section class="section">
 
-            <h2 class="section-title">
+
+            <h2
+                class="
+                    section-title
+                    scroll-reveal
+                "
+            >
+
                 Market
+
             </h2>
 
 
-            <div class="market-layout">
+            <div
+                class="
+                    market-layout
+                    scroll-reveal
+                "
+            >
 
 
                 <!-- STOCK TABLE -->
 
-                <div class="panel market-container">
+
+                <div
+                    class="
+                        panel
+                        market-container
+                    "
+                >
 
                     <table>
 
@@ -1043,7 +1919,9 @@
                         </thead>
 
 
-                        <tbody id="marketTable">
+                        <tbody
+                            id="marketTable"
+                        >
 
                         </tbody>
 
@@ -1052,27 +1930,42 @@
                 </div>
 
 
-                <!-- SHARES -->
+                <!-- SHARE PANEL -->
 
-                <div class="panel shares-panel">
+
+                <div
+                    class="
+                        panel
+                        shares-panel
+                    "
+                >
 
                     <div class="shares-heading">
+
                         Share Availability
+
                     </div>
 
 
                     <div class="share-summary">
 
+
                         <div class="share-total">
 
                             <span class="share-label">
+
                                 Total Shares
+
                             </span>
+
 
                             <span
                                 class="share-number"
-                                id="totalShares">
+                                id="totalShares"
+                            >
+
                                 0
+
                             </span>
 
                         </div>
@@ -1081,65 +1974,103 @@
                         <div class="share-total">
 
                             <span class="share-label">
+
                                 Shares Remaining
+
                             </span>
+
 
                             <span
                                 class="share-number"
-                                id="remainingShares">
+                                id="remainingShares"
+                            >
+
                                 0
+
                             </span>
 
                         </div>
+
 
                     </div>
 
 
-                    <div id="shareBreakdown">
+                    <div
+                        id="shareBreakdown"
+                    >
 
                     </div>
 
                 </div>
 
+
             </div>
+
 
         </section>
 
 
         <!-- =====================================================
-             WEEKLY REPORT
+             WEEKLY MARKET REPORT
              ===================================================== -->
+
 
         <section class="section">
 
-            <h2 class="section-title">
+
+            <h2
+                class="
+                    section-title
+                    scroll-reveal
+                "
+            >
+
                 Weekly Market Report
+
             </h2>
 
 
-            <div class="panel report-card">
+            <div
+                class="
+                    panel
+                    report-card
+                    scroll-reveal
+                "
+            >
+
 
                 <div
                     class="report-date"
-                    id="reportDate">
+                    id="reportDate"
+                >
+
                     September 2026 — Week One
+
                 </div>
 
 
                 <div
                     class="report-title"
-                    id="reportTitle">
-                    Magentian Market Report
+                    id="reportTitle"
+                >
+
+                    SKST weekly report
+
                 </div>
 
 
                 <div
                     class="report-text"
-                    id="reportText">
+                    id="reportText"
+                >
+
                     This week's market summary goes here.
+
                 </div>
 
+
             </div>
+
 
         </section>
 
@@ -1148,29 +2079,50 @@
              ARTICLES
              ===================================================== -->
 
+
         <section class="section">
 
-            <h2 class="section-title">
+
+            <h2
+                class="
+                    section-title
+                    scroll-reveal
+                "
+            >
+
                 Articles
+
             </h2>
 
 
             <div
                 class="article-grid"
-                id="articleGrid">
+                id="articleGrid"
+            >
 
             </div>
+
 
         </section>
 
 
-        <footer>
+        <!-- =====================================================
+             FOOTER
+             ===================================================== -->
+
+
+        <footer
+            class="
+                scroll-reveal
+            "
+        >
 
             Sky Kingdom Stock Exchange
             ·
             Magentian Simulation
 
         </footer>
+
 
     </div>
 
@@ -1179,16 +2131,22 @@
          ARTICLE MODAL
          ========================================================= -->
 
+
     <div
         class="modal"
-        id="articleModal">
+        id="articleModal"
+    >
 
-        <div class="modal-content">
+
+        <div
+            class="modal-content"
+        >
 
 
             <button
                 class="close-button"
-                id="closeModal">
+                id="closeModal"
+            >
 
                 ×
 
@@ -1197,22 +2155,30 @@
 
             <div
                 class="modal-date"
-                id="modalDate">
+                id="modalDate"
+            >
+
             </div>
 
 
             <div
                 class="modal-title"
-                id="modalTitle">
+                id="modalTitle"
+            >
+
             </div>
 
 
             <div
                 class="modal-body"
-                id="modalBody">
+                id="modalBody"
+            >
+
             </div>
 
+
         </div>
+
 
     </div>
 
@@ -1231,6 +2197,7 @@
         /* ---------------------------------------------------------
            CURRENT WEEK
            --------------------------------------------------------- */
+
 
         const currentWeek =
             "Week One";
@@ -1255,68 +2222,144 @@
            remainingShares = shares still available to purchase
            --------------------------------------------------------- */
 
+
         const companies = [
 
+
             {
-                name: "I Am A Fire Hydrant Avionics",
-                ticker: "MIAC",
 
-                currentPrice: 95.54,
-                previousPrice: 100.00,
 
-                totalShares: 1503900,
-                remainingShares: 753000
+                name:
+                    "I Am A Fire Hydrant Avionics",
+
+                ticker:
+                    "MIAC",
+
+
+                currentPrice:
+                    95.54,
+
+                previousPrice:
+                    100.00,
+
+
+                totalShares:
+                    1503900,
+
+                remainingShares:
+                    753000
+
+
             },
 
 
             {
-                name: "I Am A Fire Hydrant Trucking",
-                ticker: "MITC",
 
-                currentPrice: 399,
-                previousPrice: 100.00,
 
-                totalShares: 75000,
-                remainingShares: 560890
+                name:
+                    "I Am A Fire Hydrant Trucking",
+
+                ticker:
+                    "MITC",
+
+
+                currentPrice:
+                    399,
+
+                previousPrice:
+                    100.00,
+
+
+                totalShares:
+                    75000,
+
+                remainingShares:
+                    560890
+
+
             },
 
 
             {
-                name: "Sky Kingdom Industries",
-                ticker: "SKI",
 
-                currentPrice: 104.20,
-                previousPrice: 100.00,
 
-                totalShares: 1200000,
-                remainingShares: 800000
+                name:
+                    "Sky Kingdom Industries",
+
+                ticker:
+                    "SKI",
+
+
+                currentPrice:
+                    104.20,
+
+                previousPrice:
+                    100.00,
+
+
+                totalShares:
+                    1200000,
+
+                remainingShares:
+                    800000
+
+
             },
 
 
             {
-                name: "Sky Kingdom Enterprises",
-                ticker: "SKE",
 
-                currentPrice: 101.25,
-                previousPrice: 100.00,
 
-                totalShares: 2000000,
-                remainingShares: 1250000
+                name:
+                    "Sky Kingdom Enterprises",
+
+                ticker:
+                    "SKE",
+
+
+                currentPrice:
+                    101.25,
+
+                previousPrice:
+                    100.00,
+
+
+                totalShares:
+                    2000000,
+
+                remainingShares:
+                    1250000
+
+
             },
 
 
             {
+
+
                 name:
                     "Taiwanese Semi Conductor Manufactoring Company",
 
-                ticker: "TSMC",
+                ticker:
+                    "TSMC",
 
-                currentPrice: 99.10,
-                previousPrice: 100.00,
 
-                totalShares: 1500000,
-                remainingShares: 900000
+                currentPrice:
+                    99.10,
+
+                previousPrice:
+                    100.00,
+
+
+                totalShares:
+                    1500000,
+
+                remainingShares:
+                    900000
+
+
             }
+
 
         ];
 
@@ -1325,18 +2368,30 @@
            WEEKLY MARKET REPORT
            --------------------------------------------------------- */
 
+
         const weeklyReport = {
+
 
             date:
                 "September 2026 — Week One",
 
+
             title:
                 "SKST weekly report",
 
+
             summary:
+
                 "Finally got the stock market site running. " +
-                "this week in the sky kingdom stock exchange, things are finally running. lets get onto the stocks. " +
-                "i am a fire hydrant trucking is recently booming in stock increases! lets hope this continues"
+
+                "this week in the sky kingdom stock exchange, " +
+
+                "things are finally running. lets get onto the stocks. " +
+
+                "i am a fire hydrant trucking is recently booming " +
+
+                "in stock increases! lets hope this continues"
+
 
         };
 
@@ -1345,38 +2400,68 @@
            FOUR ARTICLES
            --------------------------------------------------------- */
 
+
         const articles = [
 
+
             {
+
 
                 title:
                     "Why your packages are coming so quick",
 
+
                 date:
                     "September 23rd, 2026",
 
+
                 preview:
-                    "i am a fire hydrant trucking ramping up delivery speed",
+
+                    "i am a fire hydrant trucking ramping up " +
+                    "delivery speed",
+
 
                 body:
-"Magentian owned and operated company 'i am a fire hydrant trucking', or MITC has magentian residents confused. why? because suddenly, their packages are getting delivered so fast! \n\n" +
-                    "This is due to the fact that recently a huge truck fleet expansion has been done with the company. 200 new scanias and 400 new drivers employed, woring around the clock to get your packages on time \n\n" +
-                    "along with this, we have news in that they are partnering with global cargo leader 'TNT cargo' and 'fedex' to start delivering packages by air and truck faster! \n\n" +
-                    "this means that YOUR packages might come sooner than later when ordering from amazon, as now they are also using 'i am a fire hydrant trucking'"
+
+                    "Magentian owned and operated company " +
+                    "'i am a fire hydrant trucking', or MITC has " +
+                    "magentian residents confused. why? because " +
+                    "suddenly, their packages are getting delivered " +
+                    "so fast! \n\n" +
+
+                    "This is due to the fact that recently a huge " +
+                    "truck fleet expansion has been done with the " +
+                    "company. 200 new scanias and 400 new drivers " +
+                    "employed, woring around the clock to get your " +
+                    "packages on time \n\n" +
+
+                    "along with this, we have news in that they are " +
+                    "partnering with global cargo leader 'TNT cargo' " +
+                    "and 'fedex' to start delivering packages by air " +
+                    "and truck faster! \n\n" +
+
+                    "this means that YOUR packages might come sooner " +
+                    "than later when ordering from amazon, as now " +
+                    "they are also using 'i am a fire hydrant " +
+                    "trucking'"
 
             },
 
 
             {
 
+
                 title:
                     "Article Two",
+
 
                 date:
                     "September 2026",
 
+
                 preview:
                     "A short preview of the second article.",
+
 
                 body:
                     "Write the full second article here."
@@ -1386,14 +2471,18 @@
 
             {
 
+
                 title:
                     "Article Three",
+
 
                 date:
                     "September 2026",
 
+
                 preview:
                     "A short preview of the third article.",
+
 
                 body:
                     "Write the full third article here."
@@ -1403,19 +2492,24 @@
 
             {
 
+
                 title:
                     "Article Four",
+
 
                 date:
                     "September 2026",
 
+
                 preview:
                     "A short preview of the fourth article.",
+
 
                 body:
                     "Write the full fourth article here."
 
             }
+
 
         ];
 
@@ -1426,8 +2520,9 @@
 
 
         /* =========================================================
-           WEEK
+           CURRENT WEEK
            ========================================================= */
+
 
         document.getElementById(
             "weekDisplay"
@@ -1436,8 +2531,9 @@
 
 
         /* =========================================================
-           WEEKLY REPORT
+           WEEKLY MARKET REPORT
            ========================================================= */
+
 
         document.getElementById(
             "reportDate"
@@ -1461,147 +2557,216 @@
            MARKET TABLE
            ========================================================= */
 
+
         const marketTable =
             document.getElementById(
                 "marketTable"
             );
 
 
-        let totalShares = 0;
-        let remainingShares = 0;
+        let totalShares =
+            0;
 
 
-        companies.forEach(company => {
-
-            totalShares +=
-                company.totalShares;
-
-            remainingShares +=
-                company.remainingShares;
+        let remainingShares =
+            0;
 
 
-            const row =
-                document.createElement("tr");
+        companies.forEach(
+            company => {
 
 
-            const percentageChange =
-                (
+                totalShares +=
+                    company.totalShares;
+
+
+                remainingShares +=
+                    company.remainingShares;
+
+
+                const row =
+                    document.createElement(
+                        "tr"
+                    );
+
+
+                const percentageChange =
+
                     (
-                        company.currentPrice -
+
+                        (
+                            company.currentPrice
+                            -
+                            company.previousPrice
+                        )
+
+                        /
+
                         company.previousPrice
+
                     )
-                    /
-                    company.previousPrice
-                )
-                *
-                100;
+
+                    *
+
+                    100;
 
 
-            let arrow = "→";
-
-            let arrowClass = "flat";
-
-            let changeClass = "flat";
+                let arrow =
+                    "→";
 
 
-            if (percentageChange > 0) {
-
-                arrow = "↑";
-                arrowClass = "positive";
-                changeClass = "positive";
-
-            }
+                let arrowClass =
+                    "flat";
 
 
-            if (percentageChange < 0) {
-
-                arrow = "↓";
-                arrowClass = "negative";
-                changeClass = "negative";
-
-            }
+                let changeClass =
+                    "flat";
 
 
-            const formattedPrice =
-                company.currentPrice.toLocaleString(
-                    "en-US",
-                    {
-                        minimumFractionDigits: 2,
-                        maximumFractionDigits: 2
-                    }
-                );
+                if (
+                    percentageChange > 0
+                ) {
+
+                    arrow =
+                        "↑";
+
+                    arrowClass =
+                        "positive";
+
+                    changeClass =
+                        "positive";
+
+                }
 
 
-            const formattedChange =
-                Math.abs(
-                    percentageChange
-                ).toFixed(2)
-                +
-                "%";
+                if (
+                    percentageChange < 0
+                ) {
+
+                    arrow =
+                        "↓";
+
+                    arrowClass =
+                        "negative";
+
+                    changeClass =
+                        "negative";
+
+                }
 
 
-            row.innerHTML = `
+                const formattedPrice =
 
-                <td>
+                    company.currentPrice.toLocaleString(
 
-                    <span class="company-name">
-                        ${company.name}
-                    </span>
+                        "en-US",
 
-                    <span class="ticker">
-                        (${company.ticker})
-                    </span>
+                        {
 
-                </td>
+                            minimumFractionDigits:
+                                2,
+
+                            maximumFractionDigits:
+                                2
+
+                        }
+
+                    );
 
 
-                <td class="price-cell">
+                const formattedChange =
 
-                    $${formattedPrice}
+                    Math.abs(
+                        percentageChange
+                    )
 
-                    <span
-                        class="
-                            price-change
-                            ${changeClass}
-                        "
-                    >
+                    .toFixed(
+                        2
+                    )
+
+                    +
+
+                    "%";
+
+
+                row.innerHTML = `
+
+                    <td>
+
+                        <span class="company-name">
+
+                            ${company.name}
+
+                        </span>
+
+
+                        <span class="ticker">
+
+                            (${company.ticker})
+
+                        </span>
+
+                    </td>
+
+
+                    <td class="price-cell">
+
+                        $${formattedPrice}
+
 
                         <span
                             class="
-                                arrow
-                                ${arrowClass}
+                                price-change
+                                ${changeClass}
                             "
                         >
-                            ${arrow}
+
+                            <span
+                                class="
+                                    arrow
+                                    ${arrowClass}
+                                "
+                            >
+
+                                ${arrow}
+
+                            </span>
+
+
+                            ${formattedChange}
+
                         </span>
 
-                        ${formattedChange}
+                    </td>
 
-                    </span>
-
-                </td>
-
-            `;
+                `;
 
 
-            marketTable.appendChild(row);
+                marketTable.appendChild(
+                    row
+                );
 
-        });
+
+            }
+        );
 
 
         /* =========================================================
            SHARE TOTALS
            ========================================================= */
 
+
         document.getElementById(
             "totalShares"
         ).textContent =
+
             totalShares.toLocaleString();
 
 
         document.getElementById(
             "remainingShares"
         ).textContent =
+
             remainingShares.toLocaleString();
 
 
@@ -1609,100 +2774,129 @@
            SHARE BREAKDOWN
            ========================================================= */
 
+
         const shareBreakdown =
+
             document.getElementById(
                 "shareBreakdown"
             );
 
 
-        companies.forEach(company => {
-
-            const percentageRemaining =
-
-                company.totalShares > 0
-
-                    ?
-
-                (
-                    company.remainingShares /
-                    company.totalShares
-                )
-                * 100
-
-                    :
-
-                0;
+        companies.forEach(
+            company => {
 
 
-            const item =
-                document.createElement("div");
+                const percentageRemaining =
+
+                    company.totalShares > 0
+
+                        ?
+
+                    (
+                        company.remainingShares
+                        /
+                        company.totalShares
+                    )
+
+                    *
+
+                    100
+
+                        :
+
+                    0;
 
 
-            item.className =
-                "share-company";
+                const item =
+                    document.createElement(
+                        "div"
+                    );
 
 
-            item.innerHTML = `
-
-                <div class="share-company-name">
-
-                    <span>
-                        ${company.ticker}
-                    </span>
-
-                    <span>
-                        ${percentageRemaining.toFixed(1)}%
-                    </span>
-
-                </div>
+                item.className =
+                    "share-company";
 
 
-                <div class="share-details">
+                item.innerHTML = `
 
-                    ${company.remainingShares.toLocaleString()}
-                    remaining /
-                    ${company.totalShares.toLocaleString()}
-                    total
+                    <div
+                        class="
+                            share-company-name
+                        "
+                    >
 
-                </div>
+                        <span>
 
-            `;
+                            ${company.ticker}
+
+                        </span>
 
 
-            shareBreakdown.appendChild(item);
+                        <span>
 
-        });
+                            ${percentageRemaining.toFixed(1)}%
+
+                        </span>
+
+                    </div>
+
+
+                    <div class="share-details">
+
+                        ${company.remainingShares.toLocaleString()}
+                        remaining /
+                        ${company.totalShares.toLocaleString()}
+                        total
+
+                    </div>
+
+                `;
+
+
+                shareBreakdown.appendChild(
+                    item
+                );
+
+
+            }
+        );
 
 
         /* =========================================================
            ARTICLES
            ========================================================= */
 
+
         const articleGrid =
+
             document.getElementById(
                 "articleGrid"
             );
 
 
         const modal =
+
             document.getElementById(
                 "articleModal"
             );
 
 
         const modalDate =
+
             document.getElementById(
                 "modalDate"
             );
 
 
         const modalTitle =
+
             document.getElementById(
                 "modalTitle"
             );
 
 
         const modalBody =
+
             document.getElementById(
                 "modalBody"
             );
@@ -1711,6 +2905,7 @@
         articles.forEach(
             (article, index) => {
 
+
                 const card =
                     document.createElement(
                         "div"
@@ -1718,25 +2913,74 @@
 
 
                 card.className =
-                    "article-card";
+
+                    `
+                        article-card
+                        scroll-reveal
+                    `;
+
+
+                /*
+                    Creates a tiny stagger:
+                    article 1 → immediate
+                    article 2 → 70ms later
+                    article 3 → 140ms later
+                    article 4 → 210ms later
+                */
+
+
+                card.style.setProperty(
+
+                    "--reveal-delay",
+
+                    `${index * 70}ms`
+
+                );
 
 
                 card.innerHTML = `
 
-                    <div class="article-number">
+                    <div
+                        class="
+                            article-number
+                        "
+                    >
+
                         ARTICLE ${index + 1}
+
                     </div>
 
-                    <div class="article-title">
+
+                    <div
+                        class="
+                            article-title
+                        "
+                    >
+
                         ${article.title}
+
                     </div>
 
-                    <div class="article-preview">
+
+                    <div
+                        class="
+                            article-preview
+                        "
+                    >
+
                         ${article.preview}
+
                     </div>
 
-                    <div class="read-more">
+
+                    <div
+                        class="
+                            read-more
+                        "
+                    >
+
                         Click to read →
+
                     </div>
 
                 `;
@@ -1746,18 +2990,23 @@
                     "click",
                     () => {
 
+
                         modalDate.textContent =
                             article.date;
+
 
                         modalTitle.textContent =
                             article.title;
 
+
                         modalBody.textContent =
                             article.body;
+
 
                         modal.classList.add(
                             "active"
                         );
+
 
                     }
                 );
@@ -1767,23 +3016,29 @@
                     card
                 );
 
+
             }
         );
 
 
         /* =========================================================
-           CLOSE MODAL
+           ARTICLE MODAL CLOSE
            ========================================================= */
 
+
         document
-            .getElementById("closeModal")
+            .getElementById(
+                "closeModal"
+            )
             .addEventListener(
                 "click",
                 () => {
 
+
                     modal.classList.remove(
                         "active"
                     );
+
 
                 }
             );
@@ -1793,8 +3048,10 @@
             "click",
             event => {
 
+
                 if (
-                    event.target === modal
+                    event.target ===
+                    modal
                 ) {
 
                     modal.classList.remove(
@@ -1802,6 +3059,7 @@
                     );
 
                 }
+
 
             }
         );
@@ -1811,14 +3069,18 @@
            SUNDAY COUNTDOWN
            ========================================================= */
 
+
         function updateCountdown() {
+
 
             const now =
                 new Date();
 
 
             const nextSunday =
-                new Date(now);
+                new Date(
+                    now
+                );
 
 
             nextSunday.setHours(
@@ -1835,7 +3097,9 @@
                     7 -
                     nextSunday.getDay()
                 )
+
                 %
+
                 7;
 
 
@@ -1843,15 +3107,18 @@
                 daysUntilSunday === 0
             ) {
 
-                daysUntilSunday = 7;
+                daysUntilSunday =
+                    7;
 
             }
 
 
             nextSunday.setDate(
+
                 nextSunday.getDate()
                 +
                 daysUntilSunday
+
             );
 
 
@@ -1865,45 +3132,69 @@
             const totalSeconds =
 
                 Math.max(
+
                     0,
+
                     Math.floor(
-                        difference /
+
+                        difference
+                        /
                         1000
+
                     )
+
                 );
 
 
             const days =
+
                 Math.floor(
-                    totalSeconds /
+
+                    totalSeconds
+                    /
                     86400
+
                 );
 
 
             const hours =
+
                 Math.floor(
+
                     (
-                        totalSeconds %
+
+                        totalSeconds
+                        %
                         86400
+
                     )
                     /
                     3600
+
                 );
 
 
             const minutes =
+
                 Math.floor(
+
                     (
-                        totalSeconds %
+
+                        totalSeconds
+                        %
                         3600
+
                     )
                     /
                     60
+
                 );
 
 
             const seconds =
-                totalSeconds %
+
+                totalSeconds
+                %
                 60;
 
 
@@ -1916,6 +3207,7 @@
                 `${minutes}m ` +
                 `${seconds}s`;
 
+
         }
 
 
@@ -1925,6 +3217,260 @@
         setInterval(
             updateCountdown,
             1000
+        );
+
+
+        /* =========================================================
+           ⭐ SCROLL DIRECTION + REVEAL ENGINE ⭐
+           ========================================================= */
+
+
+        let lastScrollY =
+            window.scrollY;
+
+
+        let scrollDirection =
+            "down";
+
+
+        let ticking =
+            false;
+
+
+        /*
+            Track whether the user is moving:
+
+            down
+            or
+            up
+        */
+
+
+        window.addEventListener(
+
+            "scroll",
+
+            () => {
+
+
+                if (
+                    !ticking
+                ) {
+
+
+                    window.requestAnimationFrame(
+                        () => {
+
+
+                            const currentScrollY =
+                                window.scrollY;
+
+
+                            if (
+                                currentScrollY >
+                                lastScrollY
+                            ) {
+
+                                scrollDirection =
+                                    "down";
+
+                            }
+
+
+                            else if (
+                                currentScrollY <
+                                lastScrollY
+                            ) {
+
+                                scrollDirection =
+                                    "up";
+
+                            }
+
+
+                            lastScrollY =
+                                currentScrollY;
+
+
+                            ticking =
+                                false;
+
+
+                        }
+                    );
+
+
+                    ticking =
+                        true;
+
+
+                }
+
+
+            },
+
+            {
+                passive:
+                    true
+            }
+
+        );
+
+
+        /* =========================================================
+           INTERSECTION OBSERVER
+           ========================================================= */
+
+
+        const revealElements =
+
+            document.querySelectorAll(
+                ".scroll-reveal"
+            );
+
+
+        /*
+            Elements become visible when they enter
+            the central portion of the viewport.
+
+            This makes the animation feel more deliberate
+            than triggering the instant a single pixel appears.
+        */
+
+
+        const revealObserver =
+
+            new IntersectionObserver(
+
+                entries => {
+
+
+                    entries.forEach(
+                        entry => {
+
+
+                            const element =
+                                entry.target;
+
+
+                            if (
+                                entry.isIntersecting
+                            ) {
+
+
+                                /*
+                                    ENTERING VIEW
+
+                                    Remove whichever exit
+                                    direction was previously used.
+                                */
+
+
+                                element.classList.remove(
+                                    "exit-up"
+                                );
+
+
+                                element.classList.remove(
+                                    "exit-down"
+                                );
+
+
+                                element.classList.add(
+                                    "revealed"
+                                );
+
+
+                            }
+
+
+                            else {
+
+
+                                /*
+                                    LEAVING VIEW
+
+                                    Choose the exit direction
+                                    based on how the user is scrolling.
+                                */
+
+
+                                element.classList.remove(
+                                    "revealed"
+                                );
+
+
+                                element.classList.remove(
+                                    "exit-up"
+                                );
+
+
+                                element.classList.remove(
+                                    "exit-down"
+                                );
+
+
+                                if (
+                                    scrollDirection ===
+                                    "down"
+                                ) {
+
+
+                                    element.classList.add(
+                                        "exit-up"
+                                    );
+
+
+                                }
+
+
+                                else {
+
+
+                                    element.classList.add(
+                                        "exit-down"
+                                    );
+
+
+                                }
+
+
+                            }
+
+
+                        }
+                    );
+
+
+                },
+
+
+                {
+
+                    threshold:
+                        0.08,
+
+                    rootMargin:
+                        "-8% 0px -8% 0px"
+
+                }
+
+            );
+
+
+        /* =========================================================
+           START OBSERVING
+           ========================================================= */
+
+
+        revealElements.forEach(
+            element => {
+
+                revealObserver.observe(
+                    element
+                );
+
+            }
         );
 
 
