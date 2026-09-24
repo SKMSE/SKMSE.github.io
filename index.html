@@ -7,6 +7,12 @@
     <title>Sky Kingdom Stock Exchange</title>
 
     <style>
+        /* =========================================================
+           SKY KINGDOM STOCK EXCHANGE
+           Theme: Orange + Black
+           Font: Segoe Print
+           ========================================================= */
+
         * {
             box-sizing: border-box;
             margin: 0;
@@ -14,111 +20,87 @@
         }
 
         body {
-            font-family: Arial, Helvetica, sans-serif;
-            background: #0b0f14;
-            color: #f1f5f9;
+            font-family: "Segoe Print", "Segoe Print", cursive;
+            background: #080808;
+            color: #f2f2f2;
             line-height: 1.5;
         }
 
-        header {
-            background: #111827;
-            border-bottom: 1px solid #263244;
-            padding: 20px 35px;
-        }
-
-        .header-container {
+        .page {
             max-width: 1200px;
-            margin: auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 20px;
+            margin: 0 auto;
+            padding: 45px 24px 70px;
         }
 
-        .logo {
+        /* =========================================================
+           HEADER
+           ========================================================= */
+
+        .main-header {
+            margin-bottom: 35px;
+        }
+
+        .main-header h1 {
+            font-size: clamp(2rem, 5vw, 3.3rem);
+            color: #ff8a00;
+            margin-bottom: 8px;
+        }
+
+        .main-header p {
+            color: #cfcfcf;
+            font-size: 1rem;
+            max-width: 850px;
+        }
+
+        /* =========================================================
+           WEEK BOX
+           ========================================================= */
+
+        .week-box {
+            background: #111111;
+            border: 2px solid #ff8a00;
+            border-radius: 16px;
+            padding: 22px;
+            margin-bottom: 42px;
+        }
+
+        .week-title {
+            color: #ff8a00;
             font-size: 1.5rem;
-            font-weight: bold;
+            margin-bottom: 5px;
         }
 
-        .subtitle {
-            color: #94a3b8;
-            font-size: 0.9rem;
+        .countdown {
+            font-size: 1rem;
+            color: #ffffff;
         }
 
-        .market-status {
-            font-size: 0.9rem;
-            color: #22c55e;
+        .countdown strong {
+            color: #ff8a00;
         }
 
-        main {
-            max-width: 1200px;
-            margin: 35px auto;
-            padding: 0 20px;
-        }
-
-        .hero {
-            margin-bottom: 30px;
-        }
-
-        .hero h1 {
-            font-size: 2.3rem;
-            margin-bottom: 8px;
-        }
-
-        .hero p {
-            color: #94a3b8;
-        }
-
-        .cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 18px;
-            margin-bottom: 30px;
-        }
-
-        .card {
-            background: #111827;
-            border: 1px solid #263244;
-            border-radius: 12px;
-            padding: 20px;
-        }
-
-        .card-title {
-            color: #94a3b8;
-            font-size: 0.9rem;
-            margin-bottom: 8px;
-        }
-
-        .card-value {
-            font-size: 1.8rem;
-            font-weight: bold;
-        }
-
-        .positive {
-            color: #22c55e;
-        }
-
-        .negative {
-            color: #ef4444;
-        }
-
-        .neutral {
-            color: #facc15;
-        }
+        /* =========================================================
+           SECTION TITLES
+           ========================================================= */
 
         .section {
-            margin-bottom: 30px;
+            margin-bottom: 48px;
         }
 
-        .section h2 {
-            margin-bottom: 15px;
-            font-size: 1.4rem;
+        .section-title {
+            color: #ff8a00;
+            font-size: 1.8rem;
+            margin-bottom: 16px;
         }
 
-        .table-container {
-            background: #111827;
-            border: 1px solid #263244;
-            border-radius: 12px;
+        /* =========================================================
+           MARKET TABLE
+           ========================================================= */
+
+        .market-container {
+            background: #111111;
+            border: 1px solid #2b2b2b;
+            border-radius: 16px;
             overflow-x: auto;
         }
 
@@ -129,14 +111,14 @@
 
         th,
         td {
-            padding: 15px;
+            padding: 18px 20px;
+            border-bottom: 1px solid #292929;
             text-align: left;
-            border-bottom: 1px solid #263244;
         }
 
         th {
-            color: #94a3b8;
-            font-size: 0.85rem;
+            color: #ff8a00;
+            font-size: 0.9rem;
             font-weight: normal;
         }
 
@@ -145,72 +127,222 @@
         }
 
         .company-name {
+            font-size: 1.05rem;
             font-weight: bold;
         }
 
         .ticker {
-            color: #94a3b8;
-            font-size: 0.85rem;
-            margin-left: 6px;
+            color: #888888;
+            margin-left: 8px;
+            font-size: 0.88rem;
         }
 
-        .news-card {
-            background: #111827;
-            border: 1px solid #263244;
-            border-radius: 12px;
-            padding: 20px;
+        .price-cell {
+            font-size: 1.15rem;
+            font-weight: bold;
+            white-space: nowrap;
         }
 
-        .news-date {
-            color: #64748b;
-            font-size: 0.85rem;
+        .price-change {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-left: 10px;
+            font-size: 0.95rem;
+        }
+
+        .arrow-up {
+            color: #22c55e;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        .arrow-down {
+            color: #ef4444;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        .arrow-flat {
+            color: #aaaaaa;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        .change-positive {
+            color: #22c55e;
+        }
+
+        .change-negative {
+            color: #ef4444;
+        }
+
+        .change-flat {
+            color: #aaaaaa;
+        }
+
+        /* =========================================================
+           WEEKLY REPORT
+           ========================================================= */
+
+        .report-card {
+            background: #111111;
+            border: 1px solid #2b2b2b;
+            border-radius: 16px;
+            padding: 25px;
+        }
+
+        .report-date {
+            color: #888888;
+            font-size: 0.9rem;
             margin-bottom: 8px;
         }
 
-        .news-title {
+        .report-title {
+            color: #ff8a00;
+            font-size: 1.4rem;
+            margin-bottom: 12px;
+        }
+
+        .report-text {
+            color: #d7d7d7;
+            font-size: 1rem;
+        }
+
+        /* =========================================================
+           ARTICLE GRID
+           ========================================================= */
+
+        .article-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 18px;
+        }
+
+        .article-card {
+            background: #111111;
+            border: 1px solid #2b2b2b;
+            border-radius: 16px;
+            padding: 22px;
+            transition: 0.2s ease;
+            cursor: pointer;
+        }
+
+        .article-card:hover {
+            border-color: #ff8a00;
+            transform: translateY(-2px);
+        }
+
+        .article-number {
+            color: #ff8a00;
+            font-size: 0.85rem;
+            margin-bottom: 7px;
+        }
+
+        .article-title {
             font-size: 1.2rem;
-            font-weight: bold;
             margin-bottom: 10px;
         }
 
-        .news-body {
-            color: #cbd5e1;
+        .article-preview {
+            color: #a9a9a9;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
         }
 
-        .analysis {
-            margin-top: 18px;
-            padding-top: 18px;
-            border-top: 1px solid #263244;
+        .read-more {
+            color: #ff8a00;
+            font-size: 0.9rem;
         }
 
-        .analysis-row {
+        /* =========================================================
+           ARTICLE POPUP
+           ========================================================= */
+
+        .modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.82);
+            z-index: 1000;
+            padding: 30px;
+            overflow-y: auto;
+        }
+
+        .modal.active {
             display: flex;
-            justify-content: space-between;
-            gap: 15px;
-            margin-bottom: 8px;
+            align-items: center;
+            justify-content: center;
         }
+
+        .modal-content {
+            width: min(800px, 100%);
+            background: #111111;
+            border: 2px solid #ff8a00;
+            border-radius: 18px;
+            padding: 30px;
+            position: relative;
+        }
+
+        .close-button {
+            position: absolute;
+            top: 12px;
+            right: 16px;
+            background: none;
+            border: none;
+            color: #ff8a00;
+            font-size: 1.8rem;
+            cursor: pointer;
+            font-family: Arial, sans-serif;
+        }
+
+        .modal-date {
+            color: #888888;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+        }
+
+        .modal-title {
+            color: #ff8a00;
+            font-size: 1.7rem;
+            margin-bottom: 20px;
+        }
+
+        .modal-body {
+            color: #dddddd;
+            white-space: pre-line;
+            font-size: 1rem;
+        }
+
+        /* =========================================================
+           FOOTER
+           ========================================================= */
 
         footer {
-            text-align: center;
-            padding: 30px;
-            color: #64748b;
-            border-top: 1px solid #263244;
             margin-top: 50px;
+            padding-top: 25px;
+            border-top: 1px solid #222222;
+            color: #666666;
+            text-align: center;
+            font-size: 0.85rem;
         }
 
-        @media (max-width: 600px) {
-            .header-container {
-                flex-direction: column;
-                align-items: flex-start;
-            }
+        /* =========================================================
+           MOBILE
+           ========================================================= */
 
-            .hero h1 {
-                font-size: 1.8rem;
+        @media (max-width: 650px) {
+            .page {
+                padding: 30px 15px 50px;
             }
 
             th,
             td {
-                padding: 10px;
+                padding: 14px 12px;
+            }
+
+            .price-change {
+                margin-left: 5px;
             }
         }
     </style>
@@ -218,244 +350,556 @@
 
 <body>
 
-    <header>
-        <div class="header-container">
-            <div>
-                <div class="logo">Sky Kingdom Stock Exchange</div>
-                <div class="subtitle">A Magentian economic simulation</div>
-            </div>
+    <div class="page">
 
-            <div class="market-status">
-                ● MARKET OPEN
-            </div>
-        </div>
-    </header>
+        <!-- =====================================================
+             MAIN HEADER
+             ===================================================== -->
 
-    <main>
+        <header class="main-header">
+            <h1>Sky Kingdom Stock Exchange</h1>
 
-        <section class="hero">
-            <h1>Magentian Markets</h1>
             <p>
-                Weekly market information, government-owned enterprises,
-                and economic developments.
+                Official Magentian Stock Exchange. Owned and operated
+                under Sky Kingdom Enterprises.
             </p>
-        </section>
+        </header>
 
-        <!-- MARKET SUMMARY -->
 
-        <section class="cards">
+        <!-- =====================================================
+             WEEK BOX
+             ===================================================== -->
 
-            <div class="card">
-                <div class="card-title">Magentian General Index</div>
-                <div class="card-value positive">108.00</div>
-                <div class="positive">+8.00% this week</div>
+        <section class="week-box">
+
+            <div class="week-title" id="weekDisplay">
+                Week One
             </div>
 
-            <div class="card">
-                <div class="card-title">Operational Budget</div>
-                <div class="card-value">$30.48T</div>
-                <div class="positive">+1.60% market effect</div>
-            </div>
-
-            <div class="card">
-                <div class="card-title">Treasury Inflow</div>
-                <div class="card-value">$127.68T</div>
-                <div class="positive">+6.40% market effect</div>
-            </div>
-
-            <div class="card">
-                <div class="card-title">Last Market Update</div>
-                <div class="card-value">Week 1</div>
-                <div class="neutral">Weekly refresh</div>
+            <div class="countdown">
+                Market refreshes every Sunday.
+                <strong id="countdownDisplay">Calculating...</strong>
             </div>
 
         </section>
 
-        <!-- STOCK TABLE -->
+
+        <!-- =====================================================
+             MARKET
+             ===================================================== -->
 
         <section class="section">
-            <h2>Markets</h2>
 
-            <div class="table-container">
+            <h2 class="section-title">Market</h2>
+
+            <div class="market-container">
 
                 <table>
 
                     <thead>
                         <tr>
                             <th>Company</th>
-                            <th>Price</th>
-                            <th>Weekly Change</th>
-                            <th>Government Ownership</th>
+                            <th>Stock Price</th>
                         </tr>
                     </thead>
 
-                    <tbody>
-
-                        <tr>
-                            <td>
-                                <span class="company-name">
-                                    I Am A Fire Hydrant Avionics
-                                </span>
-                                <span class="ticker">(MIAC)</span>
-                            </td>
-
-                            <td>$108.00</td>
-
-                            <td class="positive">+8.00%</td>
-
-                            <td>Government Owned</td>
-                        </tr>
-
-                        <tr>
-                            <td>
-                                <span class="company-name">
-                                    I Am A Fire Hydrant Trucks
-                                </span>
-                                <span class="ticker">(MITC)</span>
-                            </td>
-
-                            <td>$96.50</td>
-
-                            <td class="negative">-3.50%</td>
-
-                            <td>Government Owned</td>
-                        </tr>
-
-                        <tr>
-                            <td>
-                                <span class="company-name">
-                                    Sky Kingdom Infrastructure
-                                </span>
-                                <span class="ticker">(SKI)</span>
-                            </td>
-
-                            <td>$104.20</td>
-
-                            <td class="positive">+4.20%</td>
-
-                            <td>Government Owned</td>
-                        </tr>
-
-                        <tr>
-                            <td>
-                                <span class="company-name">
-                                    Microsoft
-                                </span>
-                                <span class="ticker">(MSFT)</span>
-                            </td>
-
-                            <td>$101.40</td>
-
-                            <td class="positive">+1.40%</td>
-
-                            <td>Private</td>
-                        </tr>
-
-                        <tr>
-                            <td>
-                                <span class="company-name">
-                                    TSMC
-                                </span>
-                                <span class="ticker">(TSMC)</span>
-                            </td>
-
-                            <td>$99.10</td>
-
-                            <td class="negative">-0.90%</td>
-
-                            <td>Private</td>
-                        </tr>
-
+                    <tbody id="marketTable">
+                        <!-- JavaScript inserts companies here -->
                     </tbody>
 
                 </table>
 
             </div>
+
         </section>
 
-        <!-- WEEKLY NEWS -->
+
+        <!-- =====================================================
+             WEEKLY MARKET REPORT
+             ===================================================== -->
 
         <section class="section">
 
-            <h2>Weekly Market Report</h2>
+            <h2 class="section-title">Weekly Market Report</h2>
 
-            <div class="news-card">
+            <div class="report-card">
 
-                <div class="news-date">
-                    September 2026 — Week 1
+                <div class="report-date" id="reportDate">
+                    September 2026 — Week One
                 </div>
 
-                <div class="news-title">
-                    Magentian economic activity continues to expand
+                <div class="report-title" id="reportTitle">
+                    Magentian Market Report
                 </div>
 
-                <div class="news-body">
-                    Magenta reported continued growth in commercial activity,
-                    infrastructure development, and international trade.
-                    Government-owned companies also reported stronger
-                    expectations for the upcoming period.
-                </div>
-
-                <div class="analysis">
-
-                    <div class="analysis-row">
-                        <strong>Analyst Consensus</strong>
-                        <span class="positive">POSITIVE</span>
-                    </div>
-
-                    <div class="analysis-row">
-                        <strong>Market Impact</strong>
-                        <span>Moderate</span>
-                    </div>
-
-                    <div class="analysis-row">
-                        <strong>Source Credibility</strong>
-                        <span>High</span>
-                    </div>
-
+                <div class="report-text" id="reportText">
+                    This week's market summary goes here.
                 </div>
 
             </div>
 
         </section>
 
-        <!-- TREASURY -->
+
+        <!-- =====================================================
+             ARTICLES
+             ===================================================== -->
 
         <section class="section">
 
-            <h2>Treasury Overview</h2>
+            <h2 class="section-title">Articles</h2>
 
-            <div class="cards">
-
-                <div class="card">
-                    <div class="card-title">Treasury Balance</div>
-                    <div class="card-value">$1,000T</div>
-                </div>
-
-                <div class="card">
-                    <div class="card-title">Weekly Company Revenue</div>
-                    <div class="card-value">$150T</div>
-                </div>
-
-                <div class="card">
-                    <div class="card-title">Treasury Allocation</div>
-                    <div class="card-value">80%</div>
-                </div>
-
-                <div class="card">
-                    <div class="card-title">Operational Allocation</div>
-                    <div class="card-value">20%</div>
-                </div>
-
+            <div class="article-grid" id="articleGrid">
+                <!-- JavaScript inserts articles here -->
             </div>
 
         </section>
 
-    </main>
 
-    <footer>
-        Sky Kingdom Stock Exchange · Magentian Simulation · Fictional Market
-    </footer>
+        <footer>
+            Sky Kingdom Stock Exchange · Magentian Simulation
+        </footer>
+
+    </div>
+
+
+    <!-- =========================================================
+         ARTICLE MODAL
+         ========================================================= -->
+
+    <div class="modal" id="articleModal">
+
+        <div class="modal-content">
+
+            <button class="close-button" id="closeModal">
+                ×
+            </button>
+
+            <div class="modal-date" id="modalDate"></div>
+
+            <div class="modal-title" id="modalTitle"></div>
+
+            <div class="modal-body" id="modalBody"></div>
+
+        </div>
+
+    </div>
+
+
+    <script>
+
+        /* =========================================================
+           ⭐⭐ EDIT THIS SECTION ⭐⭐
+
+           This is the main area you will change every week.
+
+           You do NOT need to touch the HTML or CSS below this
+           section unless you want to redesign the website.
+           ========================================================= */
+
+
+        /* ---------------------------------------------------------
+           WEEK
+           --------------------------------------------------------- */
+
+        const currentWeek = "Week One";
+
+
+        /* ---------------------------------------------------------
+           MARKET DATA
+
+           Change ONLY:
+
+           currentPrice
+           previousPrice
+
+           The website automatically calculates:
+           ↑ / ↓
+           percentage change
+           green / red text
+
+           Example:
+
+           previousPrice: 100
+           currentPrice: 108
+
+           becomes:
+
+           ↑ +8.00%
+           --------------------------------------------------------- */
+
+        const companies = [
+
+            {
+                name: "I Am A Fire Hydrant Avionics",
+                ticker: "MIAC",
+                currentPrice: 108.00,
+                previousPrice: 100.00
+            },
+
+            {
+                name: "I Am A Fire Hydrant Trucking",
+                ticker: "MITC",
+                currentPrice: 96.50,
+                previousPrice: 100.00
+            },
+
+            {
+                name: "Sky Kingdom Industries",
+                ticker: "SKI",
+                currentPrice: 104.20,
+                previousPrice: 100.00
+            },
+
+            {
+                name: "Sky Kingdom Enterprises",
+                ticker: "SKE",
+                currentPrice: 101.25,
+                previousPrice: 100.00
+            },
+
+            {
+                name: "Taiwanese Semi Conductor Manufactoring Company",
+                ticker: "TSMC",
+                currentPrice: 99.10,
+                previousPrice: 100.00
+            }
+
+        ];
+
+
+        /* ---------------------------------------------------------
+           WEEKLY MARKET REPORT
+
+           Change these three things every week.
+           --------------------------------------------------------- */
+
+        const weeklyReport = {
+
+            date: "September 2026 — Week One",
+
+            title: "Magentian Market Report",
+
+            summary:
+                "This week's market summary goes here. " +
+                "Write a short summary of the events that affected " +
+                "the Magentian market this week."
+
+        };
+
+
+        /* ---------------------------------------------------------
+           ARTICLES
+
+           EXACTLY FOUR ARTICLES.
+
+           To add/change an article, edit:
+
+           title
+           date
+           preview
+           body
+
+           Do not remove the four objects unless you want to
+           change the number of articles.
+           --------------------------------------------------------- */
+
+        const articles = [
+
+            {
+                title: "Article One",
+
+                date: "September 2026",
+
+                preview:
+                    "A short preview of the first article.",
+
+                body:
+                    "Write the full first article here.\n\n" +
+                    "You can make this as long as you want.\n\n" +
+                    "Line breaks will be preserved."
+            },
+
+            {
+                title: "Article Two",
+
+                date: "September 2026",
+
+                preview:
+                    "A short preview of the second article.",
+
+                body:
+                    "Write the full second article here."
+            },
+
+            {
+                title: "Article Three",
+
+                date: "September 2026",
+
+                preview:
+                    "A short preview of the third article.",
+
+                body:
+                    "Write the full third article here."
+            },
+
+            {
+                title: "Article Four",
+
+                date: "September 2026",
+
+                preview:
+                    "A short preview of the fourth article.",
+
+                body:
+                    "Write the full fourth article here."
+            }
+
+        ];
+
+
+        /* =========================================================
+           DO NOT EDIT BELOW THIS LINE UNLESS YOU WANT TO CHANGE
+           HOW THE WEBSITE WORKS.
+           ========================================================= */
+
+
+        document.getElementById("weekDisplay").textContent = currentWeek;
+
+        document.getElementById("reportDate").textContent =
+            weeklyReport.date;
+
+        document.getElementById("reportTitle").textContent =
+            weeklyReport.title;
+
+        document.getElementById("reportText").textContent =
+            weeklyReport.summary;
+
+
+        /* =========================================================
+           MARKET TABLE
+           ========================================================= */
+
+        const marketTable = document.getElementById("marketTable");
+
+        companies.forEach(company => {
+
+            const row = document.createElement("tr");
+
+            const percentageChange =
+                ((company.currentPrice - company.previousPrice) /
+                company.previousPrice) * 100;
+
+            let arrow = "→";
+            let arrowClass = "arrow-flat";
+            let changeClass = "change-flat";
+
+            if (percentageChange > 0) {
+                arrow = "↑";
+                arrowClass = "arrow-up";
+                changeClass = "change-positive";
+            }
+
+            if (percentageChange < 0) {
+                arrow = "↓";
+                arrowClass = "arrow-down";
+                changeClass = "change-negative";
+            }
+
+            const formattedPrice =
+                company.currentPrice.toLocaleString(
+                    "en-US",
+                    {
+                        minimumFractionDigits: 2,
+                        maximumFractionDigits: 2
+                    }
+                );
+
+            const formattedChange =
+                Math.abs(percentageChange).toFixed(2) + "%";
+
+            row.innerHTML = `
+
+                <td>
+                    <span class="company-name">
+                        ${company.name}
+                    </span>
+
+                    <span class="ticker">
+                        (${company.ticker})
+                    </span>
+                </td>
+
+                <td class="price-cell">
+
+                    $${formattedPrice}
+
+                    <span class="price-change ${changeClass}">
+
+                        <span class="${arrowClass}">
+                            ${arrow}
+                        </span>
+
+                        ${formattedChange}
+
+                    </span>
+
+                </td>
+            `;
+
+            marketTable.appendChild(row);
+
+        });
+
+
+        /* =========================================================
+           ARTICLES
+           ========================================================= */
+
+        const articleGrid =
+            document.getElementById("articleGrid");
+
+        const modal =
+            document.getElementById("articleModal");
+
+        const modalDate =
+            document.getElementById("modalDate");
+
+        const modalTitle =
+            document.getElementById("modalTitle");
+
+        const modalBody =
+            document.getElementById("modalBody");
+
+        articles.forEach((article, index) => {
+
+            const card = document.createElement("div");
+
+            card.className = "article-card";
+
+            card.innerHTML = `
+
+                <div class="article-number">
+                    ARTICLE ${index + 1}
+                </div>
+
+                <div class="article-title">
+                    ${article.title}
+                </div>
+
+                <div class="article-preview">
+                    ${article.preview}
+                </div>
+
+                <div class="read-more">
+                    Click to read →
+                </div>
+
+            `;
+
+            card.addEventListener("click", () => {
+
+                modalDate.textContent = article.date;
+
+                modalTitle.textContent = article.title;
+
+                modalBody.textContent = article.body;
+
+                modal.classList.add("active");
+
+            });
+
+            articleGrid.appendChild(card);
+
+        });
+
+
+        /* =========================================================
+           CLOSE ARTICLE MODAL
+           ========================================================= */
+
+        document
+            .getElementById("closeModal")
+            .addEventListener("click", () => {
+
+                modal.classList.remove("active");
+
+            });
+
+
+        modal.addEventListener("click", event => {
+
+            if (event.target === modal) {
+                modal.classList.remove("active");
+            }
+
+        });
+
+
+        /* =========================================================
+           COUNTDOWN TO NEXT SUNDAY
+           ========================================================= */
+
+        function updateCountdown() {
+
+            const now = new Date();
+
+            const nextSunday = new Date(now);
+
+            nextSunday.setHours(0, 0, 0, 0);
+
+            let daysUntilSunday =
+                (7 - nextSunday.getDay()) % 7;
+
+            if (daysUntilSunday === 0) {
+                daysUntilSunday = 7;
+            }
+
+            nextSunday.setDate(
+                nextSunday.getDate() + daysUntilSunday
+            );
+
+            const difference =
+                nextSunday.getTime() - now.getTime();
+
+            const totalSeconds =
+                Math.max(
+                    0,
+                    Math.floor(difference / 1000)
+                );
+
+            const days =
+                Math.floor(totalSeconds / 86400);
+
+            const hours =
+                Math.floor(
+                    (totalSeconds % 86400) / 3600
+                );
+
+            const minutes =
+                Math.floor(
+                    (totalSeconds % 3600) / 60
+                );
+
+            const seconds =
+                totalSeconds % 60;
+
+            document.getElementById(
+                "countdownDisplay"
+            ).textContent =
+                `${days}d ${hours}h ${minutes}m ${seconds}s`;
+
+        }
+
+        updateCountdown();
+
+        setInterval(
+            updateCountdown,
+            1000
+        );
+
+    </script>
 
 </body>
 </html>
