@@ -1,2582 +1,2307 @@
+```html
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-```
-<title>Sky Kingdom Stock Exchange</title>
+    <title>Sky Kingdom Stock Exchange</title>
 
-<!-- Google Fonts - Chewy -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Chewy -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Chewy&display=swap" rel="stylesheet">
 
-<link
-    href="https://fonts.googleapis.com/css2?family=Chewy&display=swap"
-    rel="stylesheet"
->
+    <style>
 
-<style>
+        /* =========================================================
+           ROOT
+           ========================================================= */
 
-    /* =========================================================
-       SKY KINGDOM STOCK EXCHANGE
-       Orange + Black
-       Chewy font
-       ========================================================= */
+        :root {
+            --orange: #ff8a00;
+            --orange-light: #ff9d2e;
 
-    :root {
-        --orange: #ff8a00;
-        --orange-light: #ffad42;
-        --orange-dark: #d96f00;
+            --background: #080808;
+            --panel: #111111;
+            --panel-light: #171717;
 
-        --black: #070707;
-        --panel: #101010;
-        --panel-light: #151515;
+            --border: rgba(255, 255, 255, 0.08);
+            --border-strong: rgba(255, 138, 0, 0.25);
 
-        --border: rgba(255, 138, 0, 0.18);
-        --border-strong: rgba(255, 138, 0, 0.45);
-
-        --text: #f5f5f5;
-        --muted: #9b9b9b;
-
-        --green: #32d583;
-        --red: #ff5757;
-        --gray: #aaa;
-    }
-
-
-    /* =========================================================
-       GLOBAL
-       ========================================================= */
-
-    * {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-    }
-
-    html {
-        scroll-behavior: smooth;
-    }
-
-    body {
-    font-family: "Segoe Print", cursive;
-
-}
-
-        background:
-            radial-gradient(
-                circle at 20% 0%,
-                rgba(255, 138, 0, 0.08),
-                transparent 30%
-            ),
-            radial-gradient(
-                circle at 80% 20%,
-                rgba(255, 138, 0, 0.05),
-                transparent 25%
-            ),
-            var(--black);
-
-        color: var(--text);
-        line-height: 1.5;
-        min-height: 100vh;
-
-        animation: pageFadeIn 0.8s ease;
-    }
-
-    ::selection {
-        background: var(--orange);
-        color: black;
-    }
-
-
-    /* =========================================================
-       MAIN PAGE
-       ========================================================= */
-
-    .page {
-        width: min(1250px, 100%);
-        margin: auto;
-        padding: 55px 25px 80px;
-    }
-
-
-    /* =========================================================
-       HEADER
-       ========================================================= */
-.main-header h1,
-.section-title,
-.week-title,
-.shares-heading,
-.report-title,
-.article-company,
-.article-title,
-.carousel-arrow {
-    font-family: "Chewy", cursive;
-}
-    .main-header {
-        margin-bottom: 38px;
-
-        animation:
-            slideDown 0.8s ease,
-            softFloat 6s ease-in-out infinite;
-    }
-
-    .main-header h1 {
-        font-size: clamp(2.3rem, 6vw, 4rem);
-        color: var(--orange);
-        line-height: 1.05;
-        margin-bottom: 10px;
-
-        text-shadow:
-            0 0 25px rgba(255, 138, 0, 0.18);
-    }
-
-    .main-header p {
-        color: #d1d1d1;
-        font-size: 1rem;
-        max-width: 850px;
-    }
-
-
-    /* =========================================================
-       SECTION TITLE
-       ========================================================= */
-
-    .section-title {
-        position: relative;
-
-        color: var(--orange);
-        font-size: 2rem;
-
-        margin-bottom: 18px;
-
-        display: inline-block;
-    }
-
-    .section-title::after {
-        content: "";
-
-        position: absolute;
-        left: 0;
-        bottom: -4px;
-
-        width: 45%;
-        height: 3px;
-
-        background: var(--orange);
-        border-radius: 5px;
-
-        animation: titleLine 3s ease-in-out infinite;
-    }
-
-
-    /* =========================================================
-       WEEK BOX
-       ========================================================= */
-
-    .week-box {
-        position: relative;
-
-        background:
-            linear-gradient(
-                135deg,
-                rgba(255, 138, 0, 0.12),
-                rgba(255, 138, 0, 0.025)
-            ),
-            var(--panel);
-
-        border: 1px solid var(--border-strong);
-        border-radius: 20px;
-
-        padding: 24px 26px;
-
-        margin-bottom: 50px;
-
-        overflow: hidden;
-
-        animation:
-            slideUp 0.8s ease 0.1s both;
-    }
-
-    .week-box::before {
-        content: "";
-
-        position: absolute;
-
-        width: 250px;
-        height: 250px;
-
-        right: -100px;
-        top: -150px;
-
-        background: var(--orange);
-
-        opacity: 0.06;
-
-        border-radius: 50%;
-
-        animation: orbitGlow 8s ease-in-out infinite;
-    }
-
-    .week-title {
-        color: var(--orange);
-        font-size: 1.7rem;
-        margin-bottom: 4px;
-    }
-
-    .countdown {
-        color: #d0d0d0;
-        font-size: 1rem;
-    }
-
-    .countdown strong {
-        color: var(--orange);
-    }
-
-
-    /* =========================================================
-       SECTION SPACING
-       ========================================================= */
-
-    .section {
-        margin-bottom: 55px;
-
-        animation:
-            slideUp 0.8s ease both;
-    }
-
-
-    /* =========================================================
-       MARKET LAYOUT
-       ========================================================= */
-
-    .market-layout {
-        display: grid;
-
-        grid-template-columns:
-            minmax(0, 1.8fr)
-            minmax(260px, 0.8fr);
-
-        gap: 20px;
-
-        align-items: start;
-    }
-
-
-    /* =========================================================
-       PANELS
-       ========================================================= */
-
-    .panel {
-        background:
-            linear-gradient(
-                145deg,
-                rgba(255, 255, 255, 0.018),
-                rgba(255, 255, 255, 0)
-            ),
-            var(--panel);
-
-        border: 1px solid var(--border);
-
-        border-radius: 18px;
-
-        overflow: hidden;
-
-        box-shadow:
-            0 15px 40px rgba(0, 0, 0, 0.18);
-
-        transition:
-            transform 0.25s ease,
-            border-color 0.25s ease,
-            box-shadow 0.25s ease;
-    }
-
-    .panel:hover {
-        border-color: rgba(255, 138, 0, 0.32);
-
-        box-shadow:
-            0 20px 55px rgba(0, 0, 0, 0.28);
-    }
-
-
-    /* =========================================================
-       MARKET TABLE
-       ========================================================= */
-
-    .market-container {
-        overflow-x: auto;
-    }
-
-    table {
-        width: 100%;
-        border-collapse: collapse;
-    }
-
-    th,
-    td {
-        padding: 19px 20px;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-
-        text-align: left;
-        white-space: nowrap;
-    }
-
-    th {
-        color: var(--orange);
-        font-size: 0.95rem;
-
-        background:
-            rgba(255, 138, 0, 0.035);
-    }
-
-    tr:last-child td {
-        border-bottom: none;
-    }
-
-    tbody tr {
-        transition:
-            background 0.2s ease,
-            transform 0.2s ease;
-    }
-
-    tbody tr:hover {
-        background: rgba(255, 138, 0, 0.045);
-
-        transform:
-            translateX(3px);
-    }
-
-    .company-name {
-        font-size: 1.1rem;
-    }
-
-    .ticker {
-        color: var(--muted);
-        margin-left: 8px;
-        font-size: 0.85rem;
-    }
-
-    .price-cell {
-        font-size: 1.15rem;
-        font-weight: bold;
-    }
-
-    .price-change {
-        display: inline-flex;
-        align-items: center;
-
-        gap: 7px;
-
-        margin-left: 10px;
-
-        font-size: 0.95rem;
-    }
-
-    .arrow {
-        font-size: 1.2rem;
-        line-height: 1;
-    }
-
-    .positive {
-        color: var(--green);
-    }
-
-    .negative {
-        color: var(--red);
-    }
-
-    .flat {
-        color: var(--gray);
-    }
-
-
-    /* =========================================================
-       SHARES PANEL
-       ========================================================= */
-
-    .shares-panel {
-        padding: 22px;
-    }
-
-    .shares-heading {
-        color: var(--orange);
-        font-size: 1.4rem;
-        margin-bottom: 18px;
-    }
-
-    .share-summary {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 10px;
-
-        margin-bottom: 22px;
-    }
-
-    .share-total {
-        background: var(--panel-light);
-
-        border:
-            1px solid
-            rgba(255, 138, 0, 0.14);
-
-        border-radius: 13px;
-
-        padding: 15px;
-    }
-
-    .share-label {
-        display: block;
-
-        color: var(--muted);
-        font-size: 0.8rem;
-
-        margin-bottom: 5px;
-    }
-
-    .share-number {
-        color: var(--text);
-        font-size: 1.35rem;
-    }
-
-    .share-company {
-        padding: 13px 0;
-
-        border-top:
-            1px solid
-            rgba(255, 255, 255, 0.06);
-    }
-
-    .share-company:first-of-type {
-        border-top: none;
-    }
-
-    .share-company-name {
-        display: flex;
-
-        justify-content: space-between;
-        gap: 10px;
-
-        margin-bottom: 5px;
-    }
-
-    .share-company-name span:last-child {
-        color: var(--orange);
-    }
-
-    .share-details {
-        color: var(--muted);
-        font-size: 0.8rem;
-    }
-
-
-    /* =========================================================
-       WEEKLY REPORT
-       ========================================================= */
-
-    .report-card {
-        padding: 28px;
-    }
-
-    .report-date {
-        color: var(--muted);
-        font-size: 0.85rem;
-
-        margin-bottom: 6px;
-    }
-
-    .report-title {
-        color: var(--orange);
-
-        font-size: 1.55rem;
-
-        margin-bottom: 12px;
-    }
-
-    .report-text {
-        color: #d4d4d4;
-        font-size: 1rem;
-    }
-
-
-    /* =========================================================
-       ARTICLE CAROUSEL
-       ========================================================= */
-
-    .article-carousel {
-        position: relative;
-
-        width: 100%;
-        height: 390px;
-
-        margin: 15px auto 0;
-
-        overflow: hidden;
-
-        display: flex;
-        align-items: center;
-        justify-content: center;
-
-        perspective: 1200px;
-    }
-
-    .article-track {
-        position: relative;
-
-        width: 100%;
-        height: 100%;
-
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .article-slide {
-        position: absolute;
-
-        width: min(540px, 62%);
-        min-height: 290px;
-
-        padding: 28px;
-
-        background:
-            linear-gradient(
-                145deg,
-                rgba(255, 138, 0, 0.035),
-                rgba(255, 138, 0, 0)
-            ),
-            var(--panel);
-
-        border:
-            1px solid
-            var(--border);
-
-        border-radius: 18px;
-
-        box-shadow:
-            0 15px 40px rgba(0, 0, 0, 0.18);
-
-        box-sizing: border-box;
-
-        cursor: pointer;
-
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-
-        transition:
-            transform 0.55s cubic-bezier(0.22, 1, 0.36, 1),
-            opacity 0.55s ease,
-            filter 0.55s ease,
-            border-color 0.35s ease,
-            box-shadow 0.35s ease;
-    }
-
-    /* CENTER */
-
-    .article-slide.center {
-        transform: translateX(0) scale(1);
-
-        opacity: 1;
-
-        z-index: 5;
-
-        filter: none;
-
-        border-color:
-            var(--orange);
-
-        box-shadow:
-            0 20px 55px
-            rgba(0, 0, 0, 0.38),
-            0 0 25px
-            rgba(255, 138, 0, 0.06);
-    }
-
-    .article-slide.center:hover {
-        transform:
-            translateX(0)
-            scale(1.025);
-    }
-
-    /* LEFT */
-
-    .article-slide.left {
-        transform:
-            translateX(-78%)
-            scale(0.78);
-
-        opacity: 0.35;
-
-        z-index: 2;
-
-        filter:
-            blur(1px);
-    }
-
-    /* RIGHT */
-
-    .article-slide.right {
-        transform:
-            translateX(78%)
-            scale(0.78);
-
-        opacity: 0.35;
-
-        z-index: 2;
-
-        filter:
-            blur(1px);
-    }
-
-    /* HIDDEN */
-
-    .article-slide.hidden-left {
-        transform:
-            translateX(-165%)
-            scale(0.6);
-
-        opacity: 0;
-
-        z-index: 1;
-    }
-
-    .article-slide.hidden-right {
-        transform:
-            translateX(165%)
-            scale(0.6);
-
-        opacity: 0;
-
-        z-index: 1;
-    }
-
-    .article-company {
-        display: inline-block;
-
-        color: var(--orange);
-
-        font-size: 0.82rem;
-
-        text-transform: uppercase;
-
-        letter-spacing: 1px;
-
-        margin-bottom: 9px;
-    }
-
-    .article-title {
-        font-size: 1.45rem;
-
-        line-height: 1.25;
-
-        margin-bottom: 10px;
-    }
-
-    .article-date {
-        color: var(--muted);
-
-        font-size: 0.82rem;
-
-        margin-bottom: 18px;
-    }
-
-    .article-preview {
-        color: #aaa;
-
-        font-size: 0.9rem;
-
-        line-height: 1.6;
-    }
-
-    .read-more {
-        color: var(--orange);
-
-        font-size: 0.88rem;
-
-        margin-top: 20px;
-    }
-
-
-    /* =========================================================
-       CAROUSEL ARROWS
-       ========================================================= */
-
-    .carousel-arrow {
-        position: absolute;
-
-        top: 50%;
-
-        transform:
-            translateY(-50%);
-
-        width: 50px;
-        height: 50px;
-
-        border-radius: 50%;
-
-        border:
-            2px solid
-            #444;
-
-        background:
-            rgba(10, 10, 10, 0.9);
-
-        color: white;
-
-        font-size: 35px;
-
-        line-height: 40px;
-
-        cursor: pointer;
-
-        z-index: 10;
-
-        transition:
-            background 0.2s ease,
-            border-color 0.2s ease,
-            color 0.2s ease,
-            transform 0.2s ease;
-    }
-
-    .carousel-arrow:hover {
-        background:
-            var(--orange);
-
-        border-color:
-            var(--orange);
-
-        color:
-            #111;
-
-        transform:
-            translateY(-50%)
-            scale(1.08);
-    }
-
-    .carousel-left {
-        left: 18px;
-    }
-
-    .carousel-right {
-        right: 18px;
-    }
-
-    .carousel-hint {
-        text-align: center;
-
-        margin-top: 8px;
-
-        color: #666;
-
-        font-size: 0.78rem;
-    }
-
-
-    /* =========================================================
-       MODAL
-       ========================================================= */
-
-    .modal {
-        display: none;
-
-        position: fixed;
-
-        inset: 0;
-
-        background:
-            rgba(0, 0, 0, 0.84);
-
-        backdrop-filter:
-            blur(7px);
-
-        z-index: 1000;
-
-        padding: 25px;
-    }
-
-    .modal.active {
-        display: flex;
-
-        align-items: center;
-        justify-content: center;
-
-        animation:
-            modalBackground 0.25s ease;
-    }
-
-    .modal-content {
-        width: min(820px, 100%);
-
-        max-height: 85vh;
-
-        overflow-y: auto;
-
-        background: var(--panel);
-
-        border:
-            1px solid
-            var(--border-strong);
-
-        border-radius: 20px;
-
-        padding: 32px;
-
-        position: relative;
-
-        animation:
-            modalOpen 0.32s ease;
-    }
-
-    .close-button {
-        position: absolute;
-
-        top: 12px;
-        right: 18px;
-
-        border: none;
-        background: none;
-
-        color: var(--orange);
-
-        font-size: 2rem;
-
-        cursor: pointer;
-
-        font-family: Arial, sans-serif;
-
-        transition:
-            transform 0.2s ease;
-    }
-
-    .close-button:hover {
-        transform:
-            rotate(90deg)
-            scale(1.1);
-    }
-
-    .modal-date {
-        color: var(--muted);
-        font-size: 0.85rem;
-
-        margin-bottom: 8px;
-    }
-
-    .modal-title {
-        color: var(--orange);
-
-        font-size: 1.7rem;
-
-        margin-bottom: 18px;
-
-        padding-right: 35px;
-    }
-
-    .modal-body {
-        color: #ddd;
-
-        white-space: pre-line;
-
-        font-size: 1rem;
-
-        line-height: 1.8;
-    }
-
-
-    /* =========================================================
-       FOOTER
-       ========================================================= */
-
-    footer {
-        padding-top: 30px;
-
-        border-top:
-            1px solid
-            rgba(255, 255, 255, 0.06);
-
-        color: #666;
-
-        text-align: center;
-
-        font-size: 0.8rem;
-    }
-
-
-    /* =========================================================
-       ANIMATIONS
-       ========================================================= */
-
-    @keyframes pageFadeIn {
-        from {
-            opacity: 0;
+            --text: #f1f1f1;
+            --muted: #bdbdbd;
         }
 
-        to {
-            opacity: 1;
-        }
-    }
 
-    @keyframes slideDown {
-        from {
-            opacity: 0;
-            transform: translateY(-18px);
-        }
+        /* =========================================================
+           RESET
+           ========================================================= */
 
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    }
-
-    @keyframes slideUp {
-        from {
-            opacity: 0;
-            transform: translateY(25px);
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
         }
 
-        to {
-            opacity: 1;
-            transform: translateY(0);
+        html {
+            scroll-behavior: smooth;
         }
-    }
 
-    @keyframes modalOpen {
-        from {
-            opacity: 0;
+        body {
+            min-height: 100vh;
+
+            background:
+                radial-gradient(
+                    circle at top,
+                    rgba(255, 138, 0, 0.055),
+                    transparent 40%
+                ),
+                var(--background);
+
+            color: var(--text);
+
+            /* GENERAL FONT */
+            font-family: "Segoe Print", cursive;
+
+            overflow-x: hidden;
+        }
+
+
+        /* =========================================================
+           ORANGE / BRANDING FONT
+           ========================================================= */
+
+        .main-header h1,
+        .section-title,
+        .week-title,
+        .shares-heading,
+        .report-title,
+        .article-company,
+        .article-title,
+        .carousel-arrow {
+            font-family: "Chewy", cursive;
+        }
+
+
+        /* =========================================================
+           GENERAL
+           ========================================================= */
+
+        .container {
+            width: min(1200px, 92%);
+            margin: auto;
+        }
+
+        .section {
+            margin-bottom: 55px;
+
+            animation:
+                slideUp 0.8s ease both;
+        }
+
+
+        /* =========================================================
+           HEADER
+           ========================================================= */
+
+        .main-header {
+            padding-top: 55px;
+            margin-bottom: 38px;
+
+            animation:
+                slideDown 0.8s ease,
+                softFloat 6s ease-in-out infinite;
+        }
+
+        .main-header h1 {
+            font-size: clamp(2.3rem, 6vw, 4rem);
+
+            color: var(--orange);
+
+            line-height: 1.05;
+
+            margin-bottom: 10px;
+
+            text-shadow:
+                0 0 25px rgba(255, 138, 0, 0.18);
+        }
+
+        .main-header p {
+            color: #d1d1d1;
+
+            font-size: 1rem;
+
+            max-width: 850px;
+        }
+
+
+        /* =========================================================
+           SECTION TITLE
+           ========================================================= */
+
+        .section-title {
+            position: relative;
+
+            color: var(--orange);
+
+            font-size: 2rem;
+
+            margin-bottom: 18px;
+
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: "";
+
+            position: absolute;
+
+            left: 0;
+            bottom: -4px;
+
+            width: 45%;
+            height: 3px;
+
+            background: var(--orange);
+
+            border-radius: 5px;
+
+            animation:
+                titleLine 3s ease-in-out infinite;
+        }
+
+
+        /* =========================================================
+           WEEK BOX
+           ========================================================= */
+
+        .week-box {
+            position: relative;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(255, 138, 0, 0.12),
+                    rgba(255, 138, 0, 0.025)
+                ),
+                var(--panel);
+
+            border: 1px solid var(--border-strong);
+
+            border-radius: 20px;
+
+            padding: 24px 26px;
+
+            margin-bottom: 50px;
+
+            overflow: hidden;
+
+            animation:
+                slideUp 0.8s ease 0.1s both;
+        }
+
+        .week-box::before {
+            content: "";
+
+            position: absolute;
+
+            width: 250px;
+            height: 250px;
+
+            right: -100px;
+            top: -150px;
+
+            background: var(--orange);
+
+            opacity: 0.06;
+
+            border-radius: 50%;
+
+            animation:
+                orbitGlow 8s ease-in-out infinite;
+        }
+
+        .week-title {
+            color: var(--orange);
+
+            font-size: 1.7rem;
+
+            margin-bottom: 4px;
+        }
+
+        .countdown {
+            color: #d0d0d0;
+
+            font-size: 1rem;
+        }
+
+        .countdown strong {
+            color: var(--orange);
+        }
+
+
+        /* =========================================================
+           MARKET LAYOUT
+           ========================================================= */
+
+        .market-layout {
+            display: grid;
+
+            grid-template-columns:
+                minmax(0, 1.8fr)
+                minmax(260px, 0.8fr);
+
+            gap: 20px;
+
+            align-items: start;
+        }
+
+
+        /* =========================================================
+           PANELS
+           ========================================================= */
+
+        .panel {
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(255, 255, 255, 0.018),
+                    rgba(255, 255, 255, 0)
+                ),
+                var(--panel);
+
+            border: 1px solid var(--border);
+
+            border-radius: 18px;
+
+            overflow: hidden;
+
+            box-shadow:
+                0 15px 40px rgba(0, 0, 0, 0.18);
+
+            transition:
+                transform 0.25s ease,
+                border-color 0.25s ease,
+                box-shadow 0.25s ease;
+        }
+
+        .panel:hover {
+            border-color:
+                rgba(255, 138, 0, 0.32);
+
+            box-shadow:
+                0 18px 50px rgba(0, 0, 0, 0.25);
+        }
+
+
+        /* =========================================================
+           MARKET TABLE
+           ========================================================= */
+
+        .table-wrapper {
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+
+            border-collapse: collapse;
+
+            min-width: 650px;
+        }
+
+        th {
+            text-align: left;
+
+            color: var(--orange);
+
+            font-size: 0.9rem;
+
+            padding: 16px 18px;
+
+            background:
+                rgba(255, 138, 0, 0.045);
+
+            border-bottom:
+                1px solid var(--border);
+        }
+
+        td {
+            padding: 15px 18px;
+
+            color: #dedede;
+
+            border-bottom:
+                1px solid rgba(255, 255, 255, 0.045);
+
+            font-size: 0.9rem;
+        }
+
+        tbody tr {
+            transition:
+                background 0.2s ease,
+                transform 0.2s ease;
+        }
+
+        tbody tr:hover {
+            background:
+                rgba(255, 138, 0, 0.045);
+        }
+
+        tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+        .ticker {
+            color: var(--orange);
+
+            font-weight: bold;
+
+            font-family: "Segoe Print", cursive;
+        }
+
+        .price {
+            color: white;
+
+            font-weight: bold;
+        }
+
+        .positive {
+            color: #55d68a;
+        }
+
+        .negative {
+            color: #ff6868;
+        }
+
+
+        /* =========================================================
+           SHARES PANEL
+           ========================================================= */
+
+        .shares-panel {
+            padding: 24px;
+        }
+
+        .shares-heading {
+            color: var(--orange);
+
+            font-size: 1.6rem;
+
+            margin-bottom: 12px;
+        }
+
+        .shares-panel p {
+            color: #d0d0d0;
+
+            line-height: 1.7;
+        }
+
+        .shares-number {
+            display: block;
+
+            color: white;
+
+            font-family: "Chewy", cursive;
+
+            font-size: 2rem;
+
+            margin-top: 15px;
+        }
+
+
+        /* =========================================================
+           REPORT
+           ========================================================= */
+
+        .report-panel {
+            padding: 28px;
+        }
+
+        .report-title {
+            color: var(--orange);
+
+            font-size: 2rem;
+
+            margin-bottom: 5px;
+        }
+
+        .report-date {
+            color: #888;
+
+            font-size: 0.9rem;
+
+            margin-bottom: 20px;
+        }
+
+        .report-summary {
+            color: #d7d7d7;
+
+            line-height: 1.8;
+
+            max-width: 900px;
+        }
+
+
+        /* =========================================================
+           ARTICLE CAROUSEL
+           ========================================================= */
+
+        .article-carousel {
+            position: relative;
+
+            width: 100%;
+
+            min-height: 440px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            overflow: hidden;
+
+            user-select: none;
+        }
+
+        .article-track {
+            position: relative;
+
+            width: 100%;
+
+            height: 430px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+        }
+
+        .article-card {
+            position: absolute;
+
+            width: min(680px, 70%);
+
+            min-height: 340px;
+
+            padding: 30px;
+
+            border-radius: 22px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(255, 138, 0, 0.08),
+                    rgba(255, 255, 255, 0.015)
+                ),
+                var(--panel);
+
+            border:
+                1px solid rgba(255, 138, 0, 0.24);
+
+            cursor: pointer;
+
+            transition:
+                transform 0.45s ease,
+                opacity 0.45s ease,
+                filter 0.45s ease,
+                box-shadow 0.45s ease;
+
+            overflow: hidden;
+        }
+
+        .article-card.center {
             transform:
-                translateY(15px)
-                scale(0.97);
+                translateX(0)
+                scale(1);
+
+            opacity: 1;
+
+            z-index: 3;
+
+            box-shadow:
+                0 25px 70px rgba(0, 0, 0, 0.35);
         }
 
-        to {
+        .article-card.left {
+            transform:
+                translateX(-72%)
+                scale(0.78);
+
+            opacity: 0.32;
+
+            filter: blur(1px);
+
+            z-index: 1;
+        }
+
+        .article-card.right {
+            transform:
+                translateX(72%)
+                scale(0.78);
+
+            opacity: 0.32;
+
+            filter: blur(1px);
+
+            z-index: 1;
+        }
+
+        .article-card.hidden {
+            opacity: 0;
+
+            transform:
+                translateX(0)
+                scale(0.5);
+
+            pointer-events: none;
+
+            z-index: 0;
+        }
+
+
+        /* =========================================================
+           ARTICLE IMAGE
+           ========================================================= */
+
+        .article-image {
+            width: 100%;
+
+            max-height: 220px;
+
+            object-fit: cover;
+
+            display: block;
+
+            border-radius: 14px;
+
+            margin-bottom: 20px;
+
+            border:
+                1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .article-image-credit {
+            color: #777;
+
+            font-size: 0.72rem;
+
+            margin-top: -12px;
+
+            margin-bottom: 15px;
+        }
+
+
+        /* =========================================================
+           ARTICLE CONTENT
+           ========================================================= */
+
+        .article-company {
+            display: inline-block;
+
+            color: var(--orange);
+
+            font-size: 1rem;
+
+            margin-bottom: 8px;
+        }
+
+        .article-title {
+            color: white;
+
+            font-size: 1.8rem;
+
+            line-height: 1.15;
+
+            margin-bottom: 8px;
+        }
+
+        .article-date {
+            color: #777;
+
+            font-size: 0.8rem;
+
+            margin-bottom: 16px;
+        }
+
+        .article-preview {
+            color: #cfcfcf;
+
+            line-height: 1.65;
+        }
+
+
+        /* =========================================================
+           CAROUSEL ARROWS
+           ========================================================= */
+
+        .carousel-arrow {
+            position: absolute;
+
+            top: 50%;
+
+            transform: translateY(-50%);
+
+            width: 48px;
+            height: 48px;
+
+            border-radius: 50%;
+
+            border:
+                1px solid rgba(255, 138, 0, 0.35);
+
+            background:
+                rgba(15, 15, 15, 0.9);
+
+            color: var(--orange);
+
+            font-size: 1.8rem;
+
+            cursor: pointer;
+
+            z-index: 10;
+
+            transition:
+                transform 0.2s ease,
+                background 0.2s ease,
+                box-shadow 0.2s ease;
+        }
+
+        .carousel-arrow:hover {
+            transform:
+                translateY(-50%)
+                scale(1.1);
+
+            background:
+                rgba(255, 138, 0, 0.12);
+
+            box-shadow:
+                0 0 25px rgba(255, 138, 0, 0.12);
+        }
+
+        .carousel-arrow.left-arrow {
+            left: 15px;
+        }
+
+        .carousel-arrow.right-arrow {
+            right: 15px;
+        }
+
+
+        /* =========================================================
+           MODAL
+           ========================================================= */
+
+        .modal {
+            position: fixed;
+
+            inset: 0;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            padding: 25px;
+
+            background:
+                rgba(0, 0, 0, 0.82);
+
+            backdrop-filter: blur(8px);
+
+            opacity: 0;
+
+            pointer-events: none;
+
+            transition:
+                opacity 0.3s ease;
+
+            z-index: 1000;
+        }
+
+        .modal.open {
             opacity: 1;
+
+            pointer-events: auto;
+        }
+
+        .modal-content {
+            position: relative;
+
+            width: min(850px, 95vw);
+
+            max-height: 90vh;
+
+            overflow-y: auto;
+
+            padding: 35px;
+
+            background: var(--panel);
+
+            border:
+                1px solid rgba(255, 138, 0, 0.28);
+
+            border-radius: 22px;
+
+            box-shadow:
+                0 30px 100px rgba(0, 0, 0, 0.55);
+
+            transform:
+                translateY(20px)
+                scale(0.97);
+
+            transition:
+                transform 0.3s ease;
+        }
+
+        .modal.open .modal-content {
             transform:
                 translateY(0)
                 scale(1);
         }
-    }
 
-    @keyframes modalBackground {
-        from {
-            opacity: 0;
+        .modal-close {
+            position: absolute;
+
+            top: 15px;
+            right: 18px;
+
+            width: 38px;
+            height: 38px;
+
+            border: none;
+
+            border-radius: 50%;
+
+            background:
+                rgba(255, 255, 255, 0.06);
+
+            color: white;
+
+            font-size: 1.5rem;
+
+            cursor: pointer;
         }
 
-        to {
-            opacity: 1;
-        }
-    }
+        .modal-close:hover {
+            background:
+                rgba(255, 138, 0, 0.15);
 
-    @keyframes titleLine {
-        0%,
-        100% {
-            width: 35%;
+            color: var(--orange);
         }
 
-        50% {
-            width: 60%;
-        }
-    }
+        .modal-title {
+            color: var(--orange);
 
-    @keyframes orbitGlow {
-        0%,
-        100% {
-            transform:
-                translate(0, 0)
-                scale(1);
-        }
+            font-family: "Chewy", cursive;
 
-        50% {
-            transform:
-                translate(-30px, 25px)
-                scale(1.15);
-        }
-    }
-
-    @keyframes softFloat {
-        0%,
-        100% {
-            transform: translateY(0);
-        }
-
-        50% {
-            transform: translateY(-2px);
-        }
-    }
-
-
-    /* =========================================================
-       MOBILE
-       ========================================================= */
-
-    @media (max-width: 950px) {
-
-        .market-layout {
-            grid-template-columns: 1fr;
-        }
-
-        .article-carousel {
-            height: 410px;
-        }
-
-        .article-slide {
-            width: 65%;
-        }
-
-        .article-slide.left {
-            transform:
-                translateX(-80%)
-                scale(0.72);
-        }
-
-        .article-slide.right {
-            transform:
-                translateX(80%)
-                scale(0.72);
-        }
-    }
-
-    @media (max-width: 600px) {
-
-        .page {
-            padding:
-                35px 15px 60px;
-        }
-
-        .main-header h1 {
             font-size: 2.4rem;
+
+            line-height: 1.15;
+
+            margin-bottom: 8px;
+
+            padding-right: 35px;
         }
 
-        th,
-        td {
+        .modal-date {
+            color: #777;
+
+            margin-bottom: 25px;
+        }
+
+        .modal-image {
+            width: 100%;
+
+            max-height: 450px;
+
+            object-fit: cover;
+
+            border-radius: 15px;
+
+            margin-bottom: 20px;
+        }
+
+        .modal-image-credit {
+            color: #777;
+
+            font-size: 0.75rem;
+
+            margin-top: -12px;
+
+            margin-bottom: 20px;
+        }
+
+        .modal-body p {
+            color: #d7d7d7;
+
+            line-height: 1.9;
+
+            margin-bottom: 18px;
+        }
+
+
+        /* =========================================================
+           FOOTER
+           ========================================================= */
+
+        footer {
+            margin-top: 80px;
+
             padding:
-                14px 12px;
+                30px 20px 40px;
+
+            text-align: center;
+
+            color: #777;
+
+            border-top:
+                1px solid rgba(255, 255, 255, 0.06);
+
+            font-size: 0.85rem;
         }
 
-        .share-summary {
-            grid-template-columns: 1fr;
+        footer strong {
+            color: var(--orange);
+
+            font-family: "Chewy", cursive;
         }
 
-        .modal-content {
-            padding: 25px;
+
+        /* =========================================================
+           ANIMATIONS
+           ========================================================= */
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-25px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
-        .article-carousel {
-            height: 430px;
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(25px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
-        .article-slide {
-            width: 78%;
+        @keyframes softFloat {
+            0%,
+            100% {
+                transform: translateY(0);
+            }
 
-            min-height: 320px;
-
-            padding: 22px;
+            50% {
+                transform: translateY(-5px);
+            }
         }
 
-        .article-slide.left {
-            transform:
-                translateX(-72%)
-                scale(0.65);
+        @keyframes orbitGlow {
+            0%,
+            100% {
+                transform: translate(0, 0);
+            }
+
+            50% {
+                transform: translate(-30px, 20px);
+            }
         }
 
-        .article-slide.right {
-            transform:
-                translateX(72%)
-                scale(0.65);
+        @keyframes titleLine {
+            0%,
+            100% {
+                width: 35%;
+            }
+
+            50% {
+                width: 60%;
+            }
         }
 
-        .carousel-arrow {
-            width: 42px;
-            height: 42px;
 
-            font-size: 28px;
+        /* =========================================================
+           MOBILE
+           ========================================================= */
+
+        @media (max-width: 850px) {
+
+            .market-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .article-card {
+                width: 72%;
+            }
+
+            .article-card.left {
+                transform:
+                    translateX(-82%)
+                    scale(0.72);
+            }
+
+            .article-card.right {
+                transform:
+                    translateX(82%)
+                    scale(0.72);
+            }
+
+            .carousel-arrow.left-arrow {
+                left: 5px;
+            }
+
+            .carousel-arrow.right-arrow {
+                right: 5px;
+            }
         }
 
-        .carousel-left {
-            left: 4px;
+        @media (max-width: 600px) {
+
+            .main-header {
+                padding-top: 35px;
+            }
+
+            .main-header h1 {
+                font-size: 2.6rem;
+            }
+
+            .section-title {
+                font-size: 1.7rem;
+            }
+
+            .week-box {
+                padding: 20px;
+            }
+
+            .article-carousel {
+                min-height: 500px;
+            }
+
+            .article-track {
+                height: 480px;
+            }
+
+            .article-card {
+                width: 82%;
+
+                padding: 22px;
+
+                min-height: 370px;
+            }
+
+            .article-card.left,
+            .article-card.right {
+                opacity: 0;
+                pointer-events: none;
+            }
+
+            .article-title {
+                font-size: 1.5rem;
+            }
+
+            .modal-content {
+                padding: 25px 20px;
+            }
+
+            .modal-title {
+                font-size: 2rem;
+            }
+
+            .carousel-arrow {
+                width: 42px;
+                height: 42px;
+
+                font-size: 1.5rem;
+            }
         }
 
-        .carousel-right {
-            right: 4px;
-        }
-    }
-
-</style>
-```
-
+    </style>
 </head>
+
 
 <body>
 
-```
-<div class="page">
+    <main class="container">
 
-    <!-- =====================================================
-         HEADER
-         ===================================================== -->
+        <!-- =====================================================
+             HEADER
+             ===================================================== -->
 
-    <header class="main-header">
+        <header class="main-header">
 
-        <h1>
-            Sky Kingdom Stock Exchange
-        </h1>
+            <h1>
+                Sky Kingdom Stock Exchange
+            </h1>
 
-        <p>
-            Official Magentian Stock Exchange.
-            Owned and operated under Sky Kingdom Enterprises.
-        </p>
+            <p>
+                Official Magentian Stock Exchange.
+                Owned and operated under Sky Kingdom Enterprises.
+            </p>
 
-    </header>
-
-
-    <!-- =====================================================
-         WEEK
-         ===================================================== -->
-
-    <section class="week-box">
-
-        <div
-            class="week-title"
-            id="weekDisplay">
-            Week One
-        </div>
-
-        <div class="countdown">
-
-            Market refreshes every Sunday.
-
-            <strong id="countdownDisplay">
-                Calculating...
-            </strong>
-
-        </div>
-
-    </section>
+        </header>
 
 
-    <!-- =====================================================
-         MARKET
-         ===================================================== -->
+        <!-- =====================================================
+             WEEK BOX
+             ===================================================== -->
 
-    <section class="section">
+        <section class="week-box">
 
-        <h2 class="section-title">
-            Market
-        </h2>
-
-        <div class="market-layout">
-
-            <!-- STOCK TABLE -->
-
-            <div class="panel market-container">
-
-                <table>
-
-                    <thead>
-
-                        <tr>
-
-                            <th>
-                                Company
-                            </th>
-
-                            <th>
-                                Stock Price
-                            </th>
-
-                        </tr>
-
-                    </thead>
-
-                    <tbody id="marketTable">
-                    </tbody>
-
-                </table>
-
+            <div class="week-title">
+                Current Market Week
             </div>
 
+            <div class="countdown">
+                <span id="weekText">
+                    September 2026 — Week One
+                </span>
 
-            <!-- SHARES -->
+                <br>
 
-            <div class="panel shares-panel">
+                Market refresh in:
 
-                <div class="shares-heading">
-                    Share Availability
+                <strong id="countdown">
+                    Loading...
+                </strong>
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             MARKET
+             ===================================================== -->
+
+        <section class="section">
+
+            <h2 class="section-title">
+                Market
+            </h2>
+
+            <div class="market-layout">
+
+                <div class="panel table-wrapper">
+
+                    <table>
+
+                        <thead>
+                            <tr>
+                                <th>Company</th>
+                                <th>Ticker</th>
+                                <th>Price</th>
+                                <th>Change</th>
+                                <th>Shares</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="marketTable"></tbody>
+
+                    </table>
+
                 </div>
 
-                <div class="share-summary">
 
-                    <div class="share-total">
+                <div class="panel shares-panel">
 
-                        <span class="share-label">
-                            Total Shares
-                        </span>
-
-                        <span
-                            class="share-number"
-                            id="totalShares">
-                            0
-                        </span>
-
+                    <div class="shares-heading">
+                        Share Availability
                     </div>
 
-                    <div class="share-total">
+                    <p>
+                        Shares currently available
+                        for purchase on the exchange.
+                    </p>
 
-                        <span class="share-label">
-                            Shares Remaining
-                        </span>
-
-                        <span
-                            class="share-number"
-                            id="remainingShares">
-                            0
-                        </span>
-
-                    </div>
+                    <span
+                        class="shares-number"
+                        id="totalSharesAvailable"
+                    >
+                        0
+                    </span>
 
                 </div>
 
-                <div id="shareBreakdown">
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             WEEKLY REPORT
+             ===================================================== -->
+
+        <section class="section">
+
+            <h2 class="section-title">
+                Weekly Market Report
+            </h2>
+
+            <div class="panel report-panel">
+
+                <div
+                    class="report-title"
+                    id="reportTitle"
+                >
+                    sky kingdom market report
+                </div>
+
+                <div
+                    class="report-date"
+                    id="reportDate"
+                >
+                    September 2026 — Week One
+                </div>
+
+                <div
+                    class="report-summary"
+                    id="reportSummary"
+                >
+                    this is the sky kingdom stock exchange.
+                    below you will find example tutorial articles.
                 </div>
 
             </div>
 
-        </div>
-
-    </section>
+        </section>
 
 
-    <!-- =====================================================
-         WEEKLY REPORT
-         ===================================================== -->
+        <!-- =====================================================
+             ARTICLES
+             ===================================================== -->
 
-    <section class="section">
+        <section class="section">
 
-        <h2 class="section-title">
-            Weekly Market Report
-        </h2>
+            <h2 class="section-title">
+                Weekly Articles
+            </h2>
 
-        <div class="panel report-card">
+            <div class="article-carousel">
 
-            <div
-                class="report-date"
-                id="reportDate">
-                September 2026 — Week One
+                <button
+                    class="carousel-arrow left-arrow"
+                    id="prevArticle"
+                    aria-label="Previous article"
+                >
+                    ‹
+                </button>
+
+                <div
+                    class="article-track"
+                    id="articleTrack"
+                ></div>
+
+                <button
+                    class="carousel-arrow right-arrow"
+                    id="nextArticle"
+                    aria-label="Next article"
+                >
+                    ›
+                </button>
+
             </div>
 
-            <div
-                class="report-title"
-                id="reportTitle">
-                Magentian Market Report
-            </div>
+        </section>
 
-            <div
-                class="report-text"
-                id="reportText">
-                This week's market summary goes here.
-            </div>
-
-        </div>
-
-    </section>
+    </main>
 
 
-    <!-- =====================================================
-         ARTICLES
-         ===================================================== -->
+    <!-- =========================================================
+         ARTICLE MODAL
+         ========================================================= -->
 
-    <section class="section">
+    <div
+        class="modal"
+        id="articleModal"
+    >
 
-        <h2 class="section-title">
-            Articles
-        </h2>
-
-        <div
-            class="article-carousel"
-            id="articleCarousel">
-
-            <div
-                class="article-track"
-                id="articleTrack">
-            </div>
+        <div class="modal-content">
 
             <button
-                class="carousel-arrow carousel-left"
-                id="carouselLeft"
-                aria-label="Previous article">
-                ‹
+                class="modal-close"
+                id="modalClose"
+                aria-label="Close article"
+            >
+                ×
             </button>
 
-            <button
-                class="carousel-arrow carousel-right"
-                id="carouselRight"
-                aria-label="Next article">
-                ›
-            </button>
+            <div
+                class="modal-title"
+                id="modalTitle"
+            ></div>
 
-        </div>
+            <div
+                class="modal-date"
+                id="modalDate"
+            ></div>
 
-        <div class="carousel-hint">
-            Scroll to browse articles · Click the center article to read
-        </div>
+            <div id="modalImageContainer"></div>
 
-    </section>
+            <div
+                class="modal-body"
+                id="modalBody"
+            ></div>
 
-
-    <footer>
-
-        Sky Kingdom Stock Exchange
-        ·
-        Magentian Simulation
-
-    </footer>
-
-</div>
-
-
-<!-- =========================================================
-     ARTICLE MODAL
-     ========================================================= -->
-
-<div
-    class="modal"
-    id="articleModal">
-
-    <div class="modal-content">
-
-        <button
-            class="close-button"
-            id="closeModal">
-
-            ×
-
-        </button>
-
-        <div
-            class="modal-date"
-            id="modalDate">
-        </div>
-
-        <div
-            class="modal-title"
-            id="modalTitle">
-        </div>
-
-        <div
-            class="modal-body"
-            id="modalBody">
         </div>
 
     </div>
 
-</div>
 
+    <!-- =========================================================
+         FOOTER
+         ========================================================= -->
+
+    <footer>
+
+        <strong>
+            Sky Kingdom Stock Exchange
+        </strong>
+
+        <br>
+
+        Magentian Simulation
+
+    </footer>
+
+
+    <script>
+
+        /* =========================================================
+           COMPANY DATA
+           
+           EDIT PRICES / SHARES HERE
+           ========================================================= */
+
+        const companies = [
+
+            {
+                name: "ASUS",
+                ticker: "ASUS",
+                currentPrice: 1,
+                previousPrice: 1,
+                totalShares: 1,
+                remainingShares: 0
+            },
+
+            {
+                name: "Sky Kingdom Enterprises",
+                ticker: "SKE",
+                currentPrice: 100,
+                previousPrice: 10,
+                totalShares: 1000000,
+                remainingShares: 1000
+            },
+
+            {
+                name: "Sky Kingdom Infrastructure",
+                ticker: "SKI",
+                currentPrice: 1,
+                previousPrice: 1,
+                totalShares: 1,
+                remainingShares: 0
+            },
+
+            {
+                name: "Sky Kingdom Lib",
+                ticker: "SKL",
+                currentPrice: 1,
+                previousPrice: 1,
+                totalShares: 1,
+                remainingShares: 0
+            },
+
+            {
+                name: "Sky Kingdom Government Infrastructure",
+                ticker: "SKGI",
+                currentPrice: 1,
+                previousPrice: 1,
+                totalShares: 1,
+                remainingShares: 0
+            },
+
+            {
+                name: "I Am A Fire Hydrant Avionics",
+                ticker: "MIAC",
+                currentPrice: 1,
+                previousPrice: 1,
+                totalShares: 1,
+                remainingShares: 0
+            },
+
+            {
+                name: "I Am A Fire Hydrant Trucking",
+                ticker: "MITC",
+                currentPrice: 1,
+                previousPrice: 1,
+                totalShares: 1,
+                remainingShares: 0
+            },
+
+            {
+                name: "United Airlines",
+                ticker: "UAL",
+                currentPrice: 1,
+                previousPrice: 1,
+                totalShares: 1,
+                remainingShares: 0
+            },
+
+            {
+                name: "Taiwanese Semiconductor Manufacturing Company",
+                ticker: "TSMC",
+                currentPrice: 1,
+                previousPrice: 1,
+                totalShares: 1,
+                remainingShares: 0
+            },
+
+            /* =====================================================
+               NEW COMPANIES
+               ===================================================== */
+
+            {
+                name: "United Guitar Airlines",
+                ticker: "UGA",
+                currentPrice: 1,
+                previousPrice: 1,
+                totalShares: 1,
+                remainingShares: 0
+            },
 
-<script>
+            {
+                name: "T Bag Automatics",
+                ticker: "TBA",
+                currentPrice: 1,
+                previousPrice: 1,
+                totalShares: 1,
+                remainingShares: 0
+            },
 
-    /* =========================================================
-       ⭐⭐⭐ EDIT THIS SECTION EVERY WEEK ⭐⭐⭐
+            {
+                name: "T Bag Ballistics",
+                ticker: "TBB",
+                currentPrice: 1,
+                previousPrice: 1,
+                totalShares: 1,
+                remainingShares: 0
+            },
 
-       Normally, you only need to edit:
-       - currentWeek
-       - companies
-       - weeklyReport
-       - articles
+            {
+                name: "Bassese Baits",
+                ticker: "BSB",
+                currentPrice: 1,
+                previousPrice: 1,
+                totalShares: 1,
+                remainingShares: 0
+            }
 
-       ========================================================= */
+        ];
 
 
-    /* ---------------------------------------------------------
-       CURRENT WEEK
-       --------------------------------------------------------- */
+        /* =========================================================
+           WEEKLY ARTICLES
 
-    const currentWeek =
-        "Week One";
+           EDIT THIS SECTION EVERY WEEK
+           
+           image:
+             Leave as "" for no image.
 
+           Example:
+             image: "images/uga.jpg"
 
-    /* ---------------------------------------------------------
-       COMPANIES
-       --------------------------------------------------------- */
+           imageCredit:
+             Optional. Only use if the image's license requires
+             attribution or you want to identify the source.
+           ========================================================= */
 
-    const companies = [
+        const articles = [
 
-        {
-            name: "ASUS",
-            ticker: "ASUS",
+            {
+                company: "ASUS",
+                title: "example article",
+                date: "September 2026",
+                preview: "preview of article. click for full page",
 
-            currentPrice: 1,
-            previousPrice: 1,
+                image: "",
+                imageCredit: "",
 
-            totalShares: 1,
-            remainingShares: 0
-        },
+                body: [
+                    "this will be the main article. usually 6 sentences"
+                ]
+            },
 
-        {
-            name: "Sky Kingdom Enterprises",
-            ticker: "SKE",
 
-            currentPrice: 100,
-            previousPrice: 10,
+            {
+                company: "MITC / MIAC",
+                title: "MIAC and MITC launch a new partnership",
+                date: "September 23rd 2026",
+                preview:
+                    "Magentian owned companies launching an exclusive partnership between eachother",
 
-            totalShares: 1000000,
-            remainingShares: 1000
-        },
+                image: "",
+                imageCredit: "",
 
-        {
-            name: "Sky Kingdom Infrastructure",
-            ticker: "SKI",
+                body: [
 
-            currentPrice: 1,
-            previousPrice: 1,
+                    "Popular magentian cargo company I Am a Fire Hydrant Trucking has been the main truck company for all deliveries across magenta.",
 
-            totalShares: 1,
-            remainingShares: 0
-        },
+                    "No matter if you order on Amazon, Ebay, or Walmart, if its getting shipped to magenta its going on MITC.",
 
-        {
-            name: "Sky Kingdom Lib",
-            ticker: "SKL",
+                    "But, recently, that stuff has been slowing down. on reports frmo customers, it has been noted that shipping time has noticably increased between feburary of 2020 and june of 2026",
 
-            currentPrice: 1,
-            previousPrice: 1,
+                    "After a few months of identifying, the leadership has discovered a huge part of it - their aging aircraft and vehicle assortment",
 
-            totalShares: 1,
-            remainingShares: 0
-        },
+                    "Despite being named I Am A Fire Hydrant trucking, the company does own and operate a wide assortment of aircraft and trains. Most of it is for transporting between the large island, between the American substate, and the outside world.",
 
-        {
-            name: "Sky Kingdom Government Infrastructure",
-            ticker: "SKGI",
+                    "But, the equipment is beginning to get old and requires heavy maintance, causing large delays",
 
-            currentPrice: 1,
-            previousPrice: 1,
+                    "Thats why MITC and popular magentian I Am A Fire Hydrant Avionics are partnering up on part one of the project, solving the aircraft case.",
 
-            totalShares: 1,
-            remainingShares: 0
-        },
+                    "A ground breaking 45 billion dollar deal has been signed between the two companies for MITC to purchase fifty Boeing 777-9Fs for the airline, completely replacing their old aging 767 freighters.",
 
-        {
-            name: "I Am A Fire Hydrant Avionics",
-            ticker: "MIAC",
+                    "This new deal is planned to finalize in the next couple of months. Aircraft production is expected to resume right after. We recommend investing in the companies now before their stock prices boom"
 
-            currentPrice: 1,
-            previousPrice: 1,
+                ]
+            },
 
-            totalShares: 1,
-            remainingShares: 0
-        },
 
-        {
-            name: "I Am A Fire Hydrant Trucking",
-            ticker: "MITC",
+            {
+                company: "SKI",
+                title:
+                    "Sky Kingdom Infrastructure building new highways connecting East Magenta to the West",
 
-            currentPrice: 1,
-            previousPrice: 1,
+                date: "September 23rd 2026",
 
-            totalShares: 1,
-            remainingShares: 0
-        },
+                preview:
+                    "A new project started by SKI to improve and bulid new highways and highspeed rail between the two sides of the island",
 
-        {
-            name: "United Airlines",
-            ticker: "UAL",
+                image: "",
+                imageCredit: "",
 
-            currentPrice: 1,
-            previousPrice: 1,
+                body: [
 
-            totalShares: 1,
-            remainingShares: 0
-        },
+                    "The backbone of Magentian infrastructure, Sky Kingdom Infrastructure has launched a drastic new project, potentially changing how YOU get between the sides of magenta."
 
-        {
-            name: "Taiwanese Semiconductor Manufacturing Company",
-            ticker: "TSMC",
+                ]
+            },
 
-            currentPrice: 1,
-            previousPrice: 1,
 
-            totalShares: 1,
-            remainingShares: 0
-        }
+            {
+                company: "SKE",
+                title: "New Sky Kingdom Enterprises market update",
+                date: "September 2026",
+                preview:
+                    "Weekly market information from Sky Kingdom Enterprises.",
 
-    ];
+                image: "",
+                imageCredit: "",
 
+                body: [
+                    "No article has been published for this company yet."
+                ]
+            },
 
-    /* ---------------------------------------------------------
-       WEEKLY MARKET REPORT
-       --------------------------------------------------------- */
 
-    const weeklyReport = {
+            {
+                company: "SKL",
+                title: "Sky Kingdom Lib market update",
+                date: "September 2026",
+                preview:
+                    "Weekly market information from Sky Kingdom Lib.",
 
-        date:
-            "September 2026 — Week One",
+                image: "",
+                imageCredit: "",
 
-        title:
-            "sky kingdom market report",
+                body: [
+                    "No article has been published for this company yet."
+                ]
+            },
 
-        summary:
-            "this is the sky kingdom stock exchange. below you will find example tutorial articles."
 
-    };
+            {
+                company: "SKGI",
+                title: "Sky Kingdom Government Infrastructure update",
+                date: "September 2026",
+                preview:
+                    "Weekly market information from SKGI.",
 
+                image: "",
+                imageCredit: "",
 
-    /* ---------------------------------------------------------
-       ARTICLES
+                body: [
+                    "No article has been published for this company yet."
+                ]
+            },
 
-       ONE ARTICLE SLOT PER COMPANY.
 
-       Change the title/date/preview/body for each company
-       every week.
+            {
+                company: "MIAC",
+                title: "I Am A Fire Hydrant Avionics update",
+                date: "September 2026",
+                preview:
+                    "Weekly market information from MIAC.",
 
-       --------------------------------------------------------- */
+                image: "",
+                imageCredit: "",
 
-    const articles = [
+                body: [
+                    "No article has been published for this company yet."
+                ]
+            },
 
-        /* ASUS */
 
-        {
-            company: "ASUS",
-            ticker: "ASUS",
+            {
+                company: "UAL",
+                title: "United Airlines market update",
+                date: "September 2026",
+                preview:
+                    "Weekly market information from United Airlines.",
 
-            title:
-                "ASUS launching on the SKMSE?",
+                image: "",
+                imageCredit: "",
 
-            date:
-                "September 25th, 2026",
+                body: [
+                    "No article has been published for this company yet."
+                ]
+            },
 
-            preview:
-                "New information showing that ASUS is also going public on the SKMSE, not just the TWSE",
 
-            body:
-                "This just in, with information coming from multiple sources that popular gaming computer part manufactor ASUSteK is going public on the SKMSE, " +
-                
-                "Most other companies have waited to see how the stock exchange would go before going on it. i mean, the market hasn't even made its debuit yet. " +
-                
-                "Although, our current running theory is that the new country that was created out of ROG (Republic Of Gamers, an ASUS product line) in the Canadian ice shield is trying to strengthen their relationships with ROM (Republic Of Magenta). " +
-                
-                "So, our current view on it is ROG (the country) is trying to improve their relationship with Magenta by going public on its first ever stock market.",
-        },
+            {
+                company: "TSMC",
+                title: "TSMC market update",
+                date: "September 2026",
+                preview:
+                    "Weekly market information from TSMC.",
 
+                image: "",
+                imageCredit: "",
 
-        /* SKE */
+                body: [
+                    "No article has been published for this company yet."
+                ]
+            },
 
-        {
-            company: "Sky Kingdom Enterprises",
-            ticker: "SKE",
 
-            title:
-                "Sky Kingdom Enterprises kicking off the exchange with a new building project",
+            /* =====================================================
+               NEW COMPANY ARTICLE SLOTS
+               ===================================================== */
 
-            date:
-                "September 25th 2026",
+            {
+                company: "UGA",
+                title: "United Guitar Airlines joins the market",
+                date: "September 2026",
+                preview:
+                    "United Guitar Airlines has been added to the Sky Kingdom Stock Exchange.",
 
-            preview:
-                "Sky Kingdom Enterprises finalizes a new deal to start construction of a new area of apartments 50 miles out from the port",
+                image: "",
+                imageCredit: "",
 
-            body:
-                "Sky Kingdom Enterprises is known for being one of the most ambishious companies in Magenta. Not only that, but being the countries backbone for infrastructure. The amount of building and revolutionizing the company has been able to do is one of the only reasons the Republic Of Magenta is still alive " +
-                "But, with an inflow of millions of civilians
-        },
+                body: [
+                    "United Guitar Airlines has officially joined the Sky Kingdom Stock Exchange.",
 
+                    "A full market article can be added here during the weekly update."
+                ]
+            },
 
-        /* SKI */
 
-        {
-            company: "Sky Kingdom Infrastructure",
-            ticker: "SKI",
+            {
+                company: "TBA",
+                title: "T Bag Automatics joins the market",
+                date: "September 2026",
+                preview:
+                    "T Bag Automatics has been added to the Sky Kingdom Stock Exchange.",
 
-            title:
-                "Sky Kingdom Infrastructure building new highways connecting East Magenta to the West",
+                image: "",
+                imageCredit: "",
 
-            date:
-                "September 23rd 2026",
+                body: [
+                    "T Bag Automatics has officially joined the Sky Kingdom Stock Exchange.",
 
-            preview:
-                "A new project started by SKI to improve and bulid new highways and highspeed rail between the two sides of the island",
+                    "A full market article can be added here during the weekly update."
+                ]
+            },
 
-            body:
-                "The backbone of Magentian infrastructure, Sky Kingdom Infrastructure has launched a drastic new project, potentially changing how YOU get between the sides of magenta."
-        },
 
+            {
+                company: "TBB",
+                title: "T Bag Ballistics joins the market",
+                date: "September 2026",
+                preview:
+                    "T Bag Ballistics has been added to the Sky Kingdom Stock Exchange.",
 
-        /* SKL */
+                image: "",
+                imageCredit: "",
 
-        {
-            company: "Sky Kingdom Lib",
-            ticker: "SKL",
+                body: [
+                    "T Bag Ballistics has officially joined the Sky Kingdom Stock Exchange.",
 
-            title:
-                "Sky Kingdom Lib Article",
+                    "A full market article can be added here during the weekly update."
+                ]
+            },
 
-            date:
-                "September 2026",
 
-            preview:
-                "Write the weekly Sky Kingdom Lib article preview here.",
+            {
+                company: "BSB",
+                title: "Bassese Baits joins the market",
+                date: "September 2026",
+                preview:
+                    "Bassese Baits has been added to the Sky Kingdom Stock Exchange.",
 
-            body:
-                "Write the full Sky Kingdom Lib article here."
-        },
+                image: "",
+                imageCredit: "",
 
+                body: [
+                    "Bassese Baits has officially joined the Sky Kingdom Stock Exchange.",
 
-        /* SKGI */
+                    "A full market article can be added here during the weekly update."
+                ]
+            }
 
-        {
-            company: "Sky Kingdom Government Infrastructure",
-            ticker: "SKGI",
+        ];
 
-            title:
-                "Sky Kingdom Government Infrastructure Article",
 
-            date:
-                "September 2026",
+        /* =========================================================
+           WEEKLY REPORT
+           
+           EDIT THIS EVERY WEEK
+           ========================================================= */
 
-            preview:
-                "Write the weekly SKGI article preview here.",
+        const weeklyReport = {
 
-            body:
-                "Write the full Sky Kingdom Government Infrastructure article here."
-        },
+            date: "September 2026 — Week One",
 
+            title: "sky kingdom market report",
 
-        /* MIAC */
+            summary:
+                "this is the sky kingdom stock exchange. below you will find example tutorial articles."
 
-        {
-            company: "I Am A Fire Hydrant Avionics",
-            ticker: "MIAC",
+        };
 
-            title:
-                "MIAC Article",
 
-            date:
-                "September 2026",
+        /* =========================================================
+           MARKET TABLE
+           ========================================================= */
 
-            preview:
-                "Write the weekly MIAC article preview here.",
+        function renderMarket() {
 
-            body:
-                "Write the full I Am A Fire Hydrant Avionics article here."
-        },
+            const table =
+                document.getElementById("marketTable");
 
+            table.innerHTML = "";
 
-        /* MITC */
+            let totalAvailable = 0;
 
-        {
-            company: "I Am A Fire Hydrant Trucking",
-            ticker: "MITC",
+            companies.forEach(company => {
 
-            title:
-                "MIAC and MITC launch a new partnership",
+                const change =
+                    company.currentPrice -
+                    company.previousPrice;
 
-            date:
-                "September 23rd 2026",
+                const changePercent =
+                    company.previousPrice !== 0
+                        ? (change / company.previousPrice) * 100
+                        : 0;
 
-            preview:
-                "Magentian owned companies launching an exclusive partnership between eachother",
+                let changeClass = "";
 
-            body:
-                "Popular magentian cargo company I Am a Fire Hydrant Trucking has been the main truck company for all deliveries across magenta. " +
-
-                "No matter if you order on Amazon, Ebay, or Walmart, if its getting shipped to magenta its going on MITC. " +
-
-                "But, recently, that stuff has been slowing down. on reports frmo customers, it has been noted that shipping time has noticably increased between feburary of 2020 and june of 2026. " +
-
-                "After a few months of identifying, the leadership has discovered a huge part of it - their aging aircraft and vehicle assortment. " +
-
-                "Despite being named I Am a Fire Hydrant trucking, the company does own and operate a wide assortment of aircraft and trains. Most of it is for transporting between the large island, between the American substate, and the outside world. " +
-
-                "But, the equipment is beginning to get old and requires heavy maintance, causing large delays. " +
-
-                "Thats why MITC and popular magentian I Am a Fire Hydrant Avionics are partnering up on part one of the project, solving the aircraft case. " +
-
-                "A ground breaking 45 billion dollar deal has been signed between the two companies for MITC to purchase fifty Boeing 777-9Fs for the airline, completely replacing their old aging 767 freighters. " +
-
-                "This new deal is planned to finalize in the next couple of months. Aircraft production is expected to resume right after. We recommend investing in the companies now before their stock prices boom"
-        },
-
-
-        /* UAL */
-
-        {
-            company: "United Airlines",
-            ticker: "UAL",
-
-            title:
-                "United Airlines Article",
-
-            date:
-                "September 2026",
-
-            preview:
-                "Write the weekly United Airlines article preview here.",
-
-            body:
-                "Write the full United Airlines article here."
-        },
-
-
-        /* TSMC */
-
-        {
-            company: "Taiwanese Semiconductor Manufacturing Company",
-            ticker: "TSMC",
-
-            title:
-                "TSMC Article",
-
-            date:
-                "September 2026",
-
-            preview:
-                "Write the weekly TSMC article preview here.",
-
-            body:
-                "Write the full Taiwanese Semiconductor Manufacturing Company article here."
-        }
-
-    ];
-
-
-    /* =========================================================
-       DO NOT EDIT BELOW THIS LINE
-       ========================================================= */
-
-
-    /* =========================================================
-       WEEK
-       ========================================================= */
-
-    document.getElementById(
-        "weekDisplay"
-    ).textContent =
-        currentWeek;
-
-
-    /* =========================================================
-       WEEKLY REPORT
-       ========================================================= */
-
-    document.getElementById(
-        "reportDate"
-    ).textContent =
-        weeklyReport.date;
-
-
-    document.getElementById(
-        "reportTitle"
-    ).textContent =
-        weeklyReport.title;
-
-
-    document.getElementById(
-        "reportText"
-    ).textContent =
-        weeklyReport.summary;
-
-
-    /* =========================================================
-       MARKET TABLE
-       ========================================================= */
-
-    const marketTable =
-        document.getElementById(
-            "marketTable"
-        );
-
-
-    let totalShares = 0;
-    let remainingShares = 0;
-
-
-    companies.forEach(company => {
-
-        totalShares +=
-            company.totalShares;
-
-        remainingShares +=
-            company.remainingShares;
-
-
-        const row =
-            document.createElement("tr");
-
-
-        /*
-         * Prevent 0 / 0 from creating NaN.
-         */
-
-        let percentageChange = 0;
-
-
-        if (
-            company.previousPrice !== 0
-        ) {
-
-            percentageChange =
-                (
-                    (
-                        company.currentPrice -
-                        company.previousPrice
-                    )
-                    /
-                    company.previousPrice
-                )
-                *
-                100;
-
-        }
-
-
-        let arrow = "→";
-
-        let arrowClass = "flat";
-
-        let changeClass = "flat";
-
-
-        if (percentageChange > 0) {
-
-            arrow = "↑";
-            arrowClass = "positive";
-            changeClass = "positive";
-
-        }
-
-
-        if (percentageChange < 0) {
-
-            arrow = "↓";
-            arrowClass = "negative";
-            changeClass = "negative";
-
-        }
-
-
-        const formattedPrice =
-            company.currentPrice.toLocaleString(
-                "en-US",
-                {
-                    minimumFractionDigits: 2,
-                    maximumFractionDigits: 2
-                }
-            );
-
-
-        const formattedChange =
-            Math.abs(
-                percentageChange
-            ).toFixed(2)
-            +
-            "%";
-
-
-        row.innerHTML = `
-
-            <td>
-
-                <span class="company-name">
-                    ${company.name}
-                </span>
-
-                <span class="ticker">
-                    (${company.ticker})
-                </span>
-
-            </td>
-
-
-            <td class="price-cell">
-
-                $${formattedPrice}
-
-                <span
-                    class="
-                        price-change
-                        ${changeClass}
-                    "
-                >
-
-                    <span
-                        class="
-                            arrow
-                            ${arrowClass}
-                        "
-                    >
-                        ${arrow}
-                    </span>
-
-                    ${formattedChange}
-
-                </span>
-
-            </td>
-
-        `;
-
-
-        marketTable.appendChild(row);
-
-    });
-
-
-    /* =========================================================
-       SHARE TOTALS
-       ========================================================= */
-
-    document.getElementById(
-        "totalShares"
-    ).textContent =
-        totalShares.toLocaleString();
-
-
-    document.getElementById(
-        "remainingShares"
-    ).textContent =
-        remainingShares.toLocaleString();
-
-
-    /* =========================================================
-       SHARE BREAKDOWN
-       ========================================================= */
-
-    const shareBreakdown =
-        document.getElementById(
-            "shareBreakdown"
-        );
-
-
-    companies.forEach(company => {
-
-        const percentageRemaining =
-
-            company.totalShares > 0
-
-                ?
-
-            (
-                company.remainingShares /
-                company.totalShares
-            )
-            *
-            100
-
-                :
-
-            0;
-
-
-        const item =
-            document.createElement("div");
-
-
-        item.className =
-            "share-company";
-
-
-        item.innerHTML = `
-
-            <div class="share-company-name">
-
-                <span>
-                    ${company.ticker}
-                </span>
-
-                <span>
-                    ${percentageRemaining.toFixed(1)}%
-                </span>
-
-            </div>
-
-
-            <div class="share-details">
-
-                ${company.remainingShares.toLocaleString()}
-                remaining /
-                ${company.totalShares.toLocaleString()}
-                total
-
-            </div>
-
-        `;
-
-
-        shareBreakdown.appendChild(item);
-
-    });
-
-
-    /* =========================================================
-       ARTICLE CAROUSEL
-       ========================================================= */
-
-    const articleTrack =
-        document.getElementById(
-            "articleTrack"
-        );
-
-
-    const articleCarousel =
-        document.getElementById(
-            "articleCarousel"
-        );
-
-
-    let currentArticle = 0;
-
-
-    const modal =
-        document.getElementById(
-            "articleModal"
-        );
-
-
-    const modalDate =
-        document.getElementById(
-            "modalDate"
-        );
-
-
-    const modalTitle =
-        document.getElementById(
-            "modalTitle"
-        );
-
-
-    const modalBody =
-        document.getElementById(
-            "modalBody"
-        );
-
-
-    function openArticle(article) {
-
-        modalDate.textContent =
-            article.date;
-
-        modalTitle.textContent =
-            article.title;
-
-        modalBody.textContent =
-            article.body;
-
-        modal.classList.add(
-            "active"
-        );
-
-    }
-
-
-    function renderArticleCarousel() {
-
-        articleTrack.innerHTML = "";
-
-
-        articles.forEach(
-            (article, index) => {
-
-                const slide =
-                    document.createElement(
-                        "div"
-                    );
-
-
-                slide.className =
-                    "article-slide";
-
-
-                const difference =
-                    (
-                        index -
-                        currentArticle +
-                        articles.length
-                    )
-                    %
-                    articles.length;
-
-
-                /*
-                 * CENTER ARTICLE
-                 */
-
-                if (
-                    difference === 0
-                ) {
-
-                    slide.classList.add(
-                        "center"
-                    );
-
+                if (change > 0) {
+                    changeClass = "positive";
                 }
 
-
-                /*
-                 * ARTICLE TO THE RIGHT
-                 */
-
-                else if (
-                    difference === 1
-                ) {
-
-                    slide.classList.add(
-                        "right"
-                    );
-
+                else if (change < 0) {
+                    changeClass = "negative";
                 }
 
+                const changeText =
+                    change > 0
+                        ? `+${change.toFixed(2)} (+${changePercent.toFixed(2)}%)`
+                        : change < 0
+                            ? `${change.toFixed(2)} (${changePercent.toFixed(2)}%)`
+                            : "—";
 
-                /*
-                 * ARTICLE TO THE LEFT
-                 */
+                const row =
+                    document.createElement("tr");
 
-                else if (
-                    difference ===
-                    articles.length - 1
-                ) {
+                row.innerHTML = `
 
-                    slide.classList.add(
-                        "left"
-                    );
+                    <td>
+                        ${company.name}
+                    </td>
 
-                }
+                    <td class="ticker">
+                        ${company.ticker}
+                    </td>
 
+                    <td class="price">
+                        $${company.currentPrice.toLocaleString()}
+                    </td>
 
-                /*
-                 * HIDDEN ARTICLES
-                 */
+                    <td class="${changeClass}">
+                        ${changeText}
+                    </td>
 
-                else if (
-                    difference <
-                    articles.length / 2
-                ) {
-
-                    slide.classList.add(
-                        "hidden-right"
-                    );
-
-                }
-
-                else {
-
-                    slide.classList.add(
-                        "hidden-left"
-                    );
-
-                }
-
-
-                slide.innerHTML = `
-
-                    <div>
-
-                        <div class="article-company">
-                            ${article.company}
-                            ·
-                            ${article.ticker}
-                        </div>
-
-                        <div class="article-title">
-                            ${article.title}
-                        </div>
-
-                        <div class="article-date">
-                            ${article.date}
-                        </div>
-
-                        <div class="article-preview">
-                            ${article.preview}
-                        </div>
-
-                    </div>
-
-                    <div class="read-more">
-                        Click to read full article →
-                    </div>
+                    <td>
+                        ${company.remainingShares.toLocaleString()}
+                    </td>
 
                 `;
 
+                table.appendChild(row);
 
-                slide.addEventListener(
-                    "click",
-                    () => {
+                totalAvailable +=
+                    company.remainingShares;
 
-                        /*
-                         * Clicking center opens article.
-                         */
-
-                        if (
-                            difference === 0
-                        ) {
-
-                            openArticle(
-                                article
-                            );
-
-                        }
+            });
 
 
-                        /*
-                         * Clicking right
-                         * moves forward.
-                         */
+            document.getElementById(
+                "totalSharesAvailable"
+            ).textContent =
+                totalAvailable.toLocaleString();
 
-                        else if (
-                            difference === 1
-                        ) {
-
-                            nextArticle();
-
-                        }
+        }
 
 
-                        /*
-                         * Clicking left
-                         * moves backward.
-                         */
+        /* =========================================================
+           WEEKLY REPORT
+           ========================================================= */
 
-                        else if (
-                            difference ===
-                            articles.length - 1
-                        ) {
+        function renderReport() {
 
-                            previousArticle();
+            document.getElementById(
+                "reportDate"
+            ).textContent =
+                weeklyReport.date;
 
-                        }
+            document.getElementById(
+                "reportTitle"
+            ).textContent =
+                weeklyReport.title;
 
+            document.getElementById(
+                "reportSummary"
+            ).textContent =
+                weeklyReport.summary;
+
+            document.getElementById(
+                "weekText"
+            ).textContent =
+                weeklyReport.date;
+
+        }
+
+
+        /* =========================================================
+           ARTICLE CAROUSEL
+           ========================================================= */
+
+        let currentArticle = 0;
+
+
+        function getArticleIndex(offset) {
+
+            const length =
+                articles.length;
+
+            return (
+                (currentArticle + offset + length)
+                % length
+            );
+
+        }
+
+
+        function createArticleCard(
+            article,
+            position
+        ) {
+
+            const card =
+                document.createElement("article");
+
+            card.className =
+                `article-card ${position}`;
+
+
+            let imageHTML = "";
+
+            if (article.image) {
+
+                imageHTML = `
+
+                    <img
+                        class="article-image"
+                        src="${article.image}"
+                        alt="${article.title}"
+                    >
+
+                    ${
+                        article.imageCredit
+                            ? `
+                                <div class="article-image-credit">
+                                    ${article.imageCredit}
+                                </div>
+                              `
+                            : ""
                     }
-                );
+
+                `;
+
+            }
 
 
-                articleTrack.appendChild(
-                    slide
+            card.innerHTML = `
+
+                ${imageHTML}
+
+                <div class="article-company">
+                    ${article.company}
+                </div>
+
+                <div class="article-title">
+                    ${article.title}
+                </div>
+
+                <div class="article-date">
+                    ${article.date}
+                </div>
+
+                <div class="article-preview">
+                    ${article.preview}
+                </div>
+
+            `;
+
+
+            if (position === "center") {
+
+                card.addEventListener(
+                    "click",
+                    () => openArticle(article)
                 );
 
             }
-        );
 
-    }
+            else if (position === "left") {
+
+                card.addEventListener(
+                    "click",
+                    previousArticle
+                );
+
+            }
+
+            else if (position === "right") {
+
+                card.addEventListener(
+                    "click",
+                    nextArticle
+                );
+
+            }
 
 
-    /* =========================================================
-       NEXT ARTICLE
-       ========================================================= */
-
-    function nextArticle() {
-
-        currentArticle++;
-
-
-        if (
-            currentArticle >=
-            articles.length
-        ) {
-
-            currentArticle = 0;
+            return card;
 
         }
 
 
-        renderArticleCarousel();
+        function renderCarousel() {
 
-    }
+            const track =
+                document.getElementById(
+                    "articleTrack"
+                );
 
-
-    /* =========================================================
-       PREVIOUS ARTICLE
-       ========================================================= */
-
-    function previousArticle() {
-
-        currentArticle--;
+            track.innerHTML = "";
 
 
-        if (
-            currentArticle < 0
-        ) {
+            const previous =
+                articles[
+                    getArticleIndex(-1)
+                ];
+
+            const current =
+                articles[
+                    getArticleIndex(0)
+                ];
+
+            const next =
+                articles[
+                    getArticleIndex(1)
+                ];
+
+
+            track.appendChild(
+                createArticleCard(
+                    previous,
+                    "left"
+                )
+            );
+
+            track.appendChild(
+                createArticleCard(
+                    current,
+                    "center"
+                )
+            );
+
+            track.appendChild(
+                createArticleCard(
+                    next,
+                    "right"
+                )
+            );
+
+        }
+
+
+        function nextArticle() {
 
             currentArticle =
-                articles.length - 1;
+                getArticleIndex(1);
+
+            renderCarousel();
 
         }
 
 
-        renderArticleCarousel();
+        function previousArticle() {
 
-    }
+            currentArticle =
+                getArticleIndex(-1);
 
+            renderCarousel();
 
-    /* =========================================================
-       CAROUSEL BUTTONS
-       ========================================================= */
-
-    document
-        .getElementById("carouselLeft")
-        .addEventListener(
-            "click",
-            previousArticle
-        );
+        }
 
 
-    document
-        .getElementById("carouselRight")
-        .addEventListener(
+        /* =========================================================
+           ARTICLE MODAL
+           ========================================================= */
+
+        function openArticle(article) {
+
+            document.getElementById(
+                "modalTitle"
+            ).textContent =
+                article.title;
+
+            document.getElementById(
+                "modalDate"
+            ).textContent =
+                `${article.company} · ${article.date}`;
+
+
+            const imageContainer =
+                document.getElementById(
+                    "modalImageContainer"
+                );
+
+            imageContainer.innerHTML = "";
+
+
+            if (article.image) {
+
+                const img =
+                    document.createElement("img");
+
+                img.className =
+                    "modal-image";
+
+                img.src =
+                    article.image;
+
+                img.alt =
+                    article.title;
+
+                imageContainer.appendChild(img);
+
+
+                if (article.imageCredit) {
+
+                    const credit =
+                        document.createElement("div");
+
+                    credit.className =
+                        "modal-image-credit";
+
+                    credit.textContent =
+                        article.imageCredit;
+
+                    imageContainer.appendChild(
+                        credit
+                    );
+
+                }
+
+            }
+
+
+            const body =
+                document.getElementById(
+                    "modalBody"
+                );
+
+            body.innerHTML = "";
+
+
+            article.body.forEach(paragraph => {
+
+                const p =
+                    document.createElement("p");
+
+                p.textContent =
+                    paragraph;
+
+                body.appendChild(p);
+
+            });
+
+
+            document.getElementById(
+                "articleModal"
+            ).classList.add("open");
+
+            document.body.style.overflow =
+                "hidden";
+
+        }
+
+
+        function closeArticle() {
+
+            document.getElementById(
+                "articleModal"
+            ).classList.remove("open");
+
+            document.body.style.overflow =
+                "";
+
+        }
+
+
+        /* =========================================================
+           COUNTDOWN
+           
+           Counts down to the next Sunday at 00:00.
+           ========================================================= */
+
+        function updateCountdown() {
+
+            const now =
+                new Date();
+
+            const target =
+                new Date(now);
+
+            const day =
+                now.getDay();
+
+            const daysUntilSunday =
+                day === 0
+                    ? 7
+                    : 7 - day;
+
+            target.setDate(
+                now.getDate() +
+                daysUntilSunday
+            );
+
+            target.setHours(
+                0,
+                0,
+                0,
+                0
+            );
+
+
+            const difference =
+                target - now;
+
+
+            const totalSeconds =
+                Math.max(
+                    0,
+                    Math.floor(
+                        difference / 1000
+                    )
+                );
+
+
+            const days =
+                Math.floor(
+                    totalSeconds /
+                    86400
+                );
+
+            const hours =
+                Math.floor(
+                    (totalSeconds % 86400) /
+                    3600
+                );
+
+            const minutes =
+                Math.floor(
+                    (totalSeconds % 3600) /
+                    60
+                );
+
+            const seconds =
+                totalSeconds % 60;
+
+
+            document.getElementById(
+                "countdown"
+            ).textContent =
+                `${days}d ${hours}h ${minutes}m ${seconds}s`;
+
+        }
+
+
+        /* =========================================================
+           BUTTONS
+           ========================================================= */
+
+        document.getElementById(
+            "nextArticle"
+        ).addEventListener(
             "click",
             nextArticle
         );
 
 
-    /* =========================================================
-       MOUSE WHEEL CAROUSEL
-       ========================================================= */
-
-    let wheelLocked = false;
-
-
-    articleCarousel.addEventListener(
-        "wheel",
-        event => {
-
-            event.preventDefault();
-
-
-            if (
-                wheelLocked
-            ) {
-
-                return;
-
-            }
-
-
-            wheelLocked = true;
-
-
-            if (
-                event.deltaY > 0
-            ) {
-
-                nextArticle();
-
-            }
-
-            else {
-
-                previousArticle();
-
-            }
-
-
-            setTimeout(
-                () => {
-
-                    wheelLocked = false;
-
-                },
-                500
-            );
-
-        },
-        {
-            passive: false
-        }
-    );
-
-
-    /*
-     * Draw the initial carousel.
-     */
-
-    renderArticleCarousel();
-
-
-    /* =========================================================
-       CLOSE MODAL
-       ========================================================= */
-
-    document
-        .getElementById("closeModal")
-        .addEventListener(
+        document.getElementById(
+            "prevArticle"
+        ).addEventListener(
             "click",
-            () => {
-
-                modal.classList.remove(
-                    "active"
-                );
-
-            }
+            previousArticle
         );
-
-
-    /*
-     * Clicking outside the article closes it.
-     */
-
-    modal.addEventListener(
-        "click",
-        event => {
-
-            if (
-                event.target === modal
-            ) {
-
-                modal.classList.remove(
-                    "active"
-                );
-
-            }
-
-        }
-    );
-
-
-    /*
-     * Escape key also closes the article.
-     */
-
-    document.addEventListener(
-        "keydown",
-        event => {
-
-            if (
-                event.key === "Escape"
-            ) {
-
-                modal.classList.remove(
-                    "active"
-                );
-
-            }
-
-        }
-    );
-
-
-    /* =========================================================
-       SUNDAY COUNTDOWN
-       ========================================================= */
-
-    function updateCountdown() {
-
-        const now =
-            new Date();
-
-
-        const nextSunday =
-            new Date(now);
-
-
-        nextSunday.setHours(
-            0,
-            0,
-            0,
-            0
-        );
-
-
-        let daysUntilSunday =
-
-            (
-                7 -
-                nextSunday.getDay()
-            )
-            %
-            7;
-
-
-        /*
-         * If today is Sunday, count toward
-         * the following Sunday.
-         */
-
-        if (
-            daysUntilSunday === 0
-        ) {
-
-            daysUntilSunday = 7;
-
-        }
-
-
-        nextSunday.setDate(
-            nextSunday.getDate()
-            +
-            daysUntilSunday
-        );
-
-
-        const difference =
-
-            nextSunday.getTime()
-            -
-            now.getTime();
-
-
-        const totalSeconds =
-
-            Math.max(
-                0,
-                Math.floor(
-                    difference /
-                    1000
-                )
-            );
-
-
-        const days =
-            Math.floor(
-                totalSeconds /
-                86400
-            );
-
-
-        const hours =
-            Math.floor(
-                (
-                    totalSeconds %
-                    86400
-                )
-                /
-                3600
-            );
-
-
-        const minutes =
-            Math.floor(
-                (
-                    totalSeconds %
-                    3600
-                )
-                /
-                60
-            );
-
-
-        const seconds =
-            totalSeconds %
-            60;
 
 
         document.getElementById(
-            "countdownDisplay"
-        ).textContent =
-
-            `${days}d ` +
-            `${hours}h ` +
-            `${minutes}m ` +
-            `${seconds}s`;
-
-    }
+            "modalClose"
+        ).addEventListener(
+            "click",
+            closeArticle
+        );
 
 
-    updateCountdown();
+        document.getElementById(
+            "articleModal"
+        ).addEventListener(
+            "click",
+            event => {
+
+                if (
+                    event.target.id ===
+                    "articleModal"
+                ) {
+                    closeArticle();
+                }
+
+            }
+        );
 
 
-    setInterval(
-        updateCountdown,
-        1000
-    );
+        document.addEventListener(
+            "keydown",
+            event => {
 
-</script>
-```
+                if (
+                    event.key === "Escape"
+                ) {
+                    closeArticle();
+                }
+
+                if (
+                    event.key === "ArrowRight"
+                ) {
+                    nextArticle();
+                }
+
+                if (
+                    event.key === "ArrowLeft"
+                ) {
+                    previousArticle();
+                }
+
+            }
+        );
+
+
+        /* =========================================================
+           MOUSE WHEEL CAROUSEL
+           ========================================================= */
+
+        let wheelLock = false;
+
+        document
+            .getElementById("articleTrack")
+            .addEventListener(
+                "wheel",
+                event => {
+
+                    event.preventDefault();
+
+                    if (wheelLock) {
+                        return;
+                    }
+
+                    wheelLock = true;
+
+                    if (event.deltaY > 0) {
+                        nextArticle();
+                    }
+
+                    else {
+                        previousArticle();
+                    }
+
+                    setTimeout(
+                        () => {
+                            wheelLock = false;
+                        },
+                        450
+                    );
+
+                },
+                { passive: false }
+            );
+
+
+        /* =========================================================
+           INITIALIZE
+           ========================================================= */
+
+        renderMarket();
+
+        renderReport();
+
+        renderCarousel();
+
+        updateCountdown();
+
+        setInterval(
+            updateCountdown,
+            1000
+        );
+
+    </script>
 
 </body>
 </html>
+```
