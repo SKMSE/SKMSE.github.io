@@ -9,6 +9,7 @@
     <!-- Google Fonts - Chewy -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
     <link
         href="https://fonts.googleapis.com/css2?family=Chewy&display=swap"
         rel="stylesheet"
@@ -42,7 +43,6 @@
             --gray: #aaa;
         }
 
-
         /* =========================================================
            GLOBAL
            ========================================================= */
@@ -53,14 +53,13 @@
             padding: 0;
         }
 
-
         html {
             scroll-behavior: smooth;
         }
 
-
         body {
             font-family: "Chewy", cursive;
+
             background:
                 radial-gradient(
                     circle at 20% 0%,
@@ -81,12 +80,10 @@
             animation: pageFadeIn 0.8s ease;
         }
 
-
         ::selection {
             background: var(--orange);
             color: black;
         }
-
 
         /* =========================================================
            MAIN PAGE
@@ -97,7 +94,6 @@
             margin: auto;
             padding: 55px 25px 80px;
         }
-
 
         /* =========================================================
            HEADER
@@ -111,7 +107,6 @@
                 softFloat 6s ease-in-out infinite;
         }
 
-
         .main-header h1 {
             font-size: clamp(2.3rem, 6vw, 4rem);
             color: var(--orange);
@@ -122,13 +117,11 @@
                 0 0 25px rgba(255, 138, 0, 0.18);
         }
 
-
         .main-header p {
             color: #d1d1d1;
             font-size: 1rem;
             max-width: 850px;
         }
-
 
         /* =========================================================
            SECTION TITLE
@@ -145,7 +138,6 @@
             display: inline-block;
         }
 
-
         .section-title::after {
             content: "";
 
@@ -161,7 +153,6 @@
 
             animation: titleLine 3s ease-in-out infinite;
         }
-
 
         /* =========================================================
            WEEK BOX
@@ -191,7 +182,6 @@
                 slideUp 0.8s ease 0.1s both;
         }
 
-
         .week-box::before {
             content: "";
 
@@ -212,24 +202,20 @@
             animation: orbitGlow 8s ease-in-out infinite;
         }
 
-
         .week-title {
             color: var(--orange);
             font-size: 1.7rem;
             margin-bottom: 4px;
         }
 
-
         .countdown {
             color: #d0d0d0;
             font-size: 1rem;
         }
 
-
         .countdown strong {
             color: var(--orange);
         }
-
 
         /* =========================================================
            SECTION SPACING
@@ -241,7 +227,6 @@
             animation:
                 slideUp 0.8s ease both;
         }
-
 
         /* =========================================================
            MARKET LAYOUT
@@ -258,7 +243,6 @@
 
             align-items: start;
         }
-
 
         /* =========================================================
            PANELS
@@ -288,14 +272,12 @@
                 box-shadow 0.25s ease;
         }
 
-
         .panel:hover {
             border-color: rgba(255, 138, 0, 0.32);
 
             box-shadow:
                 0 20px 55px rgba(0, 0, 0, 0.28);
         }
-
 
         /* =========================================================
            MARKET TABLE
@@ -305,12 +287,10 @@
             overflow-x: auto;
         }
 
-
         table {
             width: 100%;
             border-collapse: collapse;
         }
-
 
         th,
         td {
@@ -321,7 +301,6 @@
             white-space: nowrap;
         }
 
-
         th {
             color: var(--orange);
             font-size: 0.95rem;
@@ -330,18 +309,15 @@
                 rgba(255, 138, 0, 0.035);
         }
 
-
         tr:last-child td {
             border-bottom: none;
         }
-
 
         tbody tr {
             transition:
                 background 0.2s ease,
                 transform 0.2s ease;
         }
-
 
         tbody tr:hover {
             background: rgba(255, 138, 0, 0.045);
@@ -350,11 +326,9 @@
                 translateX(3px);
         }
 
-
         .company-name {
             font-size: 1.1rem;
         }
-
 
         .ticker {
             color: var(--muted);
@@ -362,12 +336,10 @@
             font-size: 0.85rem;
         }
 
-
         .price-cell {
             font-size: 1.15rem;
             font-weight: bold;
         }
-
 
         .price-change {
             display: inline-flex;
@@ -380,27 +352,22 @@
             font-size: 0.95rem;
         }
 
-
         .arrow {
             font-size: 1.2rem;
             line-height: 1;
         }
 
-
         .positive {
             color: var(--green);
         }
-
 
         .negative {
             color: var(--red);
         }
 
-
         .flat {
             color: var(--gray);
         }
-
 
         /* =========================================================
            SHARES PANEL
@@ -410,13 +377,11 @@
             padding: 22px;
         }
 
-
         .shares-heading {
             color: var(--orange);
             font-size: 1.4rem;
             margin-bottom: 18px;
         }
-
 
         .share-summary {
             display: grid;
@@ -425,7 +390,6 @@
 
             margin-bottom: 22px;
         }
-
 
         .share-total {
             background: var(--panel-light);
@@ -439,7 +403,6 @@
             padding: 15px;
         }
 
-
         .share-label {
             display: block;
 
@@ -449,12 +412,10 @@
             margin-bottom: 5px;
         }
 
-
         .share-number {
             color: var(--text);
             font-size: 1.35rem;
         }
-
 
         .share-company {
             padding: 13px 0;
@@ -464,11 +425,9 @@
                 rgba(255, 255, 255, 0.06);
         }
 
-
         .share-company:first-of-type {
             border-top: none;
         }
-
 
         .share-company-name {
             display: flex;
@@ -479,17 +438,14 @@
             margin-bottom: 5px;
         }
 
-
         .share-company-name span:last-child {
             color: var(--orange);
         }
-
 
         .share-details {
             color: var(--muted);
             font-size: 0.8rem;
         }
-
 
         /* =========================================================
            WEEKLY REPORT
@@ -499,14 +455,12 @@
             padding: 28px;
         }
 
-
         .report-date {
             color: var(--muted);
             font-size: 0.85rem;
 
             margin-bottom: 6px;
         }
-
 
         .report-title {
             color: var(--orange);
@@ -516,12 +470,10 @@
             margin-bottom: 12px;
         }
 
-
         .report-text {
             color: #d4d4d4;
             font-size: 1rem;
         }
-
 
         /* =========================================================
            ARTICLES
@@ -531,11 +483,10 @@
             display: grid;
 
             grid-template-columns:
-                repeat(4, minmax(0, 1fr));
+                repeat(3, minmax(0, 1fr));
 
             gap: 18px;
         }
-
 
         .article-card {
             position: relative;
@@ -567,7 +518,6 @@
                 articleAppear 0.7s ease both;
         }
 
-
         .article-card:nth-child(1) {
             animation-delay: 0.05s;
         }
@@ -579,11 +529,6 @@
         .article-card:nth-child(3) {
             animation-delay: 0.19s;
         }
-
-        .article-card:nth-child(4) {
-            animation-delay: 0.26s;
-        }
-
 
         .article-card:hover {
             transform:
@@ -597,7 +542,6 @@
                 rgba(255, 138, 0, 0.08);
         }
 
-
         .article-number {
             color: var(--orange);
             font-size: 0.8rem;
@@ -605,12 +549,10 @@
             margin-bottom: 7px;
         }
 
-
         .article-title {
             font-size: 1.2rem;
             margin-bottom: 10px;
         }
-
 
         .article-preview {
             color: #aaa;
@@ -619,12 +561,10 @@
             margin-bottom: 17px;
         }
 
-
         .read-more {
             color: var(--orange);
             font-size: 0.85rem;
         }
-
 
         /* =========================================================
            MODAL
@@ -648,7 +588,6 @@
             padding: 25px;
         }
 
-
         .modal.active {
             display: flex;
 
@@ -658,7 +597,6 @@
             animation:
                 modalBackground 0.25s ease;
         }
-
 
         .modal-content {
             width: min(820px, 100%);
@@ -683,7 +621,6 @@
                 modalOpen 0.32s ease;
         }
 
-
         .close-button {
             position: absolute;
 
@@ -705,13 +642,11 @@
                 transform 0.2s ease;
         }
 
-
         .close-button:hover {
             transform:
                 rotate(90deg)
                 scale(1.1);
         }
-
 
         .modal-date {
             color: var(--muted);
@@ -719,7 +654,6 @@
 
             margin-bottom: 8px;
         }
-
 
         .modal-title {
             color: var(--orange);
@@ -731,7 +665,6 @@
             padding-right: 35px;
         }
 
-
         .modal-body {
             color: #ddd;
 
@@ -739,7 +672,6 @@
 
             font-size: 1rem;
         }
-
 
         /* =========================================================
            FOOTER
@@ -759,13 +691,11 @@
             font-size: 0.8rem;
         }
 
-
         /* =========================================================
            ANIMATIONS
            ========================================================= */
 
         @keyframes pageFadeIn {
-
             from {
                 opacity: 0;
             }
@@ -773,12 +703,9 @@
             to {
                 opacity: 1;
             }
-
         }
 
-
         @keyframes slideDown {
-
             from {
                 opacity: 0;
                 transform: translateY(-18px);
@@ -788,12 +715,9 @@
                 opacity: 1;
                 transform: translateY(0);
             }
-
         }
 
-
         @keyframes slideUp {
-
             from {
                 opacity: 0;
                 transform: translateY(25px);
@@ -803,12 +727,9 @@
                 opacity: 1;
                 transform: translateY(0);
             }
-
         }
 
-
         @keyframes articleAppear {
-
             from {
                 opacity: 0;
                 transform: translateY(20px) scale(0.98);
@@ -818,12 +739,9 @@
                 opacity: 1;
                 transform: translateY(0) scale(1);
             }
-
         }
 
-
         @keyframes modalOpen {
-
             from {
                 opacity: 0;
                 transform:
@@ -837,12 +755,9 @@
                     translateY(0)
                     scale(1);
             }
-
         }
 
-
         @keyframes modalBackground {
-
             from {
                 opacity: 0;
             }
@@ -850,12 +765,9 @@
             to {
                 opacity: 1;
             }
-
         }
 
-
         @keyframes titleLine {
-
             0%,
             100% {
                 width: 35%;
@@ -864,12 +776,9 @@
             50% {
                 width: 60%;
             }
-
         }
 
-
         @keyframes orbitGlow {
-
             0%,
             100% {
                 transform:
@@ -882,12 +791,9 @@
                     translate(-30px, 25px)
                     scale(1.15);
             }
-
         }
 
-
         @keyframes softFloat {
-
             0%,
             100% {
                 transform: translateY(0);
@@ -896,16 +802,13 @@
             50% {
                 transform: translateY(-2px);
             }
-
         }
-
 
         /* =========================================================
            MOBILE
            ========================================================= */
 
         @media (max-width: 950px) {
-
             .market-layout {
                 grid-template-columns: 1fr;
             }
@@ -914,27 +817,21 @@
                 grid-template-columns:
                     repeat(2, minmax(0, 1fr));
             }
-
         }
 
-
         @media (max-width: 600px) {
-
             .page {
                 padding:
                     35px 15px 60px;
             }
 
-
             .main-header h1 {
                 font-size: 2.4rem;
             }
 
-
             .article-grid {
                 grid-template-columns: 1fr;
             }
-
 
             th,
             td {
@@ -942,26 +839,21 @@
                     14px 12px;
             }
 
-
             .share-summary {
                 grid-template-columns: 1fr;
             }
 
-
             .modal-content {
                 padding: 25px;
             }
-
         }
 
     </style>
 </head>
 
-
 <body>
 
     <div class="page">
-
 
         <!-- =====================================================
              HEADER
@@ -1016,9 +908,7 @@
                 Market
             </h2>
 
-
             <div class="market-layout">
-
 
                 <!-- STOCK TABLE -->
 
@@ -1042,9 +932,7 @@
 
                         </thead>
 
-
                         <tbody id="marketTable">
-
                         </tbody>
 
                     </table>
@@ -1059,7 +947,6 @@
                     <div class="shares-heading">
                         Share Availability
                     </div>
-
 
                     <div class="share-summary">
 
@@ -1077,7 +964,6 @@
 
                         </div>
 
-
                         <div class="share-total">
 
                             <span class="share-label">
@@ -1094,9 +980,7 @@
 
                     </div>
 
-
                     <div id="shareBreakdown">
-
                     </div>
 
                 </div>
@@ -1116,7 +1000,6 @@
                 Weekly Market Report
             </h2>
 
-
             <div class="panel report-card">
 
                 <div
@@ -1125,13 +1008,11 @@
                     September 2026 — Week One
                 </div>
 
-
                 <div
                     class="report-title"
                     id="reportTitle">
                     Magentian Market Report
                 </div>
-
 
                 <div
                     class="report-text"
@@ -1154,11 +1035,9 @@
                 Articles
             </h2>
 
-
             <div
                 class="article-grid"
                 id="articleGrid">
-
             </div>
 
         </section>
@@ -1185,7 +1064,6 @@
 
         <div class="modal-content">
 
-
             <button
                 class="close-button"
                 id="closeModal">
@@ -1194,18 +1072,15 @@
 
             </button>
 
-
             <div
                 class="modal-date"
                 id="modalDate">
             </div>
 
-
             <div
                 class="modal-title"
                 id="modalTitle">
             </div>
-
 
             <div
                 class="modal-body"
@@ -1218,7 +1093,6 @@
 
 
     <script>
-
 
         /* =========================================================
            ⭐⭐⭐ EDIT THIS SECTION EVERY WEEK ⭐⭐⭐
@@ -1238,21 +1112,6 @@
 
         /* ---------------------------------------------------------
            COMPANIES
-
-           currentPrice = NEW stock price
-           previousPrice = LAST week's stock price
-
-           The website automatically calculates:
-
-           ↑ percentage
-           ↓ percentage
-           → unchanged
-
-           Shares:
-
-           totalShares = total number of shares issued
-
-           remainingShares = shares still available to purchase
            --------------------------------------------------------- */
 
         const companies = [
@@ -1268,7 +1127,6 @@
                 remainingShares: 0
             },
 
-
             {
                 name: "I Am A Fire Hydrant Trucking",
                 ticker: "MITC",
@@ -1279,7 +1137,6 @@
                 totalShares: 1,
                 remainingShares: 0
             },
-
 
             {
                 name: "Sky Kingdom Industries",
@@ -1292,7 +1149,6 @@
                 remainingShares: 0
             },
 
-
             {
                 name: "Sky Kingdom Enterprises",
                 ticker: "SKE",
@@ -1302,20 +1158,6 @@
 
                 totalShares: 1000000,
                 remainingShares: 1000
-            },
-
-
-            {
-                name:
-                    "Taiwanese Semi Conductor Manufactoring Company",
-
-                ticker: "TSMC",
-
-                currentPrice: 1,
-                previousPrice: 1,
-
-                totalShares: 1,
-                remainingShares: 0
             }
 
         ];
@@ -1340,13 +1182,12 @@
 
 
         /* ---------------------------------------------------------
-           FOUR ARTICLES
+           THREE ARTICLES
            --------------------------------------------------------- */
 
         const articles = [
 
             {
-
                 title:
                     "example article",
 
@@ -1358,63 +1199,52 @@
 
                 body:
                     "this will be the main article. usually 6 sentences"
-
             },
 
 
             {
-
-{
-    title:
-        "MIAC and MITC launch a new partnership",
-
-    date:
-        "September 23rd 2026",
-
-    preview:
-        "Magentian owned companies launching an exclusive partnership between eachother",
-
-    body:
-        "Popular magentian cargo company I Am a Fire Hydrant Trucking has been the main truck company for all deliveries across magenta." +
-        "No matter if you order on Amazon, Ebay, or Walmart, if its getting shipped to magenta its going on MITC." +
-        "But, recently, that stuff has been slowing down. on reports frmo customers, it has been noted that shipping time has noticably increased between feburary of 2020 and june of 2026" +
-        "After a few months of identifying, the leadership has discovered a huge part of it - their aging aircraft and vehicle assortment" +
-        "Despite being named I Am a Fire Hydrant trucking, the company does own and operate a wide assortment of aircraft and trains. Most of it is for transporting between the large island, between the American substate, and the outside world." +
-        "But, the equipment is beginning to get old and requires heavy maintance, causing large delays" +
-        "Thats why MITC and popular magentian I Am a Fire Hydrant Avionics are partnering up on part one of the project, solving the aircraft case." +
-        "A ground breaking 45 billion dollar deal has been signed between the two companies for MITC to purchase fifty Boeing 777-9Fs for the airline, completely replacing their old aging 767 freighters." +
-        "This new deal is planned to finalize in the next couple of months. Aircraft production is expected to resume right after. We recommend investing in the companies now before their stock prices boom"
-},
-
-
-           {
-    title:
-        "Sky Kingdom Infrastructure building new highways connecting East Magenta to the West",
-
-    date:
-        "September 23rd 2026",
-
-    preview:
-        "A new project started by SKI to improve and bulid new highways and highspeed rail between the two sides of the island",
-
-    body:
-        "The backbone of Magentian infrastructure, Sky Kingdom Infrastructure has launched a drastic new project, potentially changing how YOU get between the sides of magenta."
-},
-
-            {
-
                 title:
-                    "Article Four",
+                    "MIAC and MITC launch a new partnership",
 
                 date:
-                    "September 2026",
+                    "September 23rd 2026",
 
                 preview:
-                    "A short preview of the fourth article.",
+                    "Magentian owned companies launching an exclusive partnership between eachother",
 
                 body:
-                    "Write the full fourth article here."
+                    "Popular magentian cargo company I Am a Fire Hydrant Trucking has been the main truck company for all deliveries across magenta. " +
 
+                    "No matter if you order on Amazon, Ebay, or Walmart, if its getting shipped to magenta its going on MITC. " +
+
+                    "But, recently, that stuff has been slowing down. on reports frmo customers, it has been noted that shipping time has noticably increased between feburary of 2020 and june of 2026. " +
+
+                    "After a few months of identifying, the leadership has discovered a huge part of it - their aging aircraft and vehicle assortment. " +
+
+                    "Despite being named I Am a Fire Hydrant trucking, the company does own and operate a wide assortment of aircraft and trains. Most of it is for transporting between the large island, between the American substate, and the outside world. " +
+
+                    "But, the equipment is beginning to get old and requires heavy maintance, causing large delays. " +
+
+                    "Thats why MITC and popular magentian I Am a Fire Hydrant Avionics are partnering up on part one of the project, solving the aircraft case. " +
+
+                    "A ground breaking 45 billion dollar deal has been signed between the two companies for MITC to purchase fifty Boeing 777-9Fs for the airline, completely replacing their old aging 767 freighters. " +
+
+                    "This new deal is planned to finalize in the next couple of months. Aircraft production is expected to resume right after. We recommend investing in the companies now before their stock prices boom"
+            },
+
+
+            {
+                title:
+                    "Sky Kingdom Infrastructure building new highways connecting East Magenta to the West",
+
+                date:
+                    "September 23rd 2026",
+
+                preview:
+                    "A new project started by SKI to improve and bulid new highways and highspeed rail between the two sides of the island",
+
+                body:
+                    "The backbone of Magentian infrastructure, Sky Kingdom Infrastructure has launched a drastic new project, potentially changing how YOU get between the sides of magenta."
             }
 
         ];
@@ -1484,17 +1314,30 @@
                 document.createElement("tr");
 
 
-            const percentageChange =
-                (
+            /*
+             * Prevent 0 / 0 from creating NaN.
+             */
+
+            let percentageChange = 0;
+
+
+            if (
+                company.previousPrice !== 0
+            ) {
+
+                percentageChange =
                     (
-                        company.currentPrice -
+                        (
+                            company.currentPrice -
+                            company.previousPrice
+                        )
+                        /
                         company.previousPrice
                     )
-                    /
-                    company.previousPrice
-                )
-                *
-                100;
+                    *
+                    100;
+
+            }
 
 
             let arrow = "→";
@@ -1627,7 +1470,8 @@
                     company.remainingShares /
                     company.totalShares
                 )
-                * 100
+                *
+                100
 
                     :
 
@@ -1926,7 +1770,6 @@
             updateCountdown,
             1000
         );
-
 
     </script>
 
