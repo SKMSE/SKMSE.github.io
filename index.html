@@ -573,6 +573,24 @@
 
         }
 
+        .shares-remaining-label {
+
+            color: var(--orange);
+
+            font-family: "Chewy", cursive;
+
+            font-size: 1.25rem;
+
+            margin-top: 20px;
+
+        }
+
+        .shares-remaining-number {
+
+            margin-top: 5px;
+
+        }
+
         .market-status {
 
             margin-top: 15px;
@@ -1477,6 +1495,19 @@
                     <span
                         class="shares-number"
                         id="totalSharesAvailable"
+                    >
+                        0
+                    </span>
+
+                    <div
+                        class="shares-remaining-label"
+                    >
+                        Shares Remaining
+                    </div>
+
+                    <span
+                        class="shares-number shares-remaining-number"
+                        id="totalSharesRemaining"
                     >
                         0
                     </span>
@@ -2502,6 +2533,9 @@
             let totalAvailable =
                 0;
 
+            let totalRemaining =
+                0;
+
 
             companies.forEach(
                 function (company) {
@@ -2619,6 +2653,9 @@
                     totalAvailable +=
                         company.totalShares;
 
+                    totalRemaining +=
+                        company.remainingShares;
+
                 }
             );
 
@@ -2627,6 +2664,11 @@
                 "totalSharesAvailable"
             ).textContent =
                 totalAvailable.toLocaleString();
+
+            document.getElementById(
+                "totalSharesRemaining"
+            ).textContent =
+                totalRemaining.toLocaleString();
 
         }
 
