@@ -1467,6 +1467,10 @@
                                 </th>
 
                                 <th>
+                                    Shares Remaining
+                                </th>
+
+                                <th>
                                     Trade
                                 </th>
 
@@ -2399,10 +2403,15 @@
                                         stock.totalShares
                                     ) || 0;
 
-                                 company.remainingShares =
-                                    Number(
-                                        stock.remainingShares
-                                    ) || 0;
+                                 if (
+                                    stock.remainingShares !== undefined &&
+                                    stock.remainingShares !== null
+                                ) {
+                                    company.remainingShares =
+                                        Number(
+                                            stock.remainingShares
+                                        ) || 0;
+                                }
 
                             }
                         );
@@ -2417,8 +2426,17 @@
                             );
 
 
+                        const refreshTime =
+                            new Date().toLocaleTimeString([], {
+                                hour: "numeric",
+                                minute: "2-digit",
+                                second: "2-digit"
+                            });
+
+
                         status.textContent =
-                            "● LIVE — connected to SKST market";
+                            "● LIVE — connected to SKST market · Last refresh: " +
+                            refreshTime;
 
 
                         status.className =
@@ -2620,6 +2638,10 @@
 
                         <td>
                             ${company.totalShares.toLocaleString()}
+                        </td>
+
+                        <td>
+                            ${company.remainingShares.toLocaleString()}
                         </td>
 
                         <td>
@@ -3342,7 +3364,7 @@
 
 
         /*
-         * MARKET UPDATES EVERY 15 SECONDS
+         * MARKET UPDATES EVERY SECOND
          */
 
         setInterval(
