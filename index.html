@@ -1463,7 +1463,11 @@
                                 </th>
 
                                 <th>
-                                    Shares
+                                    Total Shares
+                                </th>
+
+                                <th>
+                                    Shares Remaining
                                 </th>
 
                                 <th>
@@ -1714,7 +1718,8 @@
                 ticker: "SKE",
                 currentPrice: 100,
                 previousPrice: 10,
-                totalShares: 1000000
+                totalShares: 1000000,
+                remainingShares: 0
             },
 
 
@@ -1824,7 +1829,8 @@
                 ticker: "BSB",
                 currentPrice: 1,
                 previousPrice: 1,
-                totalShares: 1
+                totalShares: 1,
+                remainingShares: 0
             }
 
 
@@ -2428,17 +2434,8 @@
                             );
 
 
-                        const refreshTime =
-                            new Date().toLocaleTimeString([], {
-                                hour: "numeric",
-                                minute: "2-digit",
-                                second: "2-digit"
-                            });
-
-
                         status.textContent =
-                            "● LIVE — connected to SKST market · Last refresh: " +
-                            refreshTime;
+                            "● LIVE — connected to SKST market";
 
 
                         status.className =
@@ -2502,9 +2499,7 @@
                 "?callback=" +
                 encodeURIComponent(
                     callbackName
-                ) +
-                "&t=" +
-                Date.now();
+                );
 
 
             document.body.appendChild(
@@ -3371,7 +3366,7 @@
 
         setInterval(
             updateMarketFromGoogle,
-            10000
+            15000
         );
 
 
