@@ -1834,126 +1834,138 @@
         const companies = [
 
 
-            {
-                name: "ASUS",
-                ticker: "ASUS",
-                currentPrice: 1,
-                previousPrice: 1,
-                totalShares: 1
-            },
+    {
+        name: "ASUS",
+        ticker: "ASUS",
+        currentPrice: 1,
+        previousPrice: 1,
+        totalShares: 1,
+        remainingShares: 0
+    },
 
 
-            {
-                name: "Sky Kingdom Enterprises",
-                ticker: "SKE",
-                currentPrice: 100,
-                previousPrice: 10,
-                totalShares: 1000000
-            },
+    {
+        name: "Sky Kingdom Enterprises",
+        ticker: "SKE",
+        currentPrice: 100,
+        previousPrice: 10,
+        totalShares: 1000000,
+        remainingShares: 0
+    },
 
 
-            {
-                name: "Sky Kingdom Infrastructure",
-                ticker: "SKI",
-                currentPrice: 1,
-                previousPrice: 1,
-                totalShares: 1
-            },
+    {
+        name: "Sky Kingdom Infrastructure",
+        ticker: "SKI",
+        currentPrice: 1,
+        previousPrice: 1,
+        totalShares: 1,
+        remainingShares: 0
+    },
 
 
-            {
-                name: "Sky Kingdom Lib",
-                ticker: "SKL",
-                currentPrice: 1,
-                previousPrice: 1,
-                totalShares: 1
-            },
+    {
+        name: "Sky Kingdom Lib",
+        ticker: "SKL",
+        currentPrice: 1,
+        previousPrice: 1,
+        totalShares: 1,
+        remainingShares: 0
+    },
 
 
-            {
-                name: "Sky Kingdom Government Infrastructure",
-                ticker: "SKGI",
-                currentPrice: 1,
-                previousPrice: 1,
-                totalShares: 1
-            },
+    {
+        name: "Sky Kingdom Government Infrastructure",
+        ticker: "SKGI",
+        currentPrice: 1,
+        previousPrice: 1,
+        totalShares: 1,
+        remainingShares: 0
+    },
 
 
-            {
-                name: "I Am A Fire Hydrant Avionics",
-                ticker: "MIAC",
-                currentPrice: 1,
-                previousPrice: 1,
-                totalShares: 1
-            },
+    {
+        name: "I Am A Fire Hydrant Avionics",
+        ticker: "MIAC",
+        currentPrice: 1,
+        previousPrice: 1,
+        totalShares: 1,
+        remainingShares: 0
+    },
 
 
-            {
-                name: "I Am A Fire Hydrant Trucking",
-                ticker: "MITC",
-                currentPrice: 1,
-                previousPrice: 1,
-                totalShares: 1
-            },
+    {
+        name: "I Am A Fire Hydrant Trucking",
+        ticker: "MITC",
+        currentPrice: 1,
+        previousPrice: 1,
+        totalShares: 1,
+        remainingShares: 0
+    },
 
 
-            {
-                name: "United Airlines",
-                ticker: "UAL",
-                currentPrice: 1,
-                previousPrice: 1,
-                totalShares: 1
-            },
+    {
+        name: "United Airlines",
+        ticker: "UAL",
+        currentPrice: 1,
+        previousPrice: 1,
+        totalShares: 1,
+        remainingShares: 0
+    },
 
 
-            {
-                name:
-                    "Taiwanese Semiconductor Manufacturing Company",
-                ticker: "TSMC",
-                currentPrice: 1,
-                previousPrice: 1,
-                totalShares: 1
-            },
+    {
+        name:
+            "Taiwanese Semiconductor Manufacturing Company",
+        ticker: "TSMC",
+        currentPrice: 1,
+        previousPrice: 1,
+        totalShares: 1,
+        remainingShares: 0
+    },
 
 
-            {
-                name: "United Guitar Airlines",
-                ticker: "UGA",
-                currentPrice: 1,
-                previousPrice: 1,
-                totalShares: 1
-            },
+    {
+        name: "United Guitar Airlines",
+        ticker: "UGA",
+        currentPrice: 1,
+        previousPrice: 1,
+        totalShares: 1,
+        remainingShares: 0
+    },
 
 
-            {
-                name: "T Bag Automatics",
-                ticker: "TBA",
-                currentPrice: 1,
-                previousPrice: 1,
-                totalShares: 1
-            },
+    {
+        name: "T Bag Automatics",
+        ticker: "TBA",
+        currentPrice: 1,
+        previousPrice: 1,
+        totalShares: 1,
+        remainingShares: 0
+    },
 
 
-            {
-                name: "T Bag Ballistics",
-                ticker: "TBB",
-                currentPrice: 1,
-                previousPrice: 1,
-                totalShares: 1
-            },
+    {
+        name: "T Bag Ballistics",
+        ticker: "TBB",
+        currentPrice: 1,
+        previousPrice: 1,
+        totalShares: 1,
+        remainingShares: 0
+    },
 
 
-            {
-                name: "Bassese Baits",
-                ticker: "BSB",
-                currentPrice: 1,
-                previousPrice: 1,
-                totalShares: 1
-            }
+    {
+        name: "Bassese Baits",
+        ticker: "BSB",
+        currentPrice: 1,
+        previousPrice: 1,
+        totalShares: 1,
+        remainingShares: 0
+    }
 
 
-        ];
-
+];
 
         /* =========================================================
            WEEKLY ARTICLES
@@ -2559,184 +2571,102 @@
                         );
 
 
-                        renderMarket();
+                        function renderMarket() {
 
+    const table = document.getElementById("marketTable");
+    table.innerHTML = "";
 
-                        const status =
-                            document.getElementById(
-                                "marketStatus"
-                            );
+    let totalAvailable = 0;
+    let totalRemaining = 0;
 
+    companies.forEach(function (company) {
 
-                        status.textContent =
-                            "● LIVE — connected to SKST market";
+        const change = Number(company.currentPrice || 0) - Number(company.previousPrice || 0);
 
+        const previousPrice = Number(company.previousPrice || 0);
 
-                        status.className =
-                            "market-status live";
+        const changePercent = previousPrice !== 0
+            ? (change / previousPrice) * 100
+            : 0;
 
+        let changeClass = "";
 
-                    }
+        if (change > 0) changeClass = "positive";
+        else if (change < 0) changeClass = "negative";
 
-                    catch (error) {
+        const changeText = change > 0
+            ? `+${change.toFixed(2)} (+${changePercent.toFixed(2)}%)`
+            : change < 0
+                ? `${change.toFixed(2)} (${changePercent.toFixed(2)}%)`
+                : "—";
 
-                        console.error(error);
+        const row = document.createElement("tr");
 
-                        showMarketError();
+        row.innerHTML = `
+            <td>
+                <button class="company-link" onclick="openCompany('${company.ticker}')">
+                    ${company.name}
+                </button>
+            </td>
 
-                    }
+            <td class="ticker">
+                <button class="company-link" onclick="openCompany('${company.ticker}')">
+                    ${company.ticker}
+                </button>
+            </td>
 
-                    finally {
+            <td class="price">
+                $${Number(company.currentPrice || 0).toLocaleString("en-US", {
+                    minimumFractionDigits: 2,
+                    maximumFractionDigits: 2
+                })}
+            </td>
 
-                        delete window[
-                            callbackName
-                        ];
+            <td class="${changeClass}">
+                ${changeText}
+            </td>
 
+            <td>
+                ${Number(company.totalShares || 0).toLocaleString()}
+            </td>
 
-                        if (script.parentNode) {
+            <td>
+                ${Number(company.remainingShares || 0).toLocaleString()}
+            </td>
 
-                            script.parentNode.removeChild(
-                                script
-                            );
+            <td>
+                <div class="trade-buttons">
+                    <button
+                        class="trade-button"
+                        onclick="event.stopPropagation(); openTrade('${company.ticker}', 'BUY')"
+                    >
+                        BUY
+                    </button>
 
-                        }
+                    <button
+                        class="trade-button sell"
+                        onclick="event.stopPropagation(); openTrade('${company.ticker}', 'SELL')"
+                    >
+                        SELL
+                    </button>
+                </div>
+            </td>
+        `;
 
-                    }
+        table.appendChild(row);
 
-                };
+        totalAvailable += Number(company.totalShares || 0);
+        totalRemaining += Number(company.remainingShares || 0);
 
+    });
 
-            script.onerror =
-                function () {
+    document.getElementById("totalSharesAvailable").textContent =
+        totalAvailable.toLocaleString();
 
-                    delete window[
-                        callbackName
-                    ];
+    document.getElementById("totalSharesRemaining").textContent =
+        totalRemaining.toLocaleString();
 
-
-                    if (script.parentNode) {
-
-                        script.parentNode.removeChild(
-                            script
-                        );
-
-                    }
-
-
-                    showMarketError();
-
-                };
-
-
-            script.src =
-                SKST_API_URL +
-                "?callback=" +
-                encodeURIComponent(
-                    callbackName
-                );
-
-
-            document.body.appendChild(
-                script
-            );
-
-        }
-
-
-        /* =========================================================
-           MARKET ERROR
-           ========================================================= */
-
-        function showMarketError() {
-
-            const status =
-                document.getElementById(
-                    "marketStatus"
-                );
-
-
-            status.textContent =
-                "● MARKET CONNECTION ERROR — retrying...";
-
-
-            status.className =
-                "market-status error";
-
-        }
-
-
-        /* =========================================================
-           MARKET TABLE
-           ========================================================= */
-
-        function renderMarket() {
-
-            const table = document.getElementById("marketTable");
-            table.innerHTML = "";
-
-            let totalAvailable = 0;
-            let totalRemaining = 0;
-
-            companies.forEach(function (company) {
-
-                const change = company.currentPrice - company.previousPrice;
-                const changePercent = company.previousPrice !== 0
-                    ? (change / company.previousPrice) * 100
-                    : 0;
-
-                let changeClass = "";
-                if (change > 0) changeClass = "positive";
-                else if (change < 0) changeClass = "negative";
-
-                const changeText = change > 0
-                    ? `+${change.toFixed(2)} (+${changePercent.toFixed(2)}%)`
-                    : change < 0
-                        ? `${change.toFixed(2)} (${changePercent.toFixed(2)}%)`
-                        : "—";
-
-                const row = document.createElement("tr");
-
-                row.innerHTML = `
-                    <td>
-                        <button class="company-link" onclick="openCompany('${company.ticker}')">
-                            ${company.name}
-                        </button>
-                    </td>
-                    <td class="ticker">
-                        <button class="company-link" onclick="openCompany('${company.ticker}')">
-                            ${company.ticker}
-                        </button>
-                    </td>
-                    <td class="price">
-                        $${company.currentPrice.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
-                    </td>
-                    <td class="${changeClass}">
-                        ${changeText}
-                    </td>
-                    <td>
-                        ${company.totalShares.toLocaleString()}
-                    </td>
-                    <td>
-                        ${company.remainingShares.toLocaleString()}
-                    </td>
-                    <td>
-                        <div class="trade-buttons">
-                            <button class="trade-button" onclick="event.stopPropagation(); openTrade('${company.ticker}', 'BUY')">BUY</button>
-                            <button class="trade-button sell" onclick="event.stopPropagation(); openTrade('${company.ticker}', 'SELL')">SELL</button>
-                        </div>
-                    </td>
-                `;
-
-                table.appendChild(row);
-                totalAvailable += company.totalShares;
-                totalRemaining += company.remainingShares;
-            });
-
-            document.getElementById("totalSharesAvailable").textContent = totalAvailable.toLocaleString();
-            document.getElementById("totalSharesRemaining").textContent = totalRemaining.toLocaleString();
-
-        }
-
+}
 
         /* =========================================================
            WEEKLY REPORT
