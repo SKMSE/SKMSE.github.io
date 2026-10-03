@@ -656,140 +656,6 @@
 
 
         /* =========================================================
-           ARTICLE CAROUSEL
-           ========================================================= */
-
-        .article-carousel {
-
-            position: relative;
-
-            width: 100%;
-
-            min-height: 440px;
-
-            display: flex;
-
-            align-items: center;
-
-            justify-content: center;
-
-            overflow: hidden;
-
-            user-select: none;
-
-        }
-
-        .article-track {
-
-            position: relative;
-
-            width: 100%;
-
-            height: 430px;
-
-            display: flex;
-
-            align-items: center;
-
-            justify-content: center;
-
-        }
-
-        .article-card {
-
-            position: absolute;
-
-            width: min(680px, 70%);
-
-            min-height: 340px;
-
-            padding: 30px;
-
-            border-radius: 22px;
-
-            background:
-                linear-gradient(
-                    145deg,
-                    rgba(255, 138, 0, 0.08),
-                    rgba(255, 255, 255, 0.015)
-                ),
-                var(--panel);
-
-            border:
-                1px solid rgba(255, 138, 0, 0.24);
-
-            cursor: pointer;
-
-            transition:
-                transform 0.45s ease,
-                opacity 0.45s ease,
-                filter 0.45s ease,
-                box-shadow 0.45s ease;
-
-            overflow: hidden;
-
-        }
-
-        .article-card.center {
-
-            transform:
-                translateX(0)
-                scale(1);
-
-            opacity: 1;
-
-            z-index: 3;
-
-            box-shadow:
-                0 25px 70px
-                rgba(0, 0, 0, 0.35);
-
-        }
-
-        .article-card.left {
-
-            transform:
-                translateX(-72%)
-                scale(0.78);
-
-            opacity: 0.32;
-
-            filter: blur(1px);
-
-            z-index: 1;
-
-        }
-
-        .article-card.right {
-
-            transform:
-                translateX(72%)
-                scale(0.78);
-
-            opacity: 0.32;
-
-            filter: blur(1px);
-
-            z-index: 1;
-
-        }
-
-        .article-card.hidden {
-
-            opacity: 0;
-
-            transform:
-                translateX(0)
-                scale(0.5);
-
-            pointer-events: none;
-
-            z-index: 0;
-
-        }
-
-
-        /* =========================================================
            ARTICLE IMAGE
            ========================================================= */
 
@@ -942,184 +808,471 @@
 
 
         /* =========================================================
-           MODAL
+           GOVERNMENT NEWS
+           ========================================================= */
+
+        .below-market-layout {
+            display: grid;
+            grid-template-columns: minmax(260px, 0.8fr) minmax(0, 1.8fr);
+            gap: 20px;
+            align-items: start;
+        }
+
+        .government-news-panel {
+            padding: 24px;
+            cursor: pointer;
+        }
+
+        .government-news-header {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            align-items: flex-start;
+        }
+
+        .government-news-label {
+            color: var(--orange);
+            font-family: "Chewy", cursive;
+            font-size: 1.6rem;
+            margin-bottom: 8px;
+        }
+
+        .government-news-title {
+            color: white;
+            font-family: "Chewy", cursive;
+            font-size: 1.55rem;
+            line-height: 1.15;
+        }
+
+        .government-news-date {
+            color: #777;
+            font-size: 0.82rem;
+            margin-top: 7px;
+        }
+
+        .government-news-arrow {
+            color: var(--orange);
+            font-family: "Chewy", cursive;
+            font-size: 2rem;
+            transition: transform 0.25s ease;
+            flex-shrink: 0;
+        }
+
+        .government-news-panel.expanded .government-news-arrow {
+            transform: rotate(90deg);
+        }
+
+        .government-news-preview {
+            color: #cfcfcf;
+            line-height: 1.65;
+            margin-top: 14px;
+        }
+
+        .government-news-body {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.45s ease, margin-top 0.45s ease;
+        }
+
+        .government-news-panel.expanded .government-news-body {
+            max-height: 1000px;
+            margin-top: 20px;
+        }
+
+        .government-news-body p {
+            color: #d7d7d7;
+            line-height: 1.85;
+            margin-bottom: 16px;
+        }
+
+        /* =========================================================
+           COMPANY BUTTONS / DETAIL TERMINAL
+           ========================================================= */
+
+        .company-link {
+            border: none;
+            background: transparent;
+            color: white;
+            font: inherit;
+            text-align: left;
+            cursor: pointer;
+            transition: color 0.2s ease, transform 0.2s ease;
+        }
+
+        .company-link:hover {
+            color: var(--orange);
+            transform: translateX(2px);
+        }
+
+        .company-detail {
+            position: fixed;
+            inset: 0;
+            z-index: 2000;
+            background: var(--background);
+            overflow-y: auto;
+            opacity: 0;
+            pointer-events: none;
+            transform: translateY(18px);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+
+        .company-detail.open {
+            opacity: 1;
+            pointer-events: auto;
+            transform: translateY(0);
+        }
+
+        .company-detail-inner {
+            width: min(1200px, 92%);
+            margin: 0 auto;
+            padding: 32px 0 70px;
+        }
+
+        .company-detail-topbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            margin-bottom: 28px;
+        }
+
+        .company-back {
+            border: 1px solid rgba(255,138,0,0.28);
+            border-radius: 10px;
+            background: rgba(255,138,0,0.07);
+            color: var(--orange);
+            font-family: "Chewy", cursive;
+            font-size: 1.05rem;
+            padding: 9px 15px;
+            cursor: pointer;
+        }
+
+        .company-back:hover {
+            background: rgba(255,138,0,0.14);
+        }
+
+        .company-detail-brand {
+            color: #777;
+            font-size: 0.85rem;
+            text-align: right;
+        }
+
+        .company-hero {
+            margin-bottom: 24px;
+        }
+
+        .company-hero-company {
+            color: var(--orange);
+            font-family: "Chewy", cursive;
+            font-size: 1.25rem;
+        }
+
+        .company-hero-title {
+            color: white;
+            font-family: "Chewy", cursive;
+            font-size: clamp(2.2rem, 6vw, 4rem);
+            line-height: 1;
+            margin: 4px 0 8px;
+        }
+
+        .company-hero-price {
+            font-size: 1.35rem;
+            color: white;
+        }
+
+        .company-hero-change {
+            font-size: 1rem;
+            margin-left: 8px;
+        }
+
+        .company-chart-panel {
+            padding: 22px;
+            margin-bottom: 20px;
+        }
+
+        .chart-toolbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-bottom: 14px;
+        }
+
+        .chart-periods {
+            display: flex;
+            gap: 5px;
+            flex-wrap: wrap;
+        }
+
+        .chart-period {
+            border: 1px solid transparent;
+            border-radius: 8px;
+            padding: 7px 11px;
+            background: transparent;
+            color: #aaa;
+            font-family: "Chewy", cursive;
+            font-size: 0.95rem;
+            cursor: pointer;
+        }
+
+        .chart-period:hover,
+        .chart-period.active {
+            color: var(--orange);
+            border-color: rgba(255,138,0,0.28);
+            background: rgba(255,138,0,0.07);
+        }
+
+        .chart-range-label {
+            color: #777;
+            font-size: 0.8rem;
+        }
+
+        .stock-chart-wrap {
+            position: relative;
+            width: 100%;
+            height: 360px;
+            overflow: hidden;
+            border-radius: 14px;
+            background: linear-gradient(180deg, rgba(255,255,255,0.012), rgba(255,138,0,0.018));
+        }
+
+        .stock-chart-svg {
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+
+        .chart-grid-line {
+            stroke: rgba(255,255,255,0.055);
+            stroke-width: 1;
+        }
+
+        .chart-area-positive { fill: rgba(85,214,138,0.10); }
+        .chart-line-positive { stroke: #55d68a; }
+        .chart-area-negative { fill: rgba(255,104,104,0.10); }
+        .chart-line-negative { stroke: #ff6868; }
+
+        .chart-line-positive,
+        .chart-line-negative {
+            fill: none;
+            stroke-width: 3;
+            stroke-linejoin: round;
+            stroke-linecap: round;
+            filter: drop-shadow(0 0 7px rgba(255,255,255,0.08));
+        }
+
+        .chart-empty {
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 30px;
+            color: #777;
+            line-height: 1.7;
+        }
+
+        .chart-tooltip {
+            position: absolute;
+            display: none;
+            pointer-events: none;
+            padding: 7px 9px;
+            border: 1px solid rgba(255,138,0,0.25);
+            border-radius: 8px;
+            background: rgba(8,8,8,0.94);
+            color: white;
+            font-size: 0.78rem;
+            z-index: 5;
+        }
+
+        .company-stats {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 1px;
+            background: var(--border);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            overflow: hidden;
+            margin-bottom: 28px;
+        }
+
+        .company-stat {
+            padding: 17px 18px;
+            background: var(--panel);
+        }
+
+        .company-stat-label {
+            color: #777;
+            font-size: 0.78rem;
+            margin-bottom: 5px;
+        }
+
+        .company-stat-value {
+            color: white;
+            font-size: 1rem;
+            font-weight: bold;
+        }
+
+        .company-detail-section-title {
+            color: var(--orange);
+            font-family: "Chewy", cursive;
+            font-size: 2rem;
+            margin: 28px 0 15px;
+        }
+
+        .company-articles {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 16px;
+        }
+
+        .company-article-card {
+            padding: 22px;
+            cursor: pointer;
+        }
+
+        .company-article-company {
+            color: var(--orange);
+            font-family: "Chewy", cursive;
+            font-size: 1rem;
+            margin-bottom: 6px;
+        }
+
+        .company-article-title {
+            color: white;
+            font-family: "Chewy", cursive;
+            font-size: 1.45rem;
+            line-height: 1.15;
+            margin-bottom: 6px;
+        }
+
+        .company-article-date {
+            color: #777;
+            font-size: 0.78rem;
+            margin-bottom: 12px;
+        }
+
+        .company-article-preview {
+            color: #cfcfcf;
+            line-height: 1.65;
+        }
+
+        .company-article-empty {
+            color: #777;
+            padding: 20px 0;
+        }
+
+        .company-trade-buttons {
+            display: flex;
+            gap: 8px;
+            margin-top: 18px;
+        }
+
+        @media (max-width: 850px) {
+            .below-market-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .company-articles {
+                grid-template-columns: 1fr;
+            }
+
+            .company-stats {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+
+        @media (max-width: 600px) {
+            .company-detail-inner {
+                width: 92%;
+                padding-top: 20px;
+            }
+
+            .company-detail-topbar {
+                align-items: flex-start;
+            }
+
+            .company-detail-brand {
+                display: none;
+            }
+
+            .stock-chart-wrap {
+                height: 270px;
+            }
+
+            .company-stats {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        /* =========================================================
+           ARTICLE READER MODAL
            ========================================================= */
 
         .modal {
-
             position: fixed;
-
             inset: 0;
-
             display: flex;
-
             align-items: center;
-
             justify-content: center;
-
             padding: 25px;
-
-            background:
-                rgba(0, 0, 0, 0.82);
-
-            backdrop-filter:
-                blur(8px);
-
-            opacity: 0;
-
-            pointer-events: none;
-
-            transition:
-                opacity 0.3s ease;
-
-            z-index: 1000;
-
-        }
-
-        .modal.open {
-
+            background: rgba(0,0,0,0.82);
+            backdrop-filter: blur(8px);
             opacity: 1;
-
-            pointer-events: auto;
-
+            z-index: 3000;
         }
 
         .modal-content {
-
             position: relative;
-
             width: min(850px, 95vw);
-
             max-height: 90vh;
-
             overflow-y: auto;
-
             padding: 35px;
-
             background: var(--panel);
-
-            border:
-                1px solid
-                rgba(255, 138, 0, 0.28);
-
+            border: 1px solid rgba(255,138,0,0.28);
             border-radius: 22px;
-
-            box-shadow:
-                0 30px 100px
-                rgba(0, 0, 0, 0.55);
-
-            transform:
-                translateY(20px)
-                scale(0.97);
-
-            transition:
-                transform 0.3s ease;
-
-        }
-
-        .modal.open .modal-content {
-
-            transform:
-                translateY(0)
-                scale(1);
-
+            box-shadow: 0 30px 100px rgba(0,0,0,0.55);
         }
 
         .modal-close {
-
             position: absolute;
-
             top: 15px;
             right: 18px;
-
             width: 38px;
             height: 38px;
-
             border: none;
-
             border-radius: 50%;
-
-            background:
-                rgba(255, 255, 255, 0.06);
-
+            background: rgba(255,255,255,0.06);
             color: white;
-
             font-size: 1.5rem;
-
             cursor: pointer;
-
         }
 
         .modal-close:hover {
-
-            background:
-                rgba(255, 138, 0, 0.15);
-
+            background: rgba(255,138,0,0.15);
             color: var(--orange);
-
         }
 
         .modal-title {
-
             color: var(--orange);
-
-            font-family:
-                "Chewy", cursive;
-
+            font-family: "Chewy", cursive;
             font-size: 2.4rem;
-
             line-height: 1.15;
-
             margin-bottom: 8px;
-
             padding-right: 35px;
-
         }
 
         .modal-date {
-
             color: #777;
-
             margin-bottom: 25px;
-
-        }
-
-        .modal-image {
-
-            width: 100%;
-
-            max-height: 450px;
-
-            object-fit: cover;
-
-            border-radius: 15px;
-
-            margin-bottom: 20px;
-
-        }
-
-        .modal-image-credit {
-
-            color: #777;
-
-            font-size: 0.75rem;
-
-            margin-top: -12px;
-
-            margin-bottom: 20px;
-
         }
 
         .modal-body p {
-
             color: #d7d7d7;
-
             line-height: 1.9;
-
             margin-bottom: 18px;
-
         }
-
 
         /* =========================================================
            FOOTER
@@ -1435,55 +1588,38 @@
                 Market
             </h2>
 
-            <div class="market-layout">
+            <div class="panel table-wrapper">
+
+                <table>
+
+                    <thead>
+                        <tr>
+                            <th>Company</th>
+                            <th>Ticker</th>
+                            <th>Price</th>
+                            <th>Change</th>
+                            <th>Total Shares</th>
+                            <th>Shares Remaining</th>
+                            <th>Trade</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="marketTable"></tbody>
+
+                </table>
+
+            </div>
+
+        </section>
 
 
-                <div class="panel table-wrapper">
+        <!-- =====================================================
+             SHARE AVAILABILITY + GOVERNMENT NEWS
+             ===================================================== -->
 
-                    <table>
+        <section class="section">
 
-                        <thead>
-
-                            <tr>
-
-                                <th>
-                                    Company
-                                </th>
-
-                                <th>
-                                    Ticker
-                                </th>
-
-                                <th>
-                                    Price
-                                </th>
-
-                                <th>
-                                    Change
-                                </th>
-
-                                <th>
-                                    Total Shares
-                                </th>
-
-                                <th>
-                                    Shares Remaining
-                                </th>
-
-                                <th>
-                                    Trade
-                                </th>
-
-                            </tr>
-
-                        </thead>
-
-                        <tbody id="marketTable"></tbody>
-
-                    </table>
-
-                </div>
-
+            <div class="below-market-layout">
 
                 <div class="panel shares-panel">
 
@@ -1496,35 +1632,43 @@
                         for purchase on the exchange.
                     </p>
 
-                    <span
-                        class="shares-number"
-                        id="totalSharesAvailable"
-                    >
-                        0
-                    </span>
+                    <span class="shares-number" id="totalSharesAvailable">0</span>
 
-                    <div
-                        class="shares-remaining-label"
-                    >
+                    <div class="shares-remaining-label">
                         Shares Remaining
                     </div>
 
-                    <span
-                        class="shares-number shares-remaining-number"
-                        id="totalSharesRemaining"
-                    >
-                        0
-                    </span>
+                    <span class="shares-number shares-remaining-number" id="totalSharesRemaining">0</span>
 
-                    <div
-                        class="market-status"
-                        id="marketStatus"
-                    >
+                    <div class="market-status" id="marketStatus">
                         ● Connecting to SKST market...
                     </div>
 
                 </div>
 
+                <div class="panel government-news-panel" id="governmentNewsPanel">
+
+                    <div class="government-news-header">
+                        <div>
+                            <div class="government-news-label">
+                                Government News
+                            </div>
+
+                            <div class="government-news-title" id="governmentNewsTitle">
+                                Loading government news...
+                            </div>
+
+                            <div class="government-news-date" id="governmentNewsDate"></div>
+                        </div>
+
+                        <div class="government-news-arrow">›</div>
+                    </div>
+
+                    <div class="government-news-preview" id="governmentNewsPreview"></div>
+
+                    <div class="government-news-body" id="governmentNewsBody"></div>
+
+                </div>
 
             </div>
 
@@ -1570,92 +1714,79 @@
         </section>
 
 
-        <!-- =====================================================
-             ARTICLES
-             ===================================================== -->
+    <!-- =========================================================
+         COMPANY DETAIL TERMINAL
+         ========================================================= -->
 
-        <section class="section">
+    <div class="company-detail" id="companyDetail">
 
-            <h2 class="section-title">
-                Weekly Articles
-            </h2>
+        <div class="company-detail-inner">
 
-            <div class="article-carousel">
+            <div class="company-detail-topbar">
 
-
-                <button
-                    class="carousel-arrow left-arrow"
-                    id="prevArticle"
-                    aria-label="Previous article"
-                >
-                    ‹
+                <button class="company-back" id="companyBack">
+                    ← Back to Market
                 </button>
 
-
-                <div
-                    class="article-track"
-                    id="articleTrack"
-                ></div>
-
-
-                <button
-                    class="carousel-arrow right-arrow"
-                    id="nextArticle"
-                    aria-label="Next article"
-                >
-                    ›
-                </button>
-
+                <div class="company-detail-brand">
+                    Sky Kingdom Stock Exchange · Company Overview
+                </div>
 
             </div>
 
-        </section>
+            <div class="company-hero">
+                <div class="company-hero-company" id="detailTicker"></div>
+                <div class="company-hero-title" id="detailCompanyName"></div>
+                <div>
+                    <span class="company-hero-price" id="detailPrice"></span>
+                    <span class="company-hero-change" id="detailChange"></span>
+                </div>
+            </div>
 
+            <div class="panel company-chart-panel">
 
-    </main>
+                <div class="chart-toolbar">
+                    <div class="chart-periods" id="chartPeriods">
+                        <button class="chart-period active" data-period="1d">1D</button>
+                        <button class="chart-period" data-period="2d">2D</button>
+                        <button class="chart-period" data-period="1w">1W</button>
+                        <button class="chart-period" data-period="1m">1M</button>
+                        <button class="chart-period" data-period="1y">1Y</button>
+                        <button class="chart-period" data-period="all">ALL</button>
+                    </div>
+                    <div class="chart-range-label" id="chartRangeLabel">Loading history...</div>
+                </div>
 
+                <div class="stock-chart-wrap" id="stockChartWrap">
+                    <div class="chart-empty" id="chartEmpty">
+                        Loading historical market data...
+                    </div>
+                </div>
 
-    <!-- =========================================================
-         ARTICLE MODAL
-         ========================================================= -->
+            </div>
 
-    <div
-        class="modal"
-        id="articleModal"
-    >
+            <div class="company-stats">
+                <div class="company-stat"><div class="company-stat-label">Open</div><div class="company-stat-value" id="statOpen">—</div></div>
+                <div class="company-stat"><div class="company-stat-label">Vol</div><div class="company-stat-value" id="statVol">—</div></div>
+                <div class="company-stat"><div class="company-stat-label">52W H</div><div class="company-stat-value" id="stat52High">—</div></div>
+                <div class="company-stat"><div class="company-stat-label">High</div><div class="company-stat-value" id="statHigh">—</div></div>
+                <div class="company-stat"><div class="company-stat-label">P/E</div><div class="company-stat-value" id="statPE">N/A</div></div>
+                <div class="company-stat"><div class="company-stat-label">Mkt Cap</div><div class="company-stat-value" id="statMarketCap">—</div></div>
+                <div class="company-stat"><div class="company-stat-label">Low</div><div class="company-stat-value" id="statLow">—</div></div>
+                <div class="company-stat"><div class="company-stat-label">Avg Vol</div><div class="company-stat-value" id="statAvgVol">—</div></div>
+                <div class="company-stat"><div class="company-stat-label">52W L</div><div class="company-stat-value" id="stat52Low">—</div></div>
+            </div>
 
-        <div class="modal-content">
+            <div class="company-trade-buttons">
+                <button class="trade-button" id="detailBuy">BUY</button>
+                <button class="trade-button sell" id="detailSell">SELL</button>
+            </div>
 
+            <div class="company-detail-section-title">
+                Company Articles
+            </div>
 
-            <button
-                class="modal-close"
-                id="modalClose"
-                aria-label="Close article"
-            >
-                ×
-            </button>
-
-
-            <div
-                class="modal-title"
-                id="modalTitle"
-            ></div>
-
-
-            <div
-                class="modal-date"
-                id="modalDate"
-            ></div>
-
-
-            <div id="modalImageContainer"></div>
-
-
-            <div
-                class="modal-body"
-                id="modalBody"
-            ></div>
-
+            <div class="company-articles" id="companyArticles"></div>
 
         </div>
 
@@ -1687,7 +1818,7 @@
            ========================================================= */
 
         const SKST_API_URL =
-            "https://script.google.com/macros/s/AKfycbwwIXZixxUCMBYxzxA4G82mgRb40H9JXeGuaSsGbJkFGw6SHPfeo7r1DAtwJrGw7xc/exec";
+            "https://script.google.com/macros/s/AKfycbx9jlbfEuWU73Qaim8T2hRm3yMilY_8sSRZdF58750OkPMh0ymaCAbVbHK58KjOW8LQ/exec";
 
 
         /* =========================================================
@@ -1708,8 +1839,7 @@
                 ticker: "ASUS",
                 currentPrice: 1,
                 previousPrice: 1,
-                totalShares: 1,
-                remainingShares: 0
+                totalShares: 1
             },
 
 
@@ -1718,8 +1848,7 @@
                 ticker: "SKE",
                 currentPrice: 100,
                 previousPrice: 10,
-                totalShares: 1000000,
-                remainingShares: 0
+                totalShares: 1000000
             },
 
 
@@ -1728,8 +1857,7 @@
                 ticker: "SKI",
                 currentPrice: 1,
                 previousPrice: 1,
-                totalShares: 1,
-                remainingShares: 0
+                totalShares: 1
             },
 
 
@@ -1738,8 +1866,7 @@
                 ticker: "SKL",
                 currentPrice: 1,
                 previousPrice: 1,
-                totalShares: 1,
-                remainingShares: 0
+                totalShares: 1
             },
 
 
@@ -1748,8 +1875,7 @@
                 ticker: "SKGI",
                 currentPrice: 1,
                 previousPrice: 1,
-                totalShares: 1,
-                remainingShares: 0
+                totalShares: 1
             },
 
 
@@ -1758,8 +1884,7 @@
                 ticker: "MIAC",
                 currentPrice: 1,
                 previousPrice: 1,
-                totalShares: 1,
-                remainingShares: 0
+                totalShares: 1
             },
 
 
@@ -1768,8 +1893,7 @@
                 ticker: "MITC",
                 currentPrice: 1,
                 previousPrice: 1,
-                totalShares: 1,
-                remainingShares: 0
+                totalShares: 1
             },
 
 
@@ -1778,8 +1902,7 @@
                 ticker: "UAL",
                 currentPrice: 1,
                 previousPrice: 1,
-                totalShares: 1,
-                remainingShares: 0
+                totalShares: 1
             },
 
 
@@ -1789,8 +1912,7 @@
                 ticker: "TSMC",
                 currentPrice: 1,
                 previousPrice: 1,
-                totalShares: 1,
-                remainingShares: 0
+                totalShares: 1
             },
 
 
@@ -1799,8 +1921,7 @@
                 ticker: "UGA",
                 currentPrice: 1,
                 previousPrice: 1,
-                totalShares: 1,
-                remainingShares: 0
+                totalShares: 1
             },
 
 
@@ -1809,8 +1930,7 @@
                 ticker: "TBA",
                 currentPrice: 1,
                 previousPrice: 1,
-                totalShares: 1,
-                remainingShares: 0
+                totalShares: 1
             },
 
 
@@ -1819,8 +1939,7 @@
                 ticker: "TBB",
                 currentPrice: 1,
                 previousPrice: 1,
-                totalShares: 1,
-                remainingShares: 0
+                totalShares: 1
             },
 
 
@@ -1829,8 +1948,7 @@
                 ticker: "BSB",
                 currentPrice: 1,
                 previousPrice: 1,
-                totalShares: 1,
-                remainingShares: 0
+                totalShares: 1
             }
 
 
@@ -2303,6 +2421,22 @@
            EDIT THIS EVERY WEEK
            ========================================================= */
 
+        const governmentNews = {
+
+            date: "September 2026",
+
+            title: "Magentian government news",
+
+            preview: "Government news will appear here. Click this panel to expand the full story.",
+
+            body: [
+                "No government news has been published yet.",
+                "Edit the governmentNews object in this file whenever the Magentian government has a new announcement."
+            ]
+
+        };
+
+
         const weeklyReport = {
 
             date:
@@ -2537,159 +2671,69 @@
 
         function renderMarket() {
 
-            const table =
-                document.getElementById(
-                    "marketTable"
-                );
+            const table = document.getElementById("marketTable");
+            table.innerHTML = "";
 
+            let totalAvailable = 0;
+            let totalRemaining = 0;
 
-            table.innerHTML =
-                "";
+            companies.forEach(function (company) {
 
+                const change = company.currentPrice - company.previousPrice;
+                const changePercent = company.previousPrice !== 0
+                    ? (change / company.previousPrice) * 100
+                    : 0;
 
-            let totalAvailable =
-                0;
+                let changeClass = "";
+                if (change > 0) changeClass = "positive";
+                else if (change < 0) changeClass = "negative";
 
-            let totalRemaining =
-                0;
+                const changeText = change > 0
+                    ? `+${change.toFixed(2)} (+${changePercent.toFixed(2)}%)`
+                    : change < 0
+                        ? `${change.toFixed(2)} (${changePercent.toFixed(2)}%)`
+                        : "—";
 
+                const row = document.createElement("tr");
 
-            companies.forEach(
-                function (company) {
-
-
-                    const change =
-                        company.currentPrice -
-                        company.previousPrice;
-
-
-                    const changePercent =
-                        company.previousPrice !== 0
-                            ? (
-                                change /
-                                company.previousPrice
-                              ) * 100
-                            : 0;
-
-
-                    let changeClass =
-                        "";
-
-
-                    if (change > 0) {
-
-                        changeClass =
-                            "positive";
-
-                    }
-
-                    else if (change < 0) {
-
-                        changeClass =
-                            "negative";
-
-                    }
-
-
-                    const changeText =
-                        change > 0
-
-                            ? `+${change.toFixed(2)} (+${changePercent.toFixed(2)}%)`
-
-                            : change < 0
-
-                                ? `${change.toFixed(2)} (${changePercent.toFixed(2)}%)`
-
-                                : "—";
-
-
-                    const row =
-                        document.createElement(
-                            "tr"
-                        );
-
-
-                    row.innerHTML = `
-
-                        <td>
+                row.innerHTML = `
+                    <td>
+                        <button class="company-link" onclick="openCompany('${company.ticker}')">
                             ${company.name}
-                        </td>
-
-                        <td class="ticker">
+                        </button>
+                    </td>
+                    <td class="ticker">
+                        <button class="company-link" onclick="openCompany('${company.ticker}')">
                             ${company.ticker}
-                        </td>
+                        </button>
+                    </td>
+                    <td class="price">
+                        $${company.currentPrice.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+                    </td>
+                    <td class="${changeClass}">
+                        ${changeText}
+                    </td>
+                    <td>
+                        ${company.totalShares.toLocaleString()}
+                    </td>
+                    <td>
+                        ${company.remainingShares.toLocaleString()}
+                    </td>
+                    <td>
+                        <div class="trade-buttons">
+                            <button class="trade-button" onclick="event.stopPropagation(); openTrade('${company.ticker}', 'BUY')">BUY</button>
+                            <button class="trade-button sell" onclick="event.stopPropagation(); openTrade('${company.ticker}', 'SELL')">SELL</button>
+                        </div>
+                    </td>
+                `;
 
-                        <td class="price">
-                            $${company.currentPrice.toLocaleString(
-                                "en-US",
-                                {
-                                    minimumFractionDigits: 2,
-                                    maximumFractionDigits: 2
-                                }
-                            )}
-                        </td>
+                table.appendChild(row);
+                totalAvailable += company.totalShares;
+                totalRemaining += company.remainingShares;
+            });
 
-                        <td class="${changeClass}">
-                            ${changeText}
-                        </td>
-
-                        <td>
-                            ${company.totalShares.toLocaleString()}
-                        </td>
-
-                        <td>
-                            ${company.remainingShares.toLocaleString()}
-                        </td>
-
-                        <td>
-
-                            <div class="trade-buttons">
-
-                                <button
-                                    class="trade-button"
-                                    onclick="openTrade('${company.ticker}', 'BUY')"
-                                >
-                                    BUY
-                                </button>
-
-                                <button
-                                    class="trade-button sell"
-                                    onclick="openTrade('${company.ticker}', 'SELL')"
-                                >
-                                    SELL
-                                </button>
-
-                            </div>
-
-                        </td>
-
-                    `;
-
-
-                    table.appendChild(
-                        row
-                    );
-
-
-                    totalAvailable +=
-                        company.totalShares;
-
-                    totalRemaining +=
-                        company.remainingShares;
-
-                }
-            );
-
-
-            document.getElementById(
-                "totalSharesAvailable"
-            ).textContent =
-                totalAvailable.toLocaleString();
-
-            document.getElementById(
-                "totalSharesRemaining"
-            ).textContent =
-                totalRemaining.toLocaleString();
+            document.getElementById("totalSharesAvailable").textContent = totalAvailable.toLocaleString();
+            document.getElementById("totalSharesRemaining").textContent = totalRemaining.toLocaleString();
 
         }
 
@@ -2727,607 +2771,420 @@
 
 
         /* =========================================================
-           ARTICLE CAROUSEL
+           GOVERNMENT NEWS
            ========================================================= */
 
-        let currentArticle =
-            0;
+        function renderGovernmentNews() {
 
+            document.getElementById("governmentNewsTitle").textContent = governmentNews.title;
+            document.getElementById("governmentNewsDate").textContent = governmentNews.date;
+            document.getElementById("governmentNewsPreview").textContent = governmentNews.preview;
 
-        function getArticleIndex(
-            offset
-        ) {
+            const body = document.getElementById("governmentNewsBody");
+            body.innerHTML = "";
 
-            const length =
-                articles.length;
-
-
-            return (
-                (
-                    currentArticle +
-                    offset +
-                    length
-                ) % length
-            );
+            governmentNews.body.forEach(function (paragraph) {
+                const p = document.createElement("p");
+                p.textContent = paragraph;
+                body.appendChild(p);
+            });
 
         }
 
 
-        function createArticleCard(
-            article,
-            position
-        ) {
-
-            const card =
-                document.createElement(
-                    "article"
-                );
+        document.getElementById("governmentNewsPanel").addEventListener("click", function () {
+            this.classList.toggle("expanded");
+        });
 
 
-            card.className =
-                `article-card ${position}`;
+        /* =========================================================
+           COMPANY DETAIL PAGE
+           ========================================================= */
 
+        let activeCompany = null;
+        let activeChartPeriod = "1d";
 
-            let imageHTML =
-                "";
+        function formatMoney(value) {
+            if (!Number.isFinite(value)) return "—";
+            return "$" + value.toLocaleString("en-US", {
+                minimumFractionDigits: 2,
+                maximumFractionDigits: 2
+            });
+        }
 
+        function formatCompact(value) {
+            if (!Number.isFinite(value)) return "—";
+            if (Math.abs(value) >= 1000000000) return (value / 1000000000).toFixed(2) + "B";
+            if (Math.abs(value) >= 1000000) return (value / 1000000).toFixed(2) + "M";
+            if (Math.abs(value) >= 1000) return (value / 1000).toFixed(2) + "K";
+            return value.toLocaleString("en-US");
+        }
 
-            if (article.image) {
+        function openCompany(ticker) {
 
-                imageHTML = `
+            activeCompany = companies.find(function (company) {
+                return company.ticker === ticker;
+            });
 
-                    <img
-                        class="article-image"
-                        src="${article.image}"
-                        alt="${article.title}"
-                    >
+            if (!activeCompany) return;
 
-                    ${
-                        article.imageCredit
+            document.getElementById("companyDetail").classList.add("open");
+            document.body.style.overflow = "hidden";
 
-                            ? `
-                                <div class="article-image-credit">
-                                    ${article.imageCredit}
-                                </div>
-                              `
+            renderCompanyHeader();
+            renderCompanyArticles();
+            loadCompanyHistory(activeChartPeriod);
 
-                            : ""
-                    }
+        }
 
+        function closeCompany() {
+            document.getElementById("companyDetail").classList.remove("open");
+            document.body.style.overflow = "";
+            activeCompany = null;
+        }
+
+        function renderCompanyHeader() {
+
+            if (!activeCompany) return;
+
+            const change = activeCompany.currentPrice - activeCompany.previousPrice;
+            const percent = activeCompany.previousPrice !== 0
+                ? (change / activeCompany.previousPrice) * 100
+                : 0;
+
+            document.getElementById("detailTicker").textContent = activeCompany.ticker;
+            document.getElementById("detailCompanyName").textContent = activeCompany.name;
+            document.getElementById("detailPrice").textContent = formatMoney(activeCompany.currentPrice);
+
+            const changeEl = document.getElementById("detailChange");
+            changeEl.className = "company-hero-change " + (change > 0 ? "positive" : change < 0 ? "negative" : "");
+            changeEl.textContent = change > 0
+                ? `+${change.toFixed(2)} (+${percent.toFixed(2)}%)`
+                : change < 0
+                    ? `${change.toFixed(2)} (${percent.toFixed(2)}%)`
+                    : "—";
+
+            document.getElementById("detailBuy").onclick = function () {
+                openTrade(activeCompany.ticker, "BUY");
+            };
+
+            document.getElementById("detailSell").onclick = function () {
+                openTrade(activeCompany.ticker, "SELL");
+            };
+
+        }
+
+        function renderCompanyArticles() {
+
+            const container = document.getElementById("companyArticles");
+            container.innerHTML = "";
+
+            if (!activeCompany) return;
+
+            const matches = articles.filter(function (article) {
+                return String(article.company).toUpperCase() === String(activeCompany.ticker).toUpperCase()
+                    || String(article.company).toUpperCase() === String(activeCompany.name).toUpperCase();
+            });
+
+            if (!matches.length) {
+                container.innerHTML = `<div class="company-article-empty">No articles have been published for this company yet.</div>`;
+                return;
+            }
+
+            matches.forEach(function (article) {
+
+                const card = document.createElement("div");
+                card.className = "panel company-article-card";
+
+                card.innerHTML = `
+                    <div class="company-article-company">${article.company}</div>
+                    <div class="company-article-title">${article.title}</div>
+                    <div class="company-article-date">${article.date}</div>
+                    <div class="company-article-preview">${article.preview}</div>
                 `;
 
-            }
+                card.addEventListener("click", function () {
+                    openCompanyArticle(article);
+                });
 
-
-            card.innerHTML = `
-
-                ${imageHTML}
-
-                <div class="article-company">
-                    ${article.company}
-                </div>
-
-                <div class="article-title">
-                    ${article.title}
-                </div>
-
-                <div class="article-date">
-                    ${article.date}
-                </div>
-
-                <div class="article-preview">
-                    ${article.preview}
-                </div>
-
-            `;
-
-
-            if (
-                position === "center"
-            ) {
-
-                card.addEventListener(
-                    "click",
-                    function () {
-
-                        openArticle(
-                            article
-                        );
-
-                    }
-                );
-
-            }
-
-            else if (
-                position === "left"
-            ) {
-
-                card.addEventListener(
-                    "click",
-                    previousArticle
-                );
-
-            }
-
-            else if (
-                position === "right"
-            ) {
-
-                card.addEventListener(
-                    "click",
-                    nextArticle
-                );
-
-            }
-
-
-            return card;
+                container.appendChild(card);
+            });
 
         }
 
+        function openCompanyArticle(article) {
 
-        function renderCarousel() {
+            const overlay = document.createElement("div");
+            overlay.className = "modal open";
+            overlay.style.zIndex = "3000";
 
-            const track =
-                document.getElementById(
-                    "articleTrack"
-                );
+            const content = document.createElement("div");
+            content.className = "modal-content";
 
+            const close = document.createElement("button");
+            close.className = "modal-close";
+            close.textContent = "×";
+            close.onclick = function () {
+                overlay.remove();
+            };
 
-            track.innerHTML =
-                "";
+            const title = document.createElement("div");
+            title.className = "modal-title";
+            title.textContent = article.title;
 
+            const date = document.createElement("div");
+            date.className = "modal-date";
+            date.textContent = `${article.company} · ${article.date}`;
 
-            const previous =
-                articles[
-                    getArticleIndex(-1)
-                ];
+            const body = document.createElement("div");
+            body.className = "modal-body";
 
+            article.body.forEach(function (paragraph) {
+                const p = document.createElement("p");
+                p.textContent = paragraph;
+                body.appendChild(p);
+            });
 
-            const current =
-                articles[
-                    getArticleIndex(0)
-                ];
+            content.appendChild(close);
+            content.appendChild(title);
+            content.appendChild(date);
+            content.appendChild(body);
+            overlay.appendChild(content);
+            document.body.appendChild(overlay);
 
-
-            const next =
-                articles[
-                    getArticleIndex(1)
-                ];
-
-
-            track.appendChild(
-                createArticleCard(
-                    previous,
-                    "left"
-                )
-            );
-
-
-            track.appendChild(
-                createArticleCard(
-                    current,
-                    "center"
-                )
-            );
-
-
-            track.appendChild(
-                createArticleCard(
-                    next,
-                    "right"
-                )
-            );
+            overlay.addEventListener("click", function (event) {
+                if (event.target === overlay) overlay.remove();
+            });
 
         }
 
+        function setChartPeriod(period) {
+            activeChartPeriod = period;
 
-        function nextArticle() {
+            document.querySelectorAll(".chart-period").forEach(function (button) {
+                button.classList.toggle("active", button.dataset.period === period);
+            });
 
-            currentArticle =
-                getArticleIndex(1);
-
-
-            renderCarousel();
-
+            loadCompanyHistory(period);
         }
 
+        document.querySelectorAll(".chart-period").forEach(function (button) {
+            button.addEventListener("click", function () {
+                setChartPeriod(this.dataset.period);
+            });
+        });
 
-        function previousArticle() {
+        function loadCompanyHistory(period) {
 
-            currentArticle =
-                getArticleIndex(-1);
+            if (!activeCompany) return;
 
+            const ticker = activeCompany.ticker;
+            const callbackName = "skstHistoryCallback_" + Date.now();
+            const script = document.createElement("script");
 
-            renderCarousel();
+            document.getElementById("chartRangeLabel").textContent = "Loading history...";
+            document.getElementById("chartEmpty").textContent = "Loading historical market data...";
+            document.getElementById("chartEmpty").style.display = "flex";
 
-        }
+            window[callbackName] = function (history) {
 
-
-        /* =========================================================
-           ARTICLE MODAL
-           ========================================================= */
-
-        function openArticle(
-            article
-        ) {
-
-            document.getElementById(
-                "modalTitle"
-            ).textContent =
-                article.title;
-
-
-            document.getElementById(
-                "modalDate"
-            ).textContent =
-                `${article.company} · ${article.date}`;
-
-
-            const imageContainer =
-                document.getElementById(
-                    "modalImageContainer"
-                );
-
-
-            imageContainer.innerHTML =
-                "";
-
-
-            if (article.image) {
-
-                const img =
-                    document.createElement(
-                        "img"
-                    );
-
-
-                img.className =
-                    "modal-image";
-
-
-                img.src =
-                    article.image;
-
-
-                img.alt =
-                    article.title;
-
-
-                imageContainer.appendChild(
-                    img
-                );
-
-
-                if (
-                    article.imageCredit
-                ) {
-
-                    const credit =
-                        document.createElement(
-                            "div"
-                        );
-
-
-                    credit.className =
-                        "modal-image-credit";
-
-
-                    credit.textContent =
-                        article.imageCredit;
-
-
-                    imageContainer.appendChild(
-                        credit
-                    );
-
+                try {
+                    if (!Array.isArray(history)) throw new Error("Invalid history response.");
+                    renderCompanyChart(history, period);
+                } catch (error) {
+                    console.error(error);
+                    renderCompanyChart([], period);
+                } finally {
+                    delete window[callbackName];
+                    if (script.parentNode) script.parentNode.removeChild(script);
                 }
 
+            };
+
+            script.onerror = function () {
+                delete window[callbackName];
+                if (script.parentNode) script.parentNode.removeChild(script);
+                renderCompanyChart([], period);
+            };
+
+            script.src = SKST_API_URL
+                + "?history=1"
+                + "&ticker=" + encodeURIComponent(ticker)
+                + "&period=" + encodeURIComponent(period)
+                + "&callback=" + encodeURIComponent(callbackName)
+                + "&t=" + Date.now();
+
+            document.body.appendChild(script);
+
+        }
+
+        function renderCompanyChart(history, period) {
+
+            if (!activeCompany) return;
+
+            const wrap = document.getElementById("stockChartWrap");
+            const empty = document.getElementById("chartEmpty");
+
+            wrap.querySelectorAll("svg, .chart-tooltip").forEach(function (element) {
+                element.remove();
+            });
+
+            if (!history.length) {
+                empty.textContent = "No historical trade data is available for this period yet. Once trades occur, this chart will build automatically.";
+                empty.style.display = "flex";
+                document.getElementById("chartRangeLabel").textContent = period.toUpperCase();
+                resetCompanyStats();
+                return;
             }
 
-
-            const body =
-                document.getElementById(
-                    "modalBody"
-                );
-
-
-            body.innerHTML =
-                "";
-
-
-            article.body.forEach(
-                function (paragraph) {
-
-                    const p =
-                        document.createElement(
-                            "p"
-                        );
-
-
-                    p.textContent =
-                        paragraph;
-
-
-                    body.appendChild(
-                        p
-                    );
-
-                }
-            );
-
-
-            document.getElementById(
-                "articleModal"
-            ).classList.add(
-                "open"
-            );
-
-
-            document.body.style.overflow =
-                "hidden";
-
-        }
-
-
-        function closeArticle() {
-
-            document.getElementById(
-                "articleModal"
-            ).classList.remove(
-                "open"
-            );
-
-
-            document.body.style.overflow =
-                "";
-
-        }
-
-
-        /* =========================================================
-           COUNTDOWN
-
-           Counts down to the next Sunday at 00:00.
-           ========================================================= */
-
-        function updateCountdown() {
-
-            const now =
-                new Date();
-
-
-            const target =
-                new Date(now);
-
-
-            const day =
-                now.getDay();
-
-
-            const daysUntilSunday =
-                day === 0
-                    ? 7
-                    : 7 - day;
-
-
-            target.setDate(
-                now.getDate() +
-                daysUntilSunday
-            );
-
-
-            target.setHours(
-                0,
-                0,
-                0,
-                0
-            );
-
-
-            const difference =
-                target - now;
-
-
-            const totalSeconds =
-                Math.max(
-                    0,
-                    Math.floor(
-                        difference /
-                        1000
-                    )
-                );
-
-
-            const days =
-                Math.floor(
-                    totalSeconds /
-                    86400
-                );
-
-
-            const hours =
-                Math.floor(
-                    (totalSeconds %
-                        86400) /
-                    3600
-                );
-
-
-            const minutes =
-                Math.floor(
-                    (totalSeconds %
-                        3600) /
-                    60
-                );
-
-
-            const seconds =
-                totalSeconds %
-                60;
-
-
-            document.getElementById(
-                "countdown"
-            ).textContent =
-                `${days}d ${hours}h ${minutes}m ${seconds}s`;
-
-        }
-
-
-        /* =========================================================
-           ARTICLE BUTTONS
-           ========================================================= */
-
-        document.getElementById(
-            "nextArticle"
-        ).addEventListener(
-            "click",
-            nextArticle
-        );
-
-
-        document.getElementById(
-            "prevArticle"
-        ).addEventListener(
-            "click",
-            previousArticle
-        );
-
-
-        document.getElementById(
-            "modalClose"
-        ).addEventListener(
-            "click",
-            closeArticle
-        );
-
-
-        document.getElementById(
-            "articleModal"
-        ).addEventListener(
-            "click",
-            function (event) {
-
-                if (
-                    event.target.id ===
-                    "articleModal"
-                ) {
-
-                    closeArticle();
-
-                }
-
+            empty.style.display = "none";
+
+            const points = history
+                .map(function (item) {
+                    return {
+                        time: new Date(item.timestamp).getTime(),
+                        price: Number(item.price),
+                        volume: Number(item.volume) || 0
+                    };
+                })
+                .filter(function (item) {
+                    return Number.isFinite(item.time) && Number.isFinite(item.price);
+                })
+                .sort(function (a, b) { return a.time - b.time; });
+
+            if (!points.length) {
+                empty.textContent = "Historical data could not be read yet.";
+                empty.style.display = "flex";
+                resetCompanyStats();
+                return;
             }
-        );
 
+            const prices = points.map(function (point) { return point.price; });
+            const minPrice = Math.min.apply(null, prices);
+            const maxPrice = Math.max.apply(null, prices);
+            const range = Math.max(maxPrice - minPrice, maxPrice * 0.02, 0.01);
+            const chartMin = minPrice - range * 0.12;
+            const chartMax = maxPrice + range * 0.12;
 
-        /* =========================================================
-           KEYBOARD CONTROLS
-           ========================================================= */
+            const width = 1000;
+            const height = 360;
+            const left = 18;
+            const right = 18;
+            const top = 20;
+            const bottom = 28;
+            const plotW = width - left - right;
+            const plotH = height - top - bottom;
 
-        document.addEventListener(
-            "keydown",
-            function (event) {
-
-
-                if (
-                    event.key ===
-                    "Escape"
-                ) {
-
-                    closeArticle();
-
-                }
-
-
-                if (
-                    event.key ===
-                    "ArrowRight"
-                ) {
-
-                    nextArticle();
-
-                }
-
-
-                if (
-                    event.key ===
-                    "ArrowLeft"
-                ) {
-
-                    previousArticle();
-
-                }
-
+            function x(index) {
+                return points.length === 1
+                    ? left + plotW / 2
+                    : left + (index / (points.length - 1)) * plotW;
             }
-        );
 
+            function y(price) {
+                return top + ((chartMax - price) / (chartMax - chartMin)) * plotH;
+            }
 
-        /* =========================================================
-           MOUSE WHEEL CAROUSEL
-           ========================================================= */
+            const path = points.map(function (point, index) {
+                return `${index === 0 ? "M" : "L"} ${x(index).toFixed(2)} ${y(point.price).toFixed(2)}`;
+            }).join(" ");
 
-        let wheelLock =
-            false;
+            const area = path
+                + ` L ${x(points.length - 1).toFixed(2)} ${height - bottom}`
+                + ` L ${x(0).toFixed(2)} ${height - bottom} Z`;
 
+            const positive = points[points.length - 1].price >= points[0].price;
+            const lineClass = positive ? "chart-line-positive" : "chart-line-negative";
+            const areaClass = positive ? "chart-area-positive" : "chart-area-negative";
 
-        document
-            .getElementById(
-                "articleTrack"
-            )
-            .addEventListener(
-                "wheel",
-                function (event) {
+            const svgNS = "http://www.w3.org/2000/svg";
+            const svg = document.createElementNS(svgNS, "svg");
+            svg.setAttribute("viewBox", `0 0 ${width} ${height}`);
+            svg.setAttribute("preserveAspectRatio", "none");
+            svg.classList.add("stock-chart-svg");
 
+            [0.25, 0.5, 0.75].forEach(function (fraction) {
+                const line = document.createElementNS(svgNS, "line");
+                line.setAttribute("x1", left);
+                line.setAttribute("x2", width - right);
+                line.setAttribute("y1", top + plotH * fraction);
+                line.setAttribute("y2", top + plotH * fraction);
+                line.classList.add("chart-grid-line");
+                svg.appendChild(line);
+            });
 
-                    event.preventDefault();
+            const areaPath = document.createElementNS(svgNS, "path");
+            areaPath.setAttribute("d", area);
+            areaPath.classList.add(areaClass);
+            svg.appendChild(areaPath);
 
+            const linePath = document.createElementNS(svgNS, "path");
+            linePath.setAttribute("d", path);
+            linePath.classList.add(lineClass);
+            svg.appendChild(linePath);
 
-                    if (wheelLock) {
+            wrap.appendChild(svg);
 
-                        return;
+            const tooltip = document.createElement("div");
+            tooltip.className = "chart-tooltip";
+            wrap.appendChild(tooltip);
 
-                    }
+            svg.addEventListener("mousemove", function (event) {
+                const rect = svg.getBoundingClientRect();
+                const ratio = Math.min(1, Math.max(0, (event.clientX - rect.left) / rect.width));
+                const index = Math.min(points.length - 1, Math.max(0, Math.round(ratio * (points.length - 1))));
+                const point = points[index];
+                const date = new Date(point.time);
 
+                tooltip.style.display = "block";
+                tooltip.textContent = `${formatMoney(point.price)} · ${date.toLocaleString()}`;
+                tooltip.style.left = Math.min(rect.width - 170, Math.max(5, event.clientX - rect.left + 10)) + "px";
+                tooltip.style.top = Math.max(5, event.clientY - rect.top - 35) + "px";
+            });
 
-                    wheelLock =
-                        true;
+            svg.addEventListener("mouseleave", function () {
+                tooltip.style.display = "none";
+            });
 
+            const first = points[0];
+            const last = points[points.length - 1];
+            const totalVolume = points.reduce(function (sum, point) { return sum + point.volume; }, 0);
 
-                    if (
-                        event.deltaY >
-                        0
-                    ) {
+            document.getElementById("chartRangeLabel").textContent = `${new Date(first.time).toLocaleDateString()} — ${new Date(last.time).toLocaleDateString()}`;
+            document.getElementById("statOpen").textContent = formatMoney(first.price);
+            document.getElementById("statHigh").textContent = formatMoney(maxPrice);
+            document.getElementById("statLow").textContent = formatMoney(minPrice);
+            document.getElementById("statVol").textContent = formatCompact(totalVolume);
+            document.getElementById("statAvgVol").textContent = formatCompact(totalVolume / points.length);
 
-                        nextArticle();
+            const yearAgo = Date.now() - 365 * 24 * 60 * 60 * 1000;
+            const yearPoints = points.filter(function (point) { return point.time >= yearAgo; });
+            const yearPrices = yearPoints.length ? yearPoints.map(function (point) { return point.price; }) : prices;
+            document.getElementById("stat52High").textContent = formatMoney(Math.max.apply(null, yearPrices));
+            document.getElementById("stat52Low").textContent = formatMoney(Math.min.apply(null, yearPrices));
+            document.getElementById("statMarketCap").textContent = formatCompact(activeCompany.currentPrice * activeCompany.totalShares);
+            document.getElementById("statPE").textContent = "N/A";
 
-                    }
+        }
 
-                    else {
+        function resetCompanyStats() {
+            ["statOpen", "statHigh", "statLow", "statVol", "statAvgVol", "stat52High", "stat52Low", "statMarketCap"].forEach(function (id) {
+                document.getElementById(id).textContent = "—";
+            });
+            document.getElementById("statPE").textContent = "N/A";
+        }
 
-                        previousArticle();
+        document.getElementById("companyBack").addEventListener("click", closeCompany);
 
-                    }
+        document.getElementById("companyDetail").addEventListener("click", function (event) {
+            if (event.target === this) closeCompany();
+        });
 
-
-                    setTimeout(
-                        function () {
-
-                            wheelLock =
-                                false;
-
-                        },
-                        450
-                    );
-
-
-                },
-                {
-                    passive: false
-                }
-            );
+        document.addEventListener("keydown", function (event) {
+            if (event.key === "Escape" && document.getElementById("companyDetail").classList.contains("open")) {
+                closeCompany();
+            }
+        });
 
 
         /* =========================================================
@@ -3335,39 +3192,18 @@
            ========================================================= */
 
         renderMarket();
-
         renderReport();
-
-        renderCarousel();
-
+        renderGovernmentNews();
         updateCountdown();
 
-
-        /*
-         * FIRST LIVE MARKET LOAD
-         */
-
+        /* FIRST LIVE MARKET LOAD */
         updateMarketFromGoogle();
 
+        /* COUNTDOWN UPDATES EVERY SECOND */
+        setInterval(updateCountdown, 1000);
 
-        /*
-         * COUNTDOWN UPDATES EVERY SECOND
-         */
-
-        setInterval(
-            updateCountdown,
-            1000
-        );
-
-
-        /*
-         * MARKET UPDATES EVERY 15 SECONDS
-         */
-
-        setInterval(
-            updateMarketFromGoogle,
-            1000
-        );
+        /* MARKET UPDATES EVERY 15 SECONDS */
+        setInterval(updateMarketFromGoogle, 15000);
 
 
     </script>
