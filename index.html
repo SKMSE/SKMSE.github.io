@@ -654,6 +654,17 @@
 
         }
 
+        .report-panel {
+            cursor: pointer;
+        }
+
+        .report-read-more {
+            margin-top: 16px;
+            color: var(--orange);
+            font-family: "Chewy", cursive;
+            font-size: 1rem;
+        }
+
 
         /* =========================================================
            ARTICLE IMAGE
@@ -1685,7 +1696,7 @@
                 Weekly Market Report
             </h2>
 
-            <div class="panel report-panel">
+            <div class="panel report-panel" id="reportPanel">
 
                 <div
                     class="report-title"
@@ -1709,9 +1720,41 @@
                     below you will find example tutorial articles.
                 </div>
 
+                <div
+                    class="report-read-more"
+                    id="reportReadMore"
+                >
+                    Click to read the full weekly report →
+                </div>
+
             </div>
 
         </section>
+
+
+    <!-- =========================================================
+         FULL WEEKLY REPORT MODAL
+         ========================================================= -->
+
+    <div class="modal" id="reportModal">
+
+        <div class="modal-content">
+
+            <button
+                class="modal-close"
+                id="reportModalClose"
+                aria-label="Close weekly report"
+            >
+                ×
+            </button>
+
+            <div class="modal-title" id="reportModalTitle"></div>
+            <div class="modal-date" id="reportModalDate"></div>
+            <div id="reportModalBody"></div>
+
+        </div>
+
+    </div>
 
 
     <!-- =========================================================
@@ -1818,7 +1861,7 @@
            ========================================================= */
 
         const SKST_API_URL =
-            "https://script.google.com/macros/s/AKfycbx3SvoH3asa5hKY-Q8booCG9wvQFYQvkx6_JN8EHJh5cMfRgoqArl2Tfbo3mIfLnY4/exec";
+            "https://script.google.com/macros/s/AKfycbws_OBbUtOyGerRE8qsnTb76QYWtWYru_G8Cq-WxO22kdlMWFLqwKvxMIRzUoWGTJo/exec";
 
 
         /* =========================================================
@@ -1879,7 +1922,8 @@
         const weeklyReport = {
             date: "",
             title: "sky kingdom market report",
-            summary: "Weekly market report is loading..."
+            summary: "Weekly market report is loading...",
+            body: []
         };
 
 
@@ -2195,6 +2239,11 @@
             if (titleEl) titleEl.textContent = weeklyReport.title || "sky kingdom market report";
             if (summaryEl) summaryEl.textContent = weeklyReport.summary || "";
 
+            const readMoreEl = document.getElementById("reportReadMore");
+            if (readMoreEl) {
+                readMoreEl.style.display = weeklyReport.body && weeklyReport.body.length ? "block" : "none";
+            }
+
             if (weekEl) {
                 if (skstContentSettings.week) {
                     weekEl.textContent = "Week " + skstContentSettings.week;
@@ -2345,10 +2394,14 @@
                         weeklyReport.date = report.date || "";
                         weeklyReport.title = report.title || "sky kingdom market report";
                         weeklyReport.summary = report.summary || report.preview || report.body?.[0] || "";
+                        weeklyReport.body = Array.isArray(report.body)
+                            ? report.body
+                            : String(report.body || "").split(/\r?\n+/).filter(Boolean);
                     } else {
                         weeklyReport.date = "";
                         weeklyReport.title = "sky kingdom market report";
                         weeklyReport.summary = "No weekly market report has been published yet.";
+                        weeklyReport.body = [];
                     }
 
                     renderReport();
@@ -2782,6 +2835,44 @@
             if (event.key === "Escape" && document.getElementById("companyDetail").classList.contains("open")) {
                 closeCompany();
             }
+            if (event.key === "Escape" && document.getElementById("reportModal").classList.contains("open")) {
+                closeWeeklyReport();
+            }
+        });
+
+
+        /* =========================================================
+           FULL WEEKLY REPORT MODAL
+           ========================================================= */
+
+        function openWeeklyReport() {
+            if (!weeklyReport.body || !weeklyReport.body.length) return;
+
+            document.getElementById("reportModalTitle").textContent = weeklyReport.title;
+            document.getElementById("reportModalDate").textContent = weeklyReport.date;
+
+            const body = document.getElementById("reportModalBody");
+            body.innerHTML = "";
+
+            weeklyReport.body.forEach(function (paragraph) {
+                const p = document.createElement("p");
+                p.textContent = paragraph;
+                body.appendChild(p);
+            });
+
+            document.getElementById("reportModal").classList.add("open");
+            document.body.style.overflow = "hidden";
+        }
+
+        function closeWeeklyReport() {
+            document.getElementById("reportModal").classList.remove("open");
+            document.body.style.overflow = "";
+        }
+
+        document.getElementById("reportPanel")?.addEventListener("click", openWeeklyReport);
+        document.getElementById("reportModalClose").addEventListener("click", closeWeeklyReport);
+        document.getElementById("reportModal").addEventListener("click", function (event) {
+            if (event.target.id === "reportModal") closeWeeklyReport();
         });
 
 
