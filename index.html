@@ -1542,7 +1542,8 @@
             </h1>
 
             <p>
-                Official stock exchange of the Republic Of Magenta and Mercenary Republic.
+                Official Magentian Stock Exchange.
+                Owned and operated under Sky Kingdom Enterprises.
             </p>
 
         </header>
@@ -1804,7 +1805,7 @@
 
         <br>
 
-        Owned and externally operated under the Sky Kingdom Stock Exchange. Not assosiated with Sky Kingdom Enterprises or it's counterparts.
+        Magentian Simulation
 
     </footer>
 
@@ -1817,7 +1818,7 @@
            ========================================================= */
 
         const SKST_API_URL =
-            "https://script.google.com/macros/s/AKfycbws_OBbUtOyGerRE8qsnTb76QYWtWYru_G8Cq-WxO22kdlMWFLqwKvxMIRzUoWGTJo/exec";
+            "https://script.google.com/macros/s/AKfycbx3SvoH3asa5hKY-Q8booCG9wvQFYQvkx6_JN8EHJh5cMfRgoqArl2Tfbo3mIfLnY4/exec";
 
 
         /* =========================================================
@@ -1831,139 +1832,19 @@
            ========================================================= */
 
         const companies = [
-
-
-            {
-                name: "ASUS",
-                ticker: "ASUS",
-                currentPrice: 1,
-                previousPrice: 1,
-                totalShares: 1,
-                remainingShares: 0
-            },
-
-
-            {
-                name: "Sky Kingdom Enterprises",
-                ticker: "SKE",
-                currentPrice: 100,
-                previousPrice: 10,
-                totalShares: 1000000,
-                remainingShares: 0
-            },
-
-
-            {
-                name: "Sky Kingdom Infrastructure",
-                ticker: "SKI",
-                currentPrice: 1,
-                previousPrice: 1,
-                totalShares: 1,
-                remainingShares: 0
-            },
-
-
-            {
-                name: "Sky Kingdom Lib",
-                ticker: "SKL",
-                currentPrice: 1,
-                previousPrice: 1,
-                totalShares: 1,
-                remainingShares: 0
-            },
-
-
-            {
-                name: "Sky Kingdom Government Infrastructure",
-                ticker: "SKGI",
-                currentPrice: 1,
-                previousPrice: 1,
-                totalShares: 1,
-                remainingShares: 0
-            },
-
-
-            {
-                name: "I Am A Fire Hydrant Avionics",
-                ticker: "MIAC",
-                currentPrice: 1,
-                previousPrice: 1,
-                totalShares: 1,
-                remainingShares: 0
-            },
-
-
-            {
-                name: "I Am A Fire Hydrant Trucking",
-                ticker: "MITC",
-                currentPrice: 1,
-                previousPrice: 1,
-                totalShares: 1,
-                remainingShares: 0
-            },
-
-
-            {
-                name: "United Airlines",
-                ticker: "UAL",
-                currentPrice: 1,
-                previousPrice: 1,
-                totalShares: 1,
-                remainingShares: 0
-            },
-
-
-            {
-                name:
-                    "Taiwanese Semiconductor Manufacturing Company",
-                ticker: "TSMC",
-                currentPrice: 1,
-                previousPrice: 1,
-                totalShares: 1,
-                remainingShares: 0
-            },
-
-
-            {
-                name: "United Guitar Airlines",
-                ticker: "UGA",
-                currentPrice: 1,
-                previousPrice: 1,
-                totalShares: 1,
-                remainingShares: 0
-            },
-
-
-            {
-                name: "T Bag Automatics",
-                ticker: "TBA",
-                currentPrice: 1,
-                previousPrice: 1,
-                totalShares: 1,
-                remainingShares: 0
-            },
-
-
-            {
-                name: "T Bag Ballistics",
-                ticker: "TBB",
-                currentPrice: 1,
-                previousPrice: 1,
-                totalShares: 1,
-                remainingShares: 0
-            },
-
-
-            {
-                name: "Bassese Baits",
-                ticker: "BSB",
-                currentPrice: 1,
-                previousPrice: 1,
-                totalShares: 1,
-                remainingShares: 0
-            }
-
-
+            { name: "ASUS", ticker: "ASUS", currentPrice: 333.33, previousPrice: 328.33, totalShares: 1500000000, remainingShares: 1250000000 },
+            { name: "Sky Kingdom Enterprises", ticker: "SKE", currentPrice: 325.00, previousPrice: 320.13, totalShares: 10000000000, remainingShares: 8900000000 },
+            { name: "Sky Kingdom Infrastructure", ticker: "SKI", currentPrice: 350.00, previousPrice: 344.75, totalShares: 1000000000, remainingShares: 875000000 },
+            { name: "Sky Kingdom Lib", ticker: "SKL", currentPrice: 80.00, previousPrice: 78.80, totalShares: 1000000000, remainingShares: 820000000 },
+            { name: "Sky Kingdom Government Infrastructure", ticker: "SKGI", currentPrice: 400.00, previousPrice: 394.00, totalShares: 2000000000, remainingShares: 1720000000 },
+            { name: "I Am A Fire Hydrant Avionics", ticker: "MIAC", currentPrice: 175.00, previousPrice: 172.38, totalShares: 8000000000, remainingShares: 7100000000 },
+            { name: "I Am A Fire Hydrant Trucking", ticker: "MITC", currentPrice: 50.00, previousPrice: 49.25, totalShares: 5000000000, remainingShares: 4250000000 },
+            { name: "United Airlines", ticker: "UAL", currentPrice: 300.00, previousPrice: 295.50, totalShares: 1000000000, remainingShares: 860000000 },
+            { name: "Taiwanese Semiconductor Manufacturing Company", ticker: "TSMC", currentPrice: 411.76, previousPrice: 405.58, totalShares: 5100000000, remainingShares: 4500000000 },
+            { name: "United Guitar Airlines", ticker: "UGA", currentPrice: 240.00, previousPrice: 236.40, totalShares: 500000000, remainingShares: 410000000 },
+            { name: "T Bag Automatics", ticker: "TBA", currentPrice: 300.00, previousPrice: 295.50, totalShares: 250000000, remainingShares: 205000000 },
+            { name: "T Bag Ballistics", ticker: "TBB", currentPrice: 400.00, previousPrice: 394.00, totalShares: 100000000, remainingShares: 82000000 },
+            { name: "Bassese Baits", ticker: "BSB", currentPrice: 500.00, previousPrice: 492.50, totalShares: 50000000, remainingShares: 41000000 }
         ];
 
 
@@ -1982,486 +1863,35 @@
              Optional.
            ========================================================= */
 
-        const articles = [
+        const articles = [];
 
 
-            {
-                company:
-                    "ASUS",
-
-                title:
-                    "ASUS is making ram for your computer??",
-
-                date:
-                    "September 2026",
-
-                preview:
-                    "ASUS set to start producing its own Random Access Memory (RAM)",
-
-                image:
-                    "",
-
-                imageCredit:
-                    "",
-
-                body: [
-
-                    "New rurmors from the country of ROG hints at the gaming company starting to produce its own RAM for computer gaming.",
-
-                    "ASUSTeK is a Taiwanese company making computer parts, usually center around gaming. They take the original parts from the manufactorers (NVIDIA, Intel, AMD, etc) and design their own covers and systems around it.",
-
-                    "In the recent gaming world, AI has taken it by storm, causing prices for RAM (Short term memory for your computer) to skyrocket. PC builders often joke about RAM now costing a house.",
-
-                    "During the recent weekly government meeting between the EHOCPAA of Magenta and the president of the Republic of Gamers, they were discussing the recent acquistion of the Taiwanese semiconductor manufactor TSMC, along with plans to turn the country profitable",
-
-                    "Mentioned in the meeting was turning ASUS into a manufactoring company.",
-
-                    "Amoung the discussion was invloving the manufactoring of RAM, and selling it under ASUS. Purposely made cheap due to lots of government funding",
-
-                    "However for access of the money to work, the Magentian treasury will need to approve."
-
-                ]
-
-            },
-
-
-            {
-                company:
-                    "MITC",
-
-                title:
-                    "MIAC and MITC launch a new partnership",
-
-                date:
-                    "September 23rd 2026",
-
-                preview:
-                    "I Am a Fire Hydrant avioncis and I am a fire hydrant trucking launching new partnership",
-
-                image:
-                    "",
-
-                imageCredit:
-                    "",
-
-                body: [
-
-                    "Famious Magentian commercial and military aviation manufactorer I Am A Fire Hydrant Avionics (MIAC) has launched a partnership with one of the most popular land based shipping company I am a Fire Hydrant trucking.",
-
-                    "Despite the shortend name being Magenta International Trucking Company, they have wanted for years to expand their network out of Magenta.",
-
-                    "But, they were never able to. The cargo field was dominated by UPS, Fedex, and DHL in most of the world",
-
-                    "However, after MIAC was launched, things changed for the better.",
-
-                    "Magenta was needing a way to efficientally transport cargo, mail, and postage services between the Magentian island and the North American continent. UPS or Fedex just couldn't cut it. Their regin was large, but not enough, especially in Magenta",
-
-                    "But, what company was wanting to expand their cargo services, was already efficient, and Magentian?",
-
-                    "MITC!",
-
-                    "In the coming weeks, I am a Fire Hydrant avionics is set to start research on their first cargo aircraft. Inspired by the Boeing 737BCF, it will be a 737 cargo freighter based off the newer max line. sort of merging them into one modern cargo transport plane for short cargo runs",
-
-                    "MITC has ordered about 300 of them.",
-
-                    "Along with that, there have been talks to merge UPS, Fedex, and MITC all together into one massive cargo company. But thats for another time"
-
-                ]
-
-            },
-
-
-            {
-                company:
-                    "Sky Kingdom Infrastructure",
-
-                title:
-                    "Sky Kingdom Infrastructure. What is it?",
-
-                date:
-                    "September 23rd 2026",
-
-                preview:
-                    "A new branch of Sky Kingdom Enterprises has launched and is public on the SKMSE. What does it do?",
-
-                image:
-                    "",
-
-                imageCredit:
-                    "",
-
-                body: [
-
-                    "Sky Kingdom Infrastructure is the new Infrastructure company. Working alongside the government infrastructure company, SKI will make public infrastructure for the whole country.",
-
-                    "But, why the switch?",
-
-                    "After a large rise of government and public infrastructure, one company just couldn't keep up. Especially considering how different the fields are, it has been determind that a divide needed to happen.",
-
-                    "Now the main thing SKI will do is upkeep all of the... well public infrastructure",
-
-                    "This mostly includes public highways, bulidings, parking lots, etc.",
-
-                    "If you own a hotel or public buildings, you'll also want to make note of this:",
-
-                    "For all new building permits, building inspections and the sorts you MUST contact SKI. They are also in charge of that",
-
-                    "And, if your thinking of starting one soon, then they are one of the only trusted construction company in Magenta."
-
-                ]
-
-            },
-
-
-            {
-                company:
-                    "Sky Kingdom Enterprises",
-
-                title:
-                    "Sky Kingdom Enterprises endorsing dozens of apartments being built north of Magenta City",
-
-                date:
-                    "September 2026",
-
-                preview:
-                    "Dozens of new apartments being built north of Magenta City, endorsed by SKE",
-
-                image:
-                    "",
-
-                imageCredit:
-                    "",
-
-                body: [
-
-                    "Sky Kingdom Enterprises is back at it again with another large community project.",
-
-                    "After the new government 'move in, move out' project was launched, hundreds of thousands of people moved into Magenta. It was easier than ever to become a citizen, or get rid of it",
-
-                    "But, where do they all go??",
-
-                    "Well, the government heard the cocerns about downtown Magenta city becoming too busy and crowded, and the underground city becoming unbearable. Partnered with Sky kingdom Infrastructure and Sky kingdom enterprises, a new 'city' is being built on the outskirts of Magenta city",
-
-                    "Rows and rows of apartments with parks and pools inside is planned",
-
-                    "Large public community centers and sprawling parks dotted inbetween. Don't worry though, you won't have to take the hour drive to Magenta City just to go to Costco or Walmart. Their Magentian counterparts, MMMyumfoodhungry and Costco Squared 2 will be there",
-
-                    "A new highway will also be built to connect them together. A 8 lane highway that is mostly tunnel going under the rural farms of the outskirts.",
-
-                    "No budget or planned amount has been said, but we can estimate in the hundreds of billions. Wounder how thats going to get past the treasury, haha",
-
-                    "This place is planned to start construction in a couple days or in the coming weeks",
-
-                    "Magentian maps will be updated accordingly"
-
-                ]
-
-            },
-
-
-            {
-                company:
-                    "SKL",
-
-                title:
-                    "Sky Kingdom Lib market update",
-
-                date:
-                    "September 2026",
-
-                preview:
-                    "Weekly market information from Sky Kingdom Lib.",
-
-                image:
-                    "",
-
-                imageCredit:
-                    "",
-
-                body: [
-
-                    "No article has been published for this company yet."
-
-                ]
-
-            },
-
-
-            {
-                company:
-                    "SKGI",
-
-                title:
-                    "Sky Kingdom Government Infrastructure update",
-
-                date:
-                    "September 2026",
-
-                preview:
-                    "Weekly market information from SKGI.",
-
-                image:
-                    "",
-
-                imageCredit:
-                    "",
-
-                body: [
-
-                    "No article has been published for this company yet."
-
-                ]
-
-            },
-
-
-            {
-                company:
-                    "MIAC",
-
-                title:
-                    "I Am A Fire Hydrant Avionics update",
-
-                date:
-                    "September 2026",
-
-                preview:
-                    "Weekly market information from MIAC.",
-
-                image:
-                    "",
-
-                imageCredit:
-                    "",
-
-                body: [
-
-                    "No article has been published for this company yet."
-
-                ]
-
-            },
-
-
-            {
-                company:
-                    "UAL",
-
-                title:
-                    "United Airlines market update",
-
-                date:
-                    "September 2026",
-
-                preview:
-                    "Weekly market information from United Airlines.",
-
-                image:
-                    "",
-
-                imageCredit:
-                    "",
-
-                body: [
-
-                    "No article has been published for this company yet."
-
-                ]
-
-            },
-
-
-            {
-                company:
-                    "TSMC",
-
-                title:
-                    "TSMC market update",
-
-                date:
-                    "September 2026",
-
-                preview:
-                    "Weekly market information from TSMC.",
-
-                image:
-                    "",
-
-                imageCredit:
-                    "",
-
-                body: [
-
-                    "No article has been published for this company yet."
-
-                ]
-
-            },
-
-
-            /* =====================================================
-               NEW COMPANY ARTICLE SLOTS
-               ===================================================== */
-
-
-            {
-                company:
-                    "UGA",
-
-                title:
-                    "United Guitar Airlines joins the market",
-
-                date:
-                    "September 2026",
-
-                preview:
-                    "United Guitar Airlines has been added to the Sky Kingdom Stock Exchange.",
-
-                image:
-                    "",
-
-                imageCredit:
-                    "",
-
-                body: [
-
-                    "United Guitar Airlines has officially joined the Sky Kingdom Stock Exchange.",
-
-                    "A full market article can be added here during the weekly update."
-
-                ]
-
-            },
-
-
-            {
-                company:
-                    "TBA",
-
-                title:
-                    "T Bag Automatics joins the market",
-
-                date:
-                    "September 2026",
-
-                preview:
-                    "T Bag Automatics has been added to the Sky Kingdom Stock Exchange.",
-
-                image:
-                    "",
-
-                imageCredit:
-                    "",
-
-                body: [
-
-                    "T Bag Automatics has officially joined the Sky Kingdom Stock Exchange.",
-
-                    "A full market article can be added here during the weekly update."
-
-                ]
-
-            },
-
-
-            {
-                company:
-                    "TBB",
-
-                title:
-                    "T Bag Ballistics joins the market",
-
-                date:
-                    "September 2026",
-
-                preview:
-                    "T Bag Ballistics has been added to the Sky Kingdom Stock Exchange.",
-
-                image:
-                    "",
-
-                imageCredit:
-                    "",
-
-                body: [
-
-                    "T Bag Ballistics has officially joined the Sky Kingdom Stock Exchange.",
-
-                    "A full market article can be added here during the weekly update."
-
-                ]
-
-            },
-
-
-            {
-                company:
-                    "BSB",
-
-                title:
-                    "Bassese Baits joins the market",
-
-                date:
-                    "September 2026",
-
-                preview:
-                    "Bassese Baits has been added to the Sky Kingdom Stock Exchange.",
-
-                image:
-                    "",
-
-                imageCredit:
-                    "",
-
-                body: [
-
-                    "Bassese Baits has officially joined the Sky Kingdom Stock Exchange.",
-
-                    "A full market article can be added here during the weekly update."
-
-                ]
-
-            }
-
-
-        ];
-
-
-        /* =========================================================
-           WEEKLY REPORT
-
-           EDIT THIS EVERY WEEK
-           ========================================================= */
+        /* Content is loaded from the Google Sheets Articles tab. */
 
         const governmentNews = {
-
-            date: "September 2026",
-
-            title: "Magentian government news",
-
-            preview: "Government news will appear here. Click this panel to expand the full story.",
-
-            body: [
-                "No government news has been published yet.",
-                "Edit the governmentNews object in this file whenever the Magentian government has a new announcement."
-            ]
-
+            date: "",
+            title: "Government news is loading...",
+            preview: "",
+            body: []
         };
 
 
         const weeklyReport = {
-
-            date:
-                "September 2026 — Week One",
-
-            title:
-                "sky kingdom market report",
-
-            summary:
-                "this is the sky kingdom stock exchange. below you will find example tutorial articles."
-
+            date: "",
+            title: "sky kingdom market report",
+            summary: "Weekly market report is loading..."
         };
 
+
+        /* =========================================================
+           SHEETS-DRIVEN CONTENT STATE
+           ========================================================= */
+
+        let skstContentSettings = {
+            week: "",
+            weekStart: "",
+            nextRefresh: ""
+        };
 
         /* =========================================================
            OPEN BUY / SELL PAGE
@@ -2645,9 +2075,7 @@
                 "?callback=" +
                 encodeURIComponent(
                     callbackName
-                ) +
-                "&t=" +
-                Date.now();
+                );
 
 
             document.body.appendChild(
@@ -2693,19 +2121,12 @@
 
             companies.forEach(function (company) {
 
-                const currentPrice = Number(company.currentPrice || 0);
-                const previousPrice = Number(company.previousPrice || 0);
-                const totalShares = Number(company.totalShares || 0);
-                const remainingShares = Number(company.remainingShares || 0);
-
-                const change = currentPrice - previousPrice;
-
-                const changePercent = previousPrice !== 0
-                    ? (change / previousPrice) * 100
+                const change = company.currentPrice - company.previousPrice;
+                const changePercent = company.previousPrice !== 0
+                    ? (change / company.previousPrice) * 100
                     : 0;
 
                 let changeClass = "";
-
                 if (change > 0) changeClass = "positive";
                 else if (change < 0) changeClass = "negative";
 
@@ -2729,16 +2150,16 @@
                         </button>
                     </td>
                     <td class="price">
-                        $${currentPrice.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+                        $${company.currentPrice.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
                     </td>
                     <td class="${changeClass}">
                         ${changeText}
                     </td>
                     <td>
-                        ${totalShares.toLocaleString()}
+                        ${company.totalShares.toLocaleString()}
                     </td>
                     <td>
-                        ${remainingShares.toLocaleString()}
+                        ${company.remainingShares.toLocaleString()}
                     </td>
                     <td>
                         <div class="trade-buttons">
@@ -2749,17 +2170,12 @@
                 `;
 
                 table.appendChild(row);
-
-                totalAvailable += totalShares;
-                totalRemaining += remainingShares;
-
+                totalAvailable += company.totalShares;
+                totalRemaining += company.remainingShares;
             });
 
-            document.getElementById("totalSharesAvailable").textContent =
-                totalAvailable.toLocaleString();
-
-            document.getElementById("totalSharesRemaining").textContent =
-                totalRemaining.toLocaleString();
+            document.getElementById("totalSharesAvailable").textContent = totalAvailable.toLocaleString();
+            document.getElementById("totalSharesRemaining").textContent = totalRemaining.toLocaleString();
 
         }
 
@@ -2770,29 +2186,24 @@
 
         function renderReport() {
 
-            document.getElementById(
-                "reportDate"
-            ).textContent =
-                weeklyReport.date;
+            const dateEl = document.getElementById("reportDate");
+            const titleEl = document.getElementById("reportTitle");
+            const summaryEl = document.getElementById("reportSummary");
+            const weekEl = document.getElementById("weekText");
 
+            if (dateEl) dateEl.textContent = weeklyReport.date || "";
+            if (titleEl) titleEl.textContent = weeklyReport.title || "sky kingdom market report";
+            if (summaryEl) summaryEl.textContent = weeklyReport.summary || "";
 
-            document.getElementById(
-                "reportTitle"
-            ).textContent =
-                weeklyReport.title;
-
-
-            document.getElementById(
-                "reportSummary"
-            ).textContent =
-                weeklyReport.summary;
-
-
-            document.getElementById(
-                "weekText"
-            ).textContent =
-                weeklyReport.date;
-
+            if (weekEl) {
+                if (skstContentSettings.week) {
+                    weekEl.textContent = "Week " + skstContentSettings.week;
+                } else if (weeklyReport.date) {
+                    weekEl.textContent = weeklyReport.date;
+                } else {
+                    weekEl.textContent = "Current market week";
+                }
+            }
         }
 
 
@@ -2802,19 +2213,173 @@
 
         function renderGovernmentNews() {
 
-            document.getElementById("governmentNewsTitle").textContent = governmentNews.title;
-            document.getElementById("governmentNewsDate").textContent = governmentNews.date;
-            document.getElementById("governmentNewsPreview").textContent = governmentNews.preview;
-
+            const title = document.getElementById("governmentNewsTitle");
+            const date = document.getElementById("governmentNewsDate");
+            const preview = document.getElementById("governmentNewsPreview");
             const body = document.getElementById("governmentNewsBody");
-            body.innerHTML = "";
 
-            governmentNews.body.forEach(function (paragraph) {
-                const p = document.createElement("p");
-                p.textContent = paragraph;
-                body.appendChild(p);
-            });
+            if (title) title.textContent = governmentNews.title || "No government news published.";
+            if (date) date.textContent = governmentNews.date || "";
+            if (preview) preview.textContent = governmentNews.preview || "";
 
+            if (body) {
+                body.innerHTML = "";
+                (governmentNews.body || []).forEach(function (paragraph) {
+                    const p = document.createElement("p");
+                    p.textContent = paragraph;
+                    body.appendChild(p);
+                });
+            }
+        }
+
+
+        /* =========================================================
+           COUNTDOWN
+
+           The spreadsheet supplies the next refresh time. The
+           browser calculates the live countdown every second.
+           ========================================================= */
+
+        function getCountdownTarget() {
+            if (skstContentSettings.nextRefresh) {
+                const parsed = new Date(skstContentSettings.nextRefresh);
+                if (Number.isFinite(parsed.getTime())) return parsed;
+            }
+
+            const now = new Date();
+            const target = new Date(now);
+            const day = now.getDay();
+            const daysUntilSunday = day === 0 ? 7 : 7 - day;
+            target.setDate(now.getDate() + daysUntilSunday);
+            target.setHours(23, 59, 59, 999);
+            return target;
+        }
+
+
+        function updateCountdown() {
+
+            const countdown = document.getElementById("countdown");
+            if (!countdown) return;
+
+            const now = new Date();
+            let target = getCountdownTarget();
+
+            // If the stored deadline has passed, fall back to the next
+            // Sunday rather than displaying a permanently expired timer.
+            if (target.getTime() <= now.getTime()) {
+                skstContentSettings.nextRefresh = "";
+                target = getCountdownTarget();
+            }
+
+            const totalSeconds = Math.max(
+                0,
+                Math.floor((target.getTime() - now.getTime()) / 1000)
+            );
+
+            const days = Math.floor(totalSeconds / 86400);
+            const hours = Math.floor((totalSeconds % 86400) / 3600);
+            const minutes = Math.floor((totalSeconds % 3600) / 60);
+            const seconds = totalSeconds % 60;
+
+            countdown.textContent =
+                `${days}d ${String(hours).padStart(2, "0")}h ${String(minutes).padStart(2, "0")}m ${String(seconds).padStart(2, "0")}s`;
+
+            const weekText = document.getElementById("weekText");
+            if (weekText && skstContentSettings.week) {
+                weekText.textContent = "Week " + skstContentSettings.week;
+            }
+        }
+
+
+        /* =========================================================
+           LOAD CONTENT FROM GOOGLE SHEETS
+           ========================================================= */
+
+        function updateContentFromGoogle() {
+
+            const callbackName = "skstContentCallback_" + Date.now();
+            const script = document.createElement("script");
+
+            window[callbackName] = function (payload) {
+
+                try {
+                    if (!payload || typeof payload !== "object") {
+                        throw new Error("Invalid content response.");
+                    }
+
+                    skstContentSettings = payload.settings || {
+                        week: "",
+                        weekStart: "",
+                        nextRefresh: ""
+                    };
+
+                    articles.length = 0;
+                    (Array.isArray(payload.articles) ? payload.articles : []).forEach(function (article) {
+                        articles.push(article);
+                    });
+
+                    const gov = Array.isArray(payload.governmentNews)
+                        ? payload.governmentNews
+                        : [];
+
+                    if (gov.length) {
+                        governmentNews.date = gov[0].date || "";
+                        governmentNews.title = gov[0].title || "";
+                        governmentNews.preview = gov[0].preview || gov[0].summary || "";
+                        governmentNews.body = Array.isArray(gov[0].body)
+                            ? gov[0].body
+                            : [];
+                    } else {
+                        governmentNews.date = "";
+                        governmentNews.title = "No government news published.";
+                        governmentNews.preview = "No government announcements have been published yet.";
+                        governmentNews.body = [];
+                    }
+
+                    const reports = Array.isArray(payload.weeklyReports)
+                        ? payload.weeklyReports
+                        : [];
+
+                    if (reports.length) {
+                        const report = reports[0];
+                        weeklyReport.date = report.date || "";
+                        weeklyReport.title = report.title || "sky kingdom market report";
+                        weeklyReport.summary = report.summary || report.preview || report.body?.[0] || "";
+                    } else {
+                        weeklyReport.date = "";
+                        weeklyReport.title = "sky kingdom market report";
+                        weeklyReport.summary = "No weekly market report has been published yet.";
+                    }
+
+                    renderReport();
+                    renderGovernmentNews();
+
+                    if (activeCompany) {
+                        renderCompanyArticles();
+                    }
+
+                    updateCountdown();
+
+                } catch (error) {
+                    console.error("SKST content error:", error);
+                } finally {
+                    delete window[callbackName];
+                    if (script.parentNode) script.parentNode.removeChild(script);
+                }
+            };
+
+            script.onerror = function () {
+                delete window[callbackName];
+                if (script.parentNode) script.parentNode.removeChild(script);
+                console.error("SKST content request failed.");
+            };
+
+            script.src = SKST_API_URL
+                + "?content=1"
+                + "&callback=" + encodeURIComponent(callbackName)
+                + "&t=" + Date.now();
+
+            document.body.appendChild(script);
         }
 
 
@@ -2908,8 +2473,11 @@
             if (!activeCompany) return;
 
             const matches = articles.filter(function (article) {
-                return String(article.company).toUpperCase() === String(activeCompany.ticker).toUpperCase()
-                    || String(article.company).toUpperCase() === String(activeCompany.name).toUpperCase();
+                const articleTicker = String(article.ticker || "").toUpperCase();
+                const articleCompany = String(article.company || "").toUpperCase();
+                return articleTicker === String(activeCompany.ticker).toUpperCase()
+                    || articleCompany === String(activeCompany.ticker).toUpperCase()
+                    || articleCompany === String(activeCompany.name).toUpperCase();
             });
 
             if (!matches.length) {
@@ -2965,7 +2533,11 @@
             const body = document.createElement("div");
             body.className = "modal-body";
 
-            article.body.forEach(function (paragraph) {
+            const paragraphs = Array.isArray(article.body)
+                ? article.body
+                : String(article.body || "").split(/\r?\n+/).filter(Boolean);
+
+            paragraphs.forEach(function (paragraph) {
                 const p = document.createElement("p");
                 p.textContent = paragraph;
                 body.appendChild(p);
@@ -3212,82 +2784,7 @@
             }
         });
 
-/* =========================================================
-   MARKET COUNTDOWN
-   ========================================================= */
 
-function updateCountdown() {
-
-    const now = new Date();
-
-    const nextSunday = new Date(now);
-
-    const daysUntilSunday =
-        (7 - now.getDay()) % 7;
-
-    nextSunday.setDate(
-        now.getDate() + daysUntilSunday
-    );
-
-    nextSunday.setHours(
-        23,
-        59,
-        59,
-        999
-    );
-
-    /*
-       If it is already Sunday after the refresh,
-       count toward the following Sunday.
-    */
-
-    if (
-        now.getDay() === 0 &&
-        now >= nextSunday
-    ) {
-
-        nextSunday.setDate(
-            nextSunday.getDate() + 7
-        );
-
-    }
-
-    const difference =
-        nextSunday.getTime() - now.getTime();
-
-    const totalSeconds =
-        Math.max(
-            0,
-            Math.floor(difference / 1000)
-        );
-
-    const days =
-        Math.floor(
-            totalSeconds / 86400
-        );
-
-    const hours =
-        Math.floor(
-            (totalSeconds % 86400) / 3600
-        );
-
-    const minutes =
-        Math.floor(
-            (totalSeconds % 3600) / 60
-        );
-
-    const seconds =
-        totalSeconds % 60;
-
-    const countdown =
-        document.getElementById("countdown");
-
-    if (!countdown) return;
-
-    countdown.textContent =
-        `${days}d ${hours}h ${minutes}m ${seconds}s`;
-
-}
         /* =========================================================
            INITIALIZE
            ========================================================= */
@@ -3300,11 +2797,17 @@ function updateCountdown() {
         /* FIRST LIVE MARKET LOAD */
         updateMarketFromGoogle();
 
+        /* FIRST CONTENT LOAD */
+        updateContentFromGoogle();
+
         /* COUNTDOWN UPDATES EVERY SECOND */
         setInterval(updateCountdown, 1000);
 
         /* MARKET UPDATES EVERY 15 SECONDS */
         setInterval(updateMarketFromGoogle, 15000);
+
+        /* CONTENT UPDATES EVERY 60 SECONDS */
+        setInterval(updateContentFromGoogle, 60000);
 
 
     </script>
